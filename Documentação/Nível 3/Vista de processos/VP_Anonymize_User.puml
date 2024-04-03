@@ -1,0 +1,81 @@
+@startuml
+
+autonumber
+actor "Admin" as GA
+participant "LoginComponent" as COMP
+participant "UserService" as SS
+participant "MDL" as MDL
+participant "UserRoute" as ROUTE
+participant "UserService" as SERVICE
+
+participant "UserPassword" as UserPassword
+participant "UserEmail" as UserEmail
+participant "UserPhone" as UserPhone
+participant "User" as User
+participant "UserRepo" as REPO
+participant "UserMap" as MAP
+participant "UserDTO" as DTO
+participant "Router" as ROUTER
+
+
+database "Database" as DB
+
+GA-> COMP : select user to anonymize
+activate COMP
+COMP -> SS : anonymizeUser(user)
+activate SS
+SS -> MDL : patch(/auth/anonymize)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> SERVICE : anonymize(user)
+activate SERVICE
+SERVICE -> REPO : findById(userId)
+activate REPO
+REPO -> DB : findOne(userId)
+REPO --> SERVICE : userfound
+deactivate REPO
+
+SERVICE -> UserPhone : anonymize()
+activate UserPhone
+deactivate UserPhone
+SERVICE -> UserEmail : anonymize()
+activate UserEmail
+deactivate UserEmail
+
+SERVICE -> REPO : save (userDummy)
+activate REPO
+
+REPO -> MAP : toPersistence(userDummy)
+activate MAP
+deactivate MAP
+
+REPO -> DB : create (userDummy)
+activate DB
+deactivate DB
+deactivate REPO
+
+SERVICE -> MAP : toDTO (userfound)
+activate MAP
+MAP --> SERVICE : userDummyDTO
+deactivate MAP
+
+SERVICE --> ROUTE : ok
+
+deactivate SERVICE
+
+ROUTE --> MDL : status 200
+deactivate ROUTE
+
+MDL --> SS : operation success
+deactivate MDL
+COMP <-- SS : operation success
+deactivate SS
+deactivate MDL
+COMP --> GA : display success message
+deactivate COMP
+
+
+
+
+@enduml

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="974px" preserveAspectRatio="none" style="width:1884px;height:974px;background:#FFFFFF;" version="1.1" viewBox="0 0 1884 974" width="1884px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="752.5313" style="stroke:#181818;stroke-width:1.0;" width="10" x="381.5" y="131.3125"/><rect fill="#FFFFFF" height="696.8281" style="stroke:#181818;stroke-width:1.0;" width="10" x="386.5" y="186.0156"/><rect fill="#FFFFFF" height="616.125" style="stroke:#181818;stroke-width:1.0;" width="10" x="704.5" y="221.3672"/><rect fill="#FFFFFF" height="555.4219" style="stroke:#181818;stroke-width:1.0;" width="10" x="862.5" y="251.7188"/><rect fill="#FFFFFF" height="478.3672" style="stroke:#181818;stroke-width:1.0;" width="10" x="1149.5" y="298.4219"/><rect fill="#FFFFFF" height="133.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="1284.5" y="450.1797"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="1417.5" y="328.7734"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1562.5" y="523.1406"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1719.5" y="359.125"/><rect fill="none" height="277" style="stroke:#000000;stroke-width:1.5;" width="1223.5" x="10" y="598.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="386.5" x2="386.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="709" x2="709" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="867.5" x2="867.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1154.5" x2="1154.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1289.5" x2="1289.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1422.5" x2="1422.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1567.5" x2="1567.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1724.5" x2="1724.5" y1="82.6094" y2="892.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1845.5" x2="1845.5" y1="489.4844" y2="892.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="20.5" y="79.5332">GA</text><ellipse cx="33.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M33.5,21.5 L33.5,48.5 M20.5,29.5 L46.5,29.5 M33.5,48.5 L20.5,63.5 M33.5,48.5 L46.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="20.5" y="906.377">GA</text><ellipse cx="33.5" cy="917.9531" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M33.5,925.9531 L33.5,952.9531 M20.5,933.9531 L46.5,933.9531 M33.5,952.9531 L20.5,967.9531 M33.5,952.9531 L46.5,967.9531 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="317.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="324.5" y="71.5332">DeliveryComponent</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="317.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="324.5" y="913.377">DeliveryComponent</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="159" x="630" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="637" y="71.5332">DeliveryServiceService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="159" x="630" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="637" y="913.377">DeliveryServiceService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="826.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="833.5" y="71.5332">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="826.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="833.5" y="913.377">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="1085.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1092.5" y="71.5332">DeliveriesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="1085.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1092.5" y="913.377">DeliveriesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="112" x="1233.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="1240.5" y="71.5332">DeliveryService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="112" x="1233.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="1240.5" y="913.377">DeliveryService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="1355.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="1362.5" y="71.5332">WarehouseService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="1355.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="1362.5" y="913.377">WarehouseService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="1499.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="1506.5" y="71.5332">IDeliveryRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="1499.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="1506.5" y="913.377">IDeliveryRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="1645.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="1652.5" y="71.5332">IWarehouseRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="1645.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="1652.5" y="913.377">IWarehouseRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="65" x="1813.5" y="891.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="1820.5" y="913.377">Delivery</text><rect fill="#FFFFFF" height="752.5313" style="stroke:#181818;stroke-width:1.0;" width="10" x="381.5" y="131.3125"/><rect fill="#FFFFFF" height="696.8281" style="stroke:#181818;stroke-width:1.0;" width="10" x="386.5" y="186.0156"/><rect fill="#FFFFFF" height="616.125" style="stroke:#181818;stroke-width:1.0;" width="10" x="704.5" y="221.3672"/><rect fill="#FFFFFF" height="555.4219" style="stroke:#181818;stroke-width:1.0;" width="10" x="862.5" y="251.7188"/><rect fill="#FFFFFF" height="478.3672" style="stroke:#181818;stroke-width:1.0;" width="10" x="1149.5" y="298.4219"/><rect fill="#FFFFFF" height="133.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="1284.5" y="450.1797"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="1417.5" y="328.7734"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1562.5" y="523.1406"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1719.5" y="359.125"/><polygon fill="#181818" points="369.5,127.3125,379.5,131.3125,369.5,135.3125,373.5,131.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="33.5" x2="375.5" y1="131.3125" y2="131.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="40.5" y="118.2803">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="318" x="51.5" y="110.1045">introduces the data(id, limitDate,weight,timeLoadTruck,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="243" x="51.5" y="126.4561">timeUnloadTruck,warehouse,warehouseId)</text><line style="stroke:#181818;stroke-width:1.0;" x1="391.5" x2="438.5" y1="173.0156" y2="173.0156"/><line style="stroke:#181818;stroke-width:1.0;" x1="438.5" x2="438.5" y1="173.0156" y2="186.0156"/><line style="stroke:#181818;stroke-width:1.0;" x1="397.5" x2="438.5" y1="186.0156" y2="186.0156"/><polygon fill="#181818" points="407.5,182.0156,397.5,186.0156,407.5,190.0156,403.5,186.0156" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="403.5" y="159.9834">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="288" x="414.5" y="151.8076">createDelivery(id, limitDate,weight,timeLoadTruck,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="243" x="414.5" y="168.1592">timeUnloadTruck,warehouse,warehouseId)</text><polygon fill="#181818" points="692.5,217.3672,702.5,221.3672,692.5,225.3672,696.5,221.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="396.5" x2="698.5" y1="221.3672" y2="221.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="403.5" y="216.5107">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="132" x="414.5" y="216.5107">createDelivery(delivery)</text><polygon fill="#181818" points="850.5,247.7188,860.5,251.7188,850.5,255.7188,854.5,251.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="714.5" x2="856.5" y1="251.7188" y2="251.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="721.5" y="246.8623">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="732.5" y="246.8623">post /Deliveries</text><polygon fill="#181818" points="1137.5,294.4219,1147.5,298.4219,1137.5,302.4219,1141.5,298.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="872.5" x2="1143.5" y1="298.4219" y2="298.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="879.5" y="285.3896">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="247" x="890.5" y="277.2139">create (id, limitDate,weight,timeLoadTruck,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="243" x="890.5" y="293.5654">timeUnloadTruck,warehouse,warehouseId)</text><path d="M447,269.8945 L447,295.8945 L857,295.8945 L857,279.8945 L847,269.8945 L447,269.8945 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M847,269.8945 L847,279.8945 L857,279.8945 L847,269.8945 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="389" x="453" y="288.3896">The parameters sent in the method are inserted in the request body</text><polygon fill="#181818" points="1405.5,324.7734,1415.5,328.7734,1405.5,332.7734,1409.5,328.7734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1159.5" x2="1411.5" y1="328.7734" y2="328.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1166.5" y="323.917">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="1177.5" y="323.917">getByIdAsync</text><polygon fill="#181818" points="1707.5,355.125,1717.5,359.125,1707.5,363.125,1711.5,359.125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1427.5" x2="1713.5" y1="359.125" y2="359.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1434.5" y="354.2686">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="1445.5" y="354.2686">GetByIdAsync</text><polygon fill="#181818" points="1438.5,385.4766,1428.5,389.4766,1438.5,393.4766,1434.5,389.4766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1432.5" x2="1723.5" y1="389.4766" y2="389.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1444.5" y="384.6201">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="1455.5" y="384.6201">warehouse</text><polygon fill="#181818" points="1170.5,415.8281,1160.5,419.8281,1170.5,423.8281,1166.5,419.8281" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1164.5" x2="1421.5" y1="419.8281" y2="419.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1176.5" y="414.9717">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="82" x="1187.5" y="414.9717">warehouseDto</text><polygon fill="#181818" points="1272.5,446.1797,1282.5,450.1797,1272.5,454.1797,1276.5,450.1797" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1159.5" x2="1278.5" y1="450.1797" y2="450.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1166.5" y="445.3232">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="60" x="1184.5" y="445.3232">AddAsync</text><polygon fill="#181818" points="1801.5,476.5313,1811.5,480.5313,1801.5,484.5313,1805.5,480.5313" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1294.5" x2="1807.5" y1="480.5313" y2="480.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1301.5" y="475.6748">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="1319.5" y="475.6748">create</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="65" x="1813.5" y="458.1797"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="1820.5" y="479.7129">Delivery</text><polygon fill="#181818" points="1550.5,519.1406,1560.5,523.1406,1550.5,527.1406,1554.5,523.1406" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1294.5" x2="1556.5" y1="523.1406" y2="523.1406"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1301.5" y="518.2842">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="60" x="1319.5" y="518.2842">AddAsync</text><polygon fill="#181818" points="1555.5,549.4922,1565.5,553.4922,1555.5,557.4922,1559.5,553.4922" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1294.5" x2="1561.5" y1="553.4922" y2="553.4922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1301.5" y="548.6357">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="80" x="1319.5" y="548.6357">commitAsync</text><polygon fill="#181818" points="1170.5,579.8438,1160.5,583.8438,1170.5,587.8438,1166.5,583.8438" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1164.5" x2="1288.5" y1="583.8438" y2="583.8438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1176.5" y="578.9873">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="1194.5" y="578.9873">deliveryDto</text><path d="M10,598.8438 L71,598.8438 L71,607.1953 L61,617.1953 L10,617.1953 L10,598.8438 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="277" style="stroke:#000000;stroke-width:1.5;" width="1223.5" x="10" y="598.8438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="613.3389">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="55" x="86" y="612.2627">[success]</text><polygon fill="#181818" points="883.5,635.5469,873.5,639.5469,883.5,643.5469,879.5,639.5469" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="1148.5" y1="639.5469" y2="639.5469"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="889.5" y="634.6904">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="907.5" y="634.6904">status 201 (Created)</text><polygon fill="#181818" points="725.5,665.8984,715.5,669.8984,725.5,673.8984,721.5,669.8984" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="719.5" x2="861.5" y1="669.8984" y2="669.8984"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="731.5" y="665.042">16</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="749.5" y="665.042">success message</text><polygon fill="#181818" points="407.5,696.25,397.5,700.25,407.5,704.25,403.5,700.25" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="401.5" x2="703.5" y1="700.25" y2="700.25"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="413.5" y="695.3936">17</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="431.5" y="695.3936">success message</text><polygon fill="#181818" points="44.5,726.6016,34.5,730.6016,44.5,734.6016,40.5,730.6016" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.5" x2="385.5" y1="730.6016" y2="730.6016"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="50.5" y="725.7451">18</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="68.5" y="725.7451">success message</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="1233.5" y1="739.6016" y2="739.6016"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="65" x="15" y="751.0205">[insuccess]</text><polygon fill="#181818" points="883.5,772.7891,873.5,776.7891,883.5,780.7891,879.5,776.7891" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="877.5" x2="1153.5" y1="776.7891" y2="776.7891"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="889.5" y="771.9326">19</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="907.5" y="771.9326">status 400 (Bad Request)</text><polygon fill="#181818" points="725.5,803.1406,715.5,807.1406,725.5,811.1406,721.5,807.1406" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="719.5" x2="866.5" y1="807.1406" y2="807.1406"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="731.5" y="802.2842">20</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="749.5" y="802.2842">failure message</text><polygon fill="#181818" points="407.5,833.4922,397.5,837.4922,407.5,841.4922,403.5,837.4922" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="401.5" x2="708.5" y1="837.4922" y2="837.4922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="413.5" y="832.6357">21</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="431.5" y="832.6357">failure message</text><polygon fill="#181818" points="44.5,863.8438,34.5,867.8438,44.5,871.8438,40.5,867.8438" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.5" x2="385.5" y1="867.8438" y2="867.8438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="50.5" y="862.9873">22</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="68.5" y="862.9873">failure message</text><!--MD5=[83f9c0f062084020b85c12a6444b2043]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "DeliveryComponent" as COMP
+participant "DeliveryServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "WarehouseService" as service2
+participant "IDeliveryRepository" as repository
+participant "IWarehouseRepository" as repository2
+
+
+
+GA-> COMP : introduces the data(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> COMP : createDelivery(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> SS : createDelivery(delivery)
+activate SS
+SS -> MDA : post /Deliveries
+activate MDA
+
+MDA -> controller :  create (id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+
+note left
+ The parameters sent in the method are inserted in the request body
+end note
+
+activate controller
+
+controller -> service2 : getByIdAsync
+activate service2
+
+service2 -> repository2 : GetByIdAsync
+activate repository2
+
+repository2- -> service2 : warehouse
+deactivate repository2
+
+
+
+service2 - -> controller : warehouseDto
+deactivate service2
+
+controller-> service : AddAsync
+
+activate service
+
+service -> Delivery** : create
+
+service -> repository : AddAsync
+activate repository
+service-> repository: commitAsync
+
+
+deactivate repository
+service - -> controller : deliveryDto
+deactivate service
+
+alt success
+controller - -> MDA : status 201 (Created)
+
+MDA - -> SS : success message
+SS - -> COMP : success message
+GA<- - COMP : success message
+
+else insuccess
+controller - -> MDA : status 400 (Bad Request)
+deactivate controller
+
+MDA - -> SS : failure message
+deactivate MDA
+SS - -> COMP : failure message
+deactivate SS
+deactivate MDA
+GA<- - COMP : failure message
+
+end
+deactivate COMP
+
+
+
+@enduml
+
+@startuml
+
+autonumber
+actor "GA" as GA
+participant "DeliveryComponent" as COMP
+participant "DeliveryServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "WarehouseService" as service2
+participant "IDeliveryRepository" as repository
+participant "IWarehouseRepository" as repository2
+
+
+
+GA-> COMP : introduces the data(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> COMP : createDelivery(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> SS : createDelivery(delivery)
+activate SS
+SS -> MDA : post /Deliveries
+activate MDA
+
+MDA -> controller :  create (id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+
+note left
+ The parameters sent in the method are inserted in the request body
+end note
+
+activate controller
+
+controller -> service2 : getByIdAsync
+activate service2
+
+service2 -> repository2 : GetByIdAsync
+activate repository2
+
+repository2- -> service2 : warehouse
+deactivate repository2
+
+
+
+service2 - -> controller : warehouseDto
+deactivate service2
+
+controller-> service : AddAsync
+
+activate service
+
+service -> Delivery** : create
+
+service -> repository : AddAsync
+activate repository
+service-> repository: commitAsync
+
+
+deactivate repository
+service - -> controller : deliveryDto
+deactivate service
+
+alt success
+controller - -> MDA : status 201 (Created)
+
+MDA - -> SS : success message
+SS - -> COMP : success message
+GA<- - COMP : success message
+
+else insuccess
+controller - -> MDA : status 400 (Bad Request)
+deactivate controller
+
+MDA - -> SS : failure message
+deactivate MDA
+SS - -> COMP : failure message
+deactivate SS
+deactivate MDA
+GA<- - COMP : failure message
+
+end
+deactivate COMP
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 WEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

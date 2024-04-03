@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "9b0267ed-b963-4c2f-80a4-28028ae7927d",
+		"name": "bulletproofNodejsDDDPaths",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24102581"
+	},
+	"item": [
+		{
+			"name": "getPaths - Expected to be empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content is empty\", function () {\r",
+							"\tvar res=(_.isEmpty(pm.response));\r",
+							"\tpm.expect(res).to.be,true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPaths",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is a Path\", function () {\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData).to.have.property(\"idWarehouseStart\");\r",
+							"    pm.expect(jsonData).to.have.property(\"idWarehouseEnd\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 70,\r\n    \"time\": {\"hours\": 5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPaths - Invalid distance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trips request - Invalid distance\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": -70,\r\n    \"time\": {\"hours\": 5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPaths - Invalid time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trips request - Invalid time\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 70,\r\n    \"time\": {\"hours\": -5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPaths - Invalid energy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trips request - Invalid energy\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 70,\r\n    \"time\": {\"hours\": 5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": -51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPaths - Invalid extraTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trips request - Invalid extraTime\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 70,\r\n    \"time\": {\"hours\": 5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": -51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Duplicated warehouses id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Paths request - Duplicated warehouses id\", function () { \r",
+							"\tpm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"A01\",\r\n    \"distance\": 70,\r\n    \"time\": {\"hours\": 5, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 51,\r\n    \"extraTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putPaths",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 40,\r\n    \"time\": {\"hours\": 2, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 30,\r\n    \"extraTime\": {\"hours\": 2, \"minutes\": 30, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putPaths - Info is Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 250ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Path is the requested one\", function () {\r",
+							"\trequestWarehouseIdStart = \"A01\";\r",
+							"    requestWarehouseIdEnd = \"E01\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.idWarehouseStart).equals(requestWarehouseIdStart);\r",
+							"    pm.expect(jsonData.idWarehouseEnd).equals(requestWarehouseIdEnd);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"The distance information was updated\", function () {\r",
+							"\tpm.expect(jsonData.distance).equals(40);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The time information was updated\", function () {\r",
+							"\tpm.expect(jsonData.time.hours).equals(2);\r",
+							"    pm.expect(jsonData.time.minutes).equals(0);\r",
+							"    pm.expect(jsonData.time.seconds).equals(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The energy information was updated\", function () {\r",
+							"\tpm.expect(jsonData.energy).equals(30);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The extraTime information was updated\", function () {\r",
+							"\tpm.expect(jsonData.extraTime.hours).equals(2);\r",
+							"    pm.expect(jsonData.extraTime.minutes).equals(30);\r",
+							"    pm.expect(jsonData.extraTime.seconds).equals(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idWarehouseStart\": \"A01\",\r\n    \"idWarehouseEnd\": \"E01\",\r\n    \"distance\": 40,\r\n    \"time\": {\"hours\": 2, \"minutes\": 0, \"seconds\": 0 },\r\n    \"energy\": 30,\r\n    \"extraTime\": {\"hours\": 2, \"minutes\": 30, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPaths",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPaths - Expected to be one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The count of obtained Path is one\", function () {\r",
+							"\tpm.expect(pm.response.json().length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouseStart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdStart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdStart"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdStart",
+							"value": "A01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouseStart - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Path is the requested one\", function () {\r",
+							"\tpm.expect(pm.response.json().length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdStart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdStart"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdStart",
+							"value": "A01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouseEnd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdEnd/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdEnd",
+						"findAll"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdEnd",
+							"value": "E01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouseEnd - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Path is the requested one\", function () {\r",
+							"\tpm.expect(pm.response.json().length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdEnd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdEnd"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdEnd",
+							"value": "A01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdStart/:warehouseIdEnd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdStart",
+						":warehouseIdEnd"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdStart",
+							"value": "A01"
+						},
+						{
+							"key": "warehouseIdEnd",
+							"value": "E01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPathsByWarehouses - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Path is the requested one\", function () {\r",
+							"\trequestWarehouseIdStart = \"A01\";\r",
+							"    requestWarehouseIdEnd = \"E01\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.idWarehouseStart).equals(requestWarehouseIdStart);\r",
+							"    pm.expect(jsonData.idWarehouseEnd).equals(requestWarehouseIdEnd);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Paths/:warehouseIdStart/:warehouseIdEnd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Paths",
+						":warehouseIdStart",
+						":warehouseIdEnd"
+					],
+					"variable": [
+						{
+							"key": "warehouseIdStart",
+							"value": "A01"
+						},
+						{
+							"key": "warehouseIdEnd",
+							"value": "E01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

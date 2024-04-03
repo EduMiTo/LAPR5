@@ -1,0 +1,155 @@
+<mat-drawer-container>
+  
+  <mat-drawer-content>
+    <div class="container">   
+      <div [hidden]="submitted"> 
+        <h1>Create Path</h1>
+          <form #pathForm="ngForm" (ngSubmit)="createPath(pathForm.value)"  >
+            
+            <div class="form-group">
+              <label id="label">Start Warehouse Id</label>
+              <select class="form-control" id="idWarehouseStart" [(ngModel)]="path.idWarehouseStart" required #idWarehouseStart="ngModel" name="idWarehouseStart" (change)="getWarehouseById(idWarehouseStart.value)">
+                  <option value=""disabled selected=" true">Select the Warehouse Id</option>
+                  <option *ngFor= "let w of warehouses" [ngValue]="w.id" id="option"> {{ w.designation }} </option>
+              </select>
+          </div>
+    
+          <div class="form-group">
+            <label id="label">End Warehouse Id</label>
+            <select class="form-control" id="idWarehouseEnd" [(ngModel)]="path.idWarehouseEnd" required #idWarehouseEnd="ngModel" name="idWarehouseEnd" (change)="getWarehouseById(idWarehouseEnd.value)">
+                <option value=""disabled selected=" true">Select the Warehouse Id</option>
+                <option *ngFor= "let w of warehouses" [ngValue]="w.id" id="option"> {{ w.designation }} </option>
+            </select>
+        </div>
+    
+            <div class="form-group">
+              <label for="name">Distance</label>
+              <input required #distance = "ngModel" type="text" ngModel class="form-control" name="distance" placeholder="ex: 40" id="distance">
+              <div
+                *ngIf= "distance.invalid && distance.touched"  class="alert alert-danger"> Distance is required
+              </div>
+            </div>
+    
+    
+            <div style="text-align: center; border-bottom: 1px solid rgb(196, 196, 196); margin-bottom: 10px;">
+              <label>Time</label>
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Hours</label>
+                  <input required #hours = "ngModel" type="text" ngModel class="form-control" name="hours" placeholder="ex: 2" id="hours">
+                  <div
+                    *ngIf= "hours.invalid && hours.touched"  class="alert alert-danger"> Hours is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Minutes</label>
+                  <input required #minutes = "ngModel" type="text" ngModel class="form-control" name="minutes" placeholder="ex: 0" id="minutes">
+                  <div
+                    *ngIf= "minutes.invalid && minutes.touched"  class="alert alert-danger"> Minutes is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Seconds</label>
+                  <input required #seconds = "ngModel" type="text" ngModel class="form-control" name="seconds" placeholder="ex: 0" id="seconds">
+                  <div
+                    *ngIf= "seconds.invalid && seconds.touched"  class="alert alert-danger"> Seconds is required
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="name">Energy</label>
+              <input required #energy = "ngModel" type="text" ngModel class="form-control" name="energy" placeholder="ex: 30" id="energy">
+              <div
+                *ngIf= "energy.invalid && energy.touched"  class="alert alert-danger"> Energy is required
+               </div>
+    
+    
+            <div style="text-align: center; border-bottom: 1px solid rgb(196, 196, 196); margin-bottom: 10px;">
+              <label>Extra Time</label>
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Hours</label>
+                  <input required #et_Hours = "ngModel" type="text" ngModel class="form-control" name="et_Hours" placeholder="ex: 2" id="et_Hours">
+                  <div
+                    *ngIf= "et_Hours.invalid && et_Hours.touched"  class="alert alert-danger"> Hours is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Minutes</label>
+                  <input required #et_Minutes = "ngModel" type="text" ngModel class="form-control" name="et_Minutes" placeholder="ex: 0" id="et_Minutes">
+                  <div
+                    *ngIf= "et_Minutes.invalid && et_Minutes.touched"  class="alert alert-danger"> Minutes is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label for="name">Seconds</label>
+                  <input required #et_Seconds = "ngModel" type="text" ngModel class="form-control" name="et_Seconds" placeholder="ex: 0" id="et_Seconds">
+                  <div
+                    *ngIf= "et_Seconds.invalid && et_Seconds.touched"  class="alert alert-danger"> Seconds is required
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+        <button [disabled] = "pathForm.invalid" type = "submit" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" id="submit">Create</button>
+        <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+      </form> 
+    </div>
+    
+    <div [hidden]="!submitted">
+      <h2>Path created sucessfully!</h2>
+      <table class = "table" style = "margin-top: 2%;">
+          <thead>
+          <tr>
+              <th>Id Warehouse Start</th>
+              <th>Id Warehouse End</th>
+              <th>Distance</th>
+              <th>Hours</th>
+              <th>Minutes</th>
+              <th>Seconds</th>
+              <th>Energy</th>
+              <th>Hours</th>
+              <th>Minutes</th>
+              <th>Seconds</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{path.idWarehouseStart}}</td>
+                  <td>{{path.idWarehouseEnd}}</td>
+                  <td>{{path.distance}}</td>
+                  <td>{{path.time.hours}}</td>
+                  <td>{{path.time.minutes}}</td>
+                  <td>{{path.time.seconds}}</td>
+                  <td>{{path.energy}}</td>
+                  <td>{{path.extraTime.hours}}</td>
+                  <td>{{path.extraTime.minutes}}</td>
+                  <td>{{path.extraTime.seconds}}</td>
+            </tr> 
+          </tbody>
+      </table>
+      <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" (click)="error = false; submitted = false; pathForm.reset()">OK!</button>
+    </div>
+    </div>
+    
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

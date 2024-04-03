@@ -1,0 +1,27 @@
+@startuml
+
+
+node "http://localhost:4200/\nhttps://eletric-go.azurewebsites.net/\nhttp://vs705.dei.isep.ipp.pt/" as SPA {
+  component Browser {
+   [SPA UI]
+  }
+}
+
+node "localhost:5001" as ARM {
+  [ARMAZEM] as armazem
+}
+
+node "localhost:3000" as LOG {
+  [LOGISTICA] as logistica
+}
+
+node "PLANEAMENTO" as PLAN {
+  [PLANEAMENTO] as planeamento
+}
+
+SPA -- ARM: http
+SPA -- LOG: http
+SPA -- PLAN
+ARM -- LOG
+
+@enduml

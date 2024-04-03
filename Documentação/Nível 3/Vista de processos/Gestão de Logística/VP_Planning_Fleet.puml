@@ -1,0 +1,190 @@
+@startuml
+
+autonumber
+actor "GL" as GA
+participant "RoutePlanningComponent" as COMP
+participant "RoutePlanningService" as SS
+participant "PrologServer" as PROLOGSERVER
+participant "MDL" as MDL
+participant "PlanningRoute" as ROUTE
+participant "PlanningController" as CTR
+participant "PlanningService" as SERVICE
+participant "Planning" as Planning
+participant "PlanningRepo" as REPO
+participant "PlanningMap" as MAP
+participant "PlanningDTO" as DTO
+database "Database" as DB
+
+GA-> COMP :  Planning the whole fleet
+activate COMP
+COMP -> COMP : makePlanningFleet(generations,crossover,mutation,population)
+activate COMP
+COMP -> SS : getAllRoutes(plate,date,type)
+activate SS
+SS -> MDL: get(/Plannings)
+activate MDL
+MDL -> ROUTE : get
+activate ROUTE
+ROUTE -> CTR : getPlannings()
+activate CTR
+
+CTR -> SERVICE : getPlannings()
+activate SERVICE
+
+SERVICE -> REPO : findAll()
+activate REPO
+
+REPO -> DB : find()
+activate DB
+deactivate DB
+
+deactivate REPO
+
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+
+SERVICE --> CTR : ok
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+
+ROUTE -->  MDL : operation success
+deactivate ROUTE
+MDL --> SS
+deactivate MDL
+
+SS --> COMP : operation success
+deactivate SS
+loop n times
+alt dataEntrega>dataAtual
+
+note right
+
+We found and delete every planning already done starting "today", so we can make the new plannings without any primary key error
+
+end note
+COMP -> SS : deletePlanning(plan)
+activate SS
+SS -> MDL: delete(/deletePlanning)
+activate MDL
+MDL -> ROUTE : delete
+activate ROUTE
+ROUTE -> CTR : deletePlanning(id)
+activate CTR
+
+CTR -> SERVICE : deletePlanning(id)
+activate SERVICE
+
+SERVICE -> REPO : findById()
+activate REPO
+
+REPO -> DB : findOne(id)
+activate DB
+deactivate DB
+
+deactivate REPO
+
+SERVICE -> REPO : delete(id)
+activate REPO
+REPO -> DB : findOneAndDelete(id)
+activate DB
+deactivate DB
+deactivate REPO
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+
+
+SERVICE --> CTR : ok
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+
+ROUTE -->  MDL : operation success
+deactivate ROUTE
+MDL --> SS
+deactivate MDL
+
+SS --> COMP : operation success
+
+
+end
+end
+
+loop (list of dates) times
+
+COMP -> SS : postPlanByPlateAndDate(plateList[n].plate, dateList[n].date,'GeneticAlgorithm', generations,crossover,mutation,population)
+activate SS
+
+SS -> PROLOGSERVER : post
+
+activate PROLOGSERVER
+
+note left
+
+calls the functionality in prolog, and in prolog it sends a request to store in the database
+
+end note
+
+PROLOGSERVER -> MDL : post(/Planing)
+
+activate MDL
+
+MDL -> ROUTE : post
+activate ROUTE
+
+ROUTE -> CTR : performPlanning(truckPlate,planningDate,path,planningTime,heuristic)
+
+activate CTR
+
+CTR -> SERVICE : performPlanning(truckPlate,planningDate,path,planningTime,heuristic)
+
+activate SERVICE
+
+SERVICE -> Planning : create (truckPlate,planningDate,path,planningTime,heuristic) 
+
+SERVICE -> REPO : save (planning)
+activate REPO
+REPO -> MAP : toPersistence(planning)
+activate MAP
+deactivate MAP
+
+REPO -> DB : create(planning)
+
+activate DB
+deactivate DB
+
+deactivate REPO
+
+SERVICE -> MAP : toDTO(planning)
+activate MAP
+deactivate MAP
+
+SERVICE --> CTR : ok
+deactivate SERVICE
+
+CTR --> ROUTE : status 201
+
+deactivate CTR
+ROUTE --> MDL : status 201
+
+deactivate ROUTE
+MDL --> PROLOGSERVER : status 201
+
+deactivate MDL
+PROLOGSERVER --> SS : operation success
+deactivate PROLOGSERVER
+
+SS --> COMP : operation success
+
+deactivate SS
+
+
+
+end
+GA<-- COMP : displays success message
+deactivate COMP
+
+
+@enduml

@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "WarehouseComponent" as COMP
+participant "WarehouseServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "WarehousesController" as controller
+participant "WarehouseService" as service
+participant "IWarehouseRepository" as repository
+
+
+
+GA-> COMP : asks to list warehouses
+activate COMP
+COMP -> COMP : getWarehouses()
+activate COMP
+COMP -> SS : getWarehouses()
+activate SS
+SS -> MDA : GET /Warehouses/listAll
+note left
+  Depending on the selected filter (id, 
+  warehouse, dates) 
+  the request and the methods will be 
+  different, changing the method's name
+  and implementation
+end note
+
+activate MDA
+
+MDA -> controller :  GetAll
+
+activate controller
+
+controller-> service : GetAllAsync
+
+activate service
+
+service -> repository : GetAllAsync
+activate repository
+
+repository --> service : list<Warehouse>
+
+service -> service : listDto = list.convertAll<WarehouseDto>
+
+deactivate repository
+service --> controller : listDto
+deactivate service
+
+
+controller --> MDA : status 200 (Ok)
+deactivate controller
+
+MDA --> SS : success message
+deactivate MDA
+SS --> COMP : success message
+deactivate SS
+GA<-- COMP : success message
+
+deactivate MDA
+
+
+deactivate COMP
+
+
+
+@enduml

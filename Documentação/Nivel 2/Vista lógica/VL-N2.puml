@@ -1,0 +1,32 @@
+@startuml
+() "Admin" as admin
+() "EletricAcme" as client
+() "GA" as ga
+() "GF" as gf
+() "GL" as gl
+
+component EletricGo {
+  port p1
+
+  component "SPA" as spa
+
+  component "ARMAZEM" as armazem
+
+  component "LOGISTICA" as logistica
+
+  component "PLANEAMENTO" as planeamento
+
+
+}
+admin --> p1
+client -->p1
+ga -->p1
+gf --> p1
+gl --> p1
+
+spa -(0- armazem
+spa -(0- logistica
+logistica -(0- planeamento
+logistica -(0- armazem
+
+@enduml

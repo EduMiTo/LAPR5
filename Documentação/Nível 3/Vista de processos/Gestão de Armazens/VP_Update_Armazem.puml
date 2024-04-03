@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "WarehouseComponent" as COMP
+participant "WarehouseServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "WarehousesController" as controller
+participant "WarehouseService" as service
+participant "IWarehouseRepository" as repository
+
+
+
+GA-> COMP : introduces the data(id, designation,\n address, latitude, longitude, altitude)
+activate COMP
+COMP -> COMP : updateWarehouse(id, designation,\n address, latitude, longitude, altitude)
+activate COMP
+COMP -> SS : updateWarehouse(warehouse)
+activate SS
+SS -> MDA : PATCH /Warehouses
+
+activate MDA
+
+MDA -> controller :  Update(id, designation, address,\n latitude, longitude, altitude)
+
+activate controller
+
+controller-> service : UpdateAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository --> service : warehouse
+
+
+service -> Warehouse : update
+activate Warehouse
+deactivate Warehouse
+service -> repository : CommitAsync
+deactivate repository
+
+service --> controller : dto
+deactivate service
+
+alt success
+controller --> MDA : status 200 (Ok)
+
+MDA --> COMP : success message
+GA<-- COMP : success message
+else NotFound
+controller --> MDA : status 404 (Not Found)
+
+MDA --> COMP : insuccess message
+GA<-- COMP : insuccess message
+else BadRequest
+controller --> MDA : status 400
+deactivate
+
+MDA --> COMP : insuccess message
+deactivate SS
+deactivate MDA
+GA<-- COMP : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate COMP
+
+
+
+@enduml

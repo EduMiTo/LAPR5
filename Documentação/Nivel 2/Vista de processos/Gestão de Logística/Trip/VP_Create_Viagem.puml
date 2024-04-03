@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GL
+participant "sPA: SPA" as sPA
+participant "logística: Logística" as MDL 
+
+
+activate GL
+GL ->sPA : Asks to create a trip and inserts the trip's data
+activate sPA
+
+sPA --> MDL : POST /viagens body:data
+activate MDL
+
+MDL --> sPA :  status:201
+
+deactivate MDL
+
+sPA --> GL : success message
+
+deactivate sPA
+
+deactivate GL
+
+
+@enduml

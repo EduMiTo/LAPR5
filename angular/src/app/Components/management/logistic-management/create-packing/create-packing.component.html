@@ -1,0 +1,102 @@
+
+<link rel="stylesheet" href="create-packing.component.css">
+<mat-drawer-container>
+  
+  <mat-drawer-content>
+    
+    <div class="container">   
+      <div [hidden]="submitted"> 
+        <h1>Create Packing</h1>
+          <form #packingForm="ngForm" (ngSubmit)="createPacking(packingForm.value)"  >
+            <div class="form-group">
+              <label id="label">Truck Plate</label>
+              <select class="form-control" id="truckPlate" [(ngModel)]="packing.truckPlate" required #truckPlate="ngModel" name="truckPlate" (change)="getTruckByPlate(truckPlate.value)">
+                  <option value=""disabled selected=" true">Select the Truck</option>
+                  <option *ngFor= "let t of trucks" [ngValue]="t.plate" id="option"> {{ t.plate }} </option>
+              </select>
+          </div>
+    
+          <div class="form-group">
+            <label id="label">Delivery Id</label>
+            <select class="form-control" id="deliveryId" [(ngModel)]="packing.deliveryId" required #deliveryId="ngModel" name="deliveryId" (change)="getDeliveryById(deliveryId.value)" (change)="openDialogWithoutRef(deliveryId.value)">
+                <option value=""disabled selected=" true">Select the Delivery</option>
+                <option *ngFor= "let d of deliveries" [ngValue]="d.id" id="option"> {{ d.id }} </option>
+            </select>
+        </div>
+            <div class="form-group">
+              <label for="name">Position X</label>
+              <input required #positionX = "ngModel" type="number" ngModel class="form-control" name="positionX" placeholder="ex: 2" id="positionX">
+              <div
+                *ngIf= "positionX.invalid && positionX.touched"  class="alert alert-danger"> Position X is required
+              </div>
+            </div>
+    
+          <div class="form-group">
+            <label for="name">Position Y</label>
+            <input required #positionY = "ngModel" type="number" ngModel class="form-control" name="positionY" placeholder="ex: 10" id="positionY">
+            <div
+              *ngIf= "positionY.invalid && positionY.touched"  class="alert alert-danger"> Position Y is required
+            </div>
+          </div>
+    
+          <div class="form-group">
+          <label for="name">Position Z</label>
+          <input required #positionZ = "ngModel" type="number" ngModel class="form-control" name="positionZ" placeholder="ex: -10" id="positionZ">
+          <div
+            *ngIf= "positionZ.invalid && positionZ.touched"  class="alert alert-danger"> Position Z is required
+           </div>
+      </div>
+    
+        <button [disabled] = "packingForm.invalid" type = "submit" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" id="submit">Create</button>
+        <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+      </form> 
+    </div>
+    
+    <div [hidden]="!submitted">
+      <h2>Packing created sucessfully!</h2>
+      <table class = "table" style = "margin-top: 2%;">
+          <thead>
+          <tr>
+              <th>Truck Plate</th>
+              <th>Delivery Id</th>
+              <th>Position X</th>
+              <th>Position Y</th>
+              <th>Position Z</th>
+          </tr>
+          </thead>
+          <tbody>
+                  <td>{{packing.truckPlate}}</td>
+                  <td>{{packing.deliveryId}}</td>
+                  <td>{{packing.position.positionX}}</td>
+                  <td>{{packing.position.positionY}}</td>
+                  <td>{{packing.position.positionZ}}</td>
+          </tbody>
+      </table>
+      <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" (click)="error = false; submitted = false; packingForm.reset()">OK!</button>
+    </div>
+  </div>
+
+  <ng-template #myDialog>
+  <h2 matDialogTitle><b>Delivery Information</b></h2>
+  <hr>
+  <mat-dialog-content>
+    <p> <b>Id:</b> {{selectedDelivery.id}} </p>
+    <p> <b>Weight:</b> {{selectedDelivery.weight}} </p>
+    <p> <b>Date:</b> {{selectedDelivery.limitDate}} </p>
+    <p> <b>Load Time:</b> {{selectedDelivery.loadTime}} </p>
+    <p> <b>Unload Time:</b> {{selectedDelivery.unloadTime}} </p>
+    <p> <b>Warehouse:</b> {{selectedDelivery.warehouse}} </p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose>Close</button>
+  </mat-dialog-actions>
+</ng-template>
+
+
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

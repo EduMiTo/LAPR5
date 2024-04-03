@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="privacy-policy.component.css">
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav ></app-sidenav>
+    </mat-drawer>
+
+    <mat-drawer-content id = "content" >
+      <app-header  (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div>
+          <h1><strong>Terms & Conditions</strong></h1>
+          <p>&nbsp;</p>
+          <h2>Collection and use of data</h2>
+              <h3>Data collected</h3>
+              <p>In order to access the <em>EletricGo</em>, the user must be registered, for this, it is necessary to fill in the information below, for the user to effectively exercise his function.</p>
+              <p><strong>Identification</strong>: Name</p>
+              <p><strong>Contact</strong>: E-mail, Phone, Google Account</p>
+              <p>The user has the option of logging in via the Google account.</p>
+              <p>&nbsp;</p>
+              <h3>Usefulness of the collected data</h3>
+              <p>The data provided in the registration is crucial for the performance of its function. They have the following purpose</p>
+              <p><strong>Authentication</strong>: e-mail, google account</p>
+              <p>&nbsp;</p>
+              <h3>Responsible for data processing</h3>
+              <p>The company PentaX-Lastdance Lda. is responsible for processing all personal data made available within the scope of using the application.</p>
+              <p><strong>Name</strong>: PentaX-Lastdance Lda</p>
+              <p><strong>NIPC</strong>: 501540709</p>
+              <p><strong>Address</strong>: Rua Dr. António Bernardino Almeida, 431</p>
+              <p><strong>Location</strong>: Porto, Portugal</p>
+              <p><strong>Email</strong>: <a href="mailto:info@pentaxlastdance.com">info@pentaxlastdance.com</a></p>
+              <p><strong>Telephone</strong>: (+351) 227855555</p>
+              <p>&nbsp;</p>
+              <h2>Data retention and deletion</h2>
+              <h3>Data change</h3>
+              <p>Pursuant to the legal provision of paragraph a) of paragraph 1 of Article 5, and Article 16 of the General Data Protection Regulation (GDPR), <br>
+                personal data must be duly updated and the user is entitled to update them, respectively. Therefore, the user must request their amendment, as <br>
+                the gifts are inaccurate, requiring that those previously presented be deleted.</p>
+              <h3>Account deactivation and elimination</h3>
+              <p>According to the legal provision of point a) of paragraph 1 of Article 17 of the General Regulation on Data Protection (GDPR), <br>
+                the holder has the right to “be forgotten”, in this way, since the user account is essential for it. exercise their function, <br>
+                personal data are kept until they are no longer necessary - end of the employee's contract.</p>
+              <p>&nbsp;</p>
+              <h2>Legal basis</h2>
+              <p>Personal data is collected and used according to the user's consent when being registered in the system - Article 6, paragraph 1a of the General Data Protection Regulation (GDPR)</p>
+              <p>&nbsp;</p>
+              <h2>User rights and how to exercise them</h2>
+              <p>The user presents the Right to Information, the Right of Access, the Right of Rectification, the Right of Opposition, the Right to Erasure, <br>
+                 the Right to Limit Treatment and the Right to Data Portability. These rights can be exercised in the same profile. In addition, the user has <br>
+                 the right to file a complaint with the National Data Protection Commission:</p>
+              <ul>
+              <p><strong>Address:</strong> Av. D. Carlos I, 134, 1o 1200-651</p>
+              <p><strong>Location</strong> Lisboa, Portugal</p>
+              <p><strong>Email:</strong> <a href="mailto:geral@cnpd.pt"> geral@cnpd.pt</a></p>
+              <p><strong>Telephone</strong> (+351) 213 928 400</p>
+              </ul>
+              <p>&nbsp;</p>
+
+              <h1><strong>Terms of use</strong></h1>
+              <h2>Purpose of the Application</h2>
+              <p>This application is a prototype distribution planning system for deliveries between warehouses using a fleet of electric vehicles.</p>
+              <h2>User obligations</h2>
+              <p>When using the application, the user declares that he is over 18 years of age and has read the application's privacy policy, agreeing with it in its entirety.</p>
+              <p>&nbsp;</p>
+
+          </div>
+</mat-drawer-content>
+    
+</mat-drawer-container>

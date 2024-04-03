@@ -1,0 +1,86 @@
+@startuml
+
+autonumber
+actor "GF" as GF
+participant "TruckComponent" as COMP
+participant "TruckServiceService" as SS
+participant "MDL" as MDL
+participant "TruckRoute" as ROUTE
+participant "TruckController" as CTR
+participant "TruckService" as SERVICE
+participant "TruckRepo" as REPO
+participant "TruckSchema" as SCHEMA
+participant "TruckMap" as MAP
+participant "TruckDTO" as DTO
+database "Database" as DB
+participant "truck\n:tath" as path
+participant "TruckDocument" as DOC
+
+GF-> COMP : introduces the data(plate,tare,massCapacity,\nmaximumBattery,autonomy,chargeTime)
+activate COMP
+activate COMP
+COMP -> COMP : updateTruck(plate,tare,massCapacity,\nmaximumBattery,autonomy,chargeTime)
+activate COMP
+COMP -> SS : updateTruck(truck)
+activate SS
+SS -> MDL : put(/Trucks)
+activate MDL
+MDL -> ROUTE: put(/Trucks)
+
+activate ROUTE
+ROUTE -> CTR : updateTruck
+activate CTR
+CTR -> SERVICE : updateTruck
+activate SERVICE
+SERVICE -> REPO : truck = findByPlate
+activate REPO
+deactivate REPO
+SERVICE -> path : updates data
+activate path
+deactivate path
+SERVICE -> REPO : save
+activate REPO
+REPO -> SCHEMA : truckDocument = findOne
+activate SCHEMA
+deactivate SCHEMA
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: error message
+deactivate MAP
+SERVICE <--REPO : error message
+CTR <-- SERVICE : error message
+ROUTE <-- CTR : status 400
+MDL <-- ROUTE : failure message
+SS <-- MDL : failure message
+SS --> COMP : failure message
+GF<-- COMP : display failure message
+end
+deactivate MAP
+REPO -> DOC : updates data
+activate DOC
+deactivate DOC
+REPO -> DB : save
+activate DB
+deactivate DB 
+REPO --> SERVICE : truckResult
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR : ok
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> MDL : success message
+deactivate ROUTE
+MDL --> SS : success message
+deactivate MDL
+SS --> COMP : success message
+deactivate SS
+deactivate MDL
+GF<-- COMP : displays success message
+deactivate COMP
+
+@enduml

@@ -1,0 +1,717 @@
+{
+	"info": {
+		"_postman_id": "40a3ed7f-f664-4f7a-9f58-80e4774248e0",
+		"name": "bulletproofNodejsDDDTrucks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24102581"
+	},
+	"item": [
+		{
+			"name": "getTrucks - Expected to be empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content is empty\", function () {\r",
+							"\tvar res=(_.isEmpty(pm.response));\r",
+							"\tpm.expect(res).to.be,true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is a Truck\", function () {\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData).to.have.property(\"plate\");\r",
+							"\tpm.globals.set(\"17-10-AD\",jsonData.plate);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"09-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid plate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid plate\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"AA-AA-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid tare",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid tare\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"18-10-AD\",\r\n    \"tare\": -7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid massCapacity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid massCapacity\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"18-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": -4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid maximumBattery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid maximumBattery\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"18-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": -80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid autonomy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid autonomy\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"18-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": -100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Invalid chargeTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Invalid chargeTime\", function () { \r",
+							"\tpm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"18-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": -1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTrucks - Duplicated plate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Trucks request - Duplicated plate\", function () { \r",
+							"\tpm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"09-10-AD\",\r\n    \"tare\": 7500,\r\n    \"massCapacity\": 4300,\r\n    \"maximumBattery\": 80,\r\n    \"autonomy\": 100,\r\n    \"chargeTime\": {\"hours\": 1, \"minutes\": 0, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putTrucks",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"09-10-AD\",\r\n    \"tare\": 5500,\r\n    \"massCapacity\": 4000,\r\n    \"maximumBattery\": 100,\r\n    \"autonomy\": 150,\r\n    \"chargeTime\": {\"hours\": 2, \"minutes\": 30, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putTrucks - Info is Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Truck is the requested one\", function () {\r",
+							"\trequestPlate = \"09-10-AD\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.plate).equals(requestPlate);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"The tare information was updated\", function () {\r",
+							"\tpm.expect(jsonData.tare).equals(5500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The massCapacity information was updated\", function () {\r",
+							"\tpm.expect(jsonData.massCapacity).equals(4000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The maximumBattery information was updated\", function () {\r",
+							"\tpm.expect(jsonData.maximumBattery).equals(100);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The autonomy information was updated\", function () {\r",
+							"\tpm.expect(jsonData.autonomy).equals(150);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The chargeTime information was updated\", function () {\r",
+							"\tpm.expect(jsonData.chargeTime.hours).equals(2);\r",
+							"    pm.expect(jsonData.chargeTime.minutes).equals(30);\r",
+							"    pm.expect(jsonData.chargeTime.seconds).equals(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"09-10-AD\",\r\n    \"tare\": 5500,\r\n    \"massCapacity\": 4000,\r\n    \"maximumBattery\": 100,\r\n    \"autonomy\": 150,\r\n    \"chargeTime\": {\"hours\": 2, \"minutes\": 30, \"seconds\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTrucks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTrucks - Expected to be one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The count of obtained Truck is one\", function () {\r",
+							"\tpm.expect(pm.response.json().length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTruckByPlate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks/:plate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks",
+						":plate"
+					],
+					"variable": [
+						{
+							"key": "plate",
+							"value": "09-10-AD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTrucksByPlate - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Truck is the requested one\", function () {\r",
+							"\trequestPlate = \"09-10-AD\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.plate).equals(requestPlate);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks/:plate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks",
+						":plate"
+					],
+					"variable": [
+						{
+							"key": "plate",
+							"value": "09-10-AD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTruck",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"11-10-AD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTrucks - Expected to be empty after DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content is empty\", function () {\r",
+							"\tvar res=(_.isEmpty(pm.response));\r",
+							"\tpm.expect(res).to.be,true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Trucks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

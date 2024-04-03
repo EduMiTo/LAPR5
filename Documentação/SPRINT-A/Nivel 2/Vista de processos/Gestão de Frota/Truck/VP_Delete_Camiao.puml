@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GF
+participant "sPA: SPA" as sPA
+participant "mDL: MDL" as MDL 
+
+
+activate GF
+GF ->sPA : Asks to delete a truck
+activate sPA
+
+sPA --> MDL : GET /trucks body:data
+activate MDL
+
+MDL --> sPA :  200 body(trucks)
+
+deactivate MDL
+
+sPA --> GF : shows all the trucks
+
+deactivate sPA
+
+GF --> sPA : selects the truck to delete
+
+activate sPA
+
+sPA --> MDL : DELETE /trucks body:data
+
+activate MDL
+
+MDL --> sPA :  status:200
+
+deactivate MDL
+
+sPA --> GF : success message
+
+deactivate sPA
+
+deactivate GF
+
+
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to delete a warehouse
+activate sPA
+
+sPA --> MDA : GET /warehouses body:data
+activate MDA
+
+MDA --> sPA :  200 body(warehouses)
+
+deactivate MDA
+
+sPA --> GA : shows all the warehouses
+
+deactivate sPA
+
+GA --> sPA : selects the warehouse to delete
+
+activate sPA
+
+sPA --> MDA : DELETE /warehouses body:data
+
+activate MDA
+
+MDA --> sPA :  status:200
+
+deactivate MDA
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

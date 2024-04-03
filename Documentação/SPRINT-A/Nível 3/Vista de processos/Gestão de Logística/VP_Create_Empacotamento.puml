@@ -1,0 +1,69 @@
+@startuml
+
+autonumber
+participant "MDL" as MDL
+participant "PackingRoute" as ROUTE
+participant "PackingController" as CTR
+participant "PackingService" as SERVICE
+participant "Packing" as Path
+participant "PackingRepo" as REPO
+participant "PackingMap" as MAP
+participant "PackingDTO" as DTO
+database "Database" as DB
+
+MDL -> ROUTE : post(/Packing)
+activate MDL
+activate ROUTE
+ROUTE -> CTR : createPacking
+activate CTR
+CTR -> SERVICE : createPacking
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: null
+deactivate MAP
+end
+REPO -> REPO : truckPlateExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> REPO : delieveryIdExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 201
+ROUTE --> MDL : display success message
+else
+CTR --> ROUTE : status 400
+deactivate CTR
+ROUTE --> MDL : display failure message
+deactivate ROUTE
+deactivate
+end
+
+@enduml

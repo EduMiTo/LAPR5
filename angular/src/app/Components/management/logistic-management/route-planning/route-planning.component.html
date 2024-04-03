@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="route-planning.component.css">
+<mat-drawer-container>
+  
+  <mat-drawer-content>
+    
+    <div class="container">   
+      <div [hidden]="submitted"> 
+        <h1>Create Route Planning by Plate and Date</h1>
+          <form #packingForm="ngForm" (ngSubmit)="postPlan(truckPlate.value, planningDate.value, heuristics.value, generations.value, population.value, crossover.value, mutation.value)"  >
+            <div class="form-group">
+              <label> Truck Plate</label>
+              <select class="form-control" id="truckPlate" required [(ngModel)]="routes.truckPlate" name="truckPlate" #truckPlate="ngModel" (change)="getDates(truckPlate.value)" >
+                <option value="" disabled selected>Select Truck</option>
+                <option *ngFor="let plate of plateList" [value]="plate.plate">{{plate.plate}}</option>
+            </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="name">Date</label>
+                <select class="form-control" id="planningDate" required [(ngModel)]="routes.planningDate" name="planningDate" #planningDate="ngModel" [disabled]= "!selected" form="routeForm" (change)="upDate(planningDate.value)">
+                  <option value="" disabled selected>Select Date</option>
+                  <option *ngFor="let date of dateList" [value]="date.limitDate">{{date.limitDate}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Method</label>
+              <select class="form-control" id="planningDate" required [(ngModel)]="routes.heuristic" name="heuristics" #heuristics="ngModel" form="routeForm" (change)="upHeuristic(heuristics.value)">
+                <option value="" disabled selected>Select Method</option>
+                <option value ="BestPath"> Best Route</option>
+                <option value ="HeuristicTime">Time Heuristic </option>
+                <option value ="HeuristicMass">Mass Heuristic </option>
+                <option value ="HeuristicTimeMass">Mass Time Heuristic </option>
+                <option value ="GeneticAlgorithm">Genetic Algorithm </option>
+            </select>
+          </div>
+
+          <div class="form-group" [ngClass]="{'input-hidden': routes.heuristic != 'GeneticAlgorithm' }">
+            <label>Number of generations</label>
+            <input type="number" ngModel class="form-control" id="generations" name="generations" #generations="ngModel" [(ngModel)]="routes.generations">
+          </div>
+
+          <div class="form-group" [ngClass]="{'input-hidden': routes.heuristic != 'GeneticAlgorithm' }">
+            <label>Population</label>
+            <input type="number" ngModel class="form-control" id="population" name="population" #population="ngModel" [(ngModel)]="routes.population">
+            
+          </div>
+
+          <div class="form-group" [ngClass]="{'input-hidden': routes.heuristic != 'GeneticAlgorithm' }">
+            <label>Probability of crossover</label>
+            <input type="number" ngModel class="form-control" id="crossover" name="crossover" #crossover="ngModel" [(ngModel)]="routes.crossover" max="100" min="0">
+            
+          </div>
+
+          <div class="form-group" [ngClass]="{'input-hidden': routes.heuristic != 'GeneticAlgorithm' }">
+            <label>Probability of mutation</label>
+            <input type="number" ngModel class="form-control" id="mutation" name="mutation" #mutation="ngModel" [(ngModel)]="routes.mutation" max="100" min="0">
+            
+          </div>
+    
+
+        <button [disabled] = "packingForm.invalid" type = "submit" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;">Create</button>
+        <br>
+        <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+      </form> 
+    </div>
+   <div [hidden]="!submitted">
+      <h2>Route created sucessfully!</h2>
+      <table class = "table" style = "margin-top: 2%;">
+          <thead>
+          <tr>
+              <th>Truck Plate</th>
+              <th>Date</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{routes.truckPlate}}</td>
+              <td>{{routes.planningDate}}</td>
+            </tr> 
+          </tbody>
+      </table>
+      <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" (click)="submitted = false; packingForm.reset()">OK!</button>
+    </div>
+    </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,14 @@
+@startuml DM_ViagemAggregate
+' hide the spot
+
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity Viagem
+object id
+
+
+Viagem --> id
+
+@enduml

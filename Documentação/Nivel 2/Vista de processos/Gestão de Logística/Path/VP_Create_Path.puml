@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "mDL: MDL" as MDL
+
+
+activate GA
+GA ->sPA : Asks to create a new path and inserts the paths's data
+activate sPA
+
+sPA --> MDL : POST /paths body:data
+activate MDL
+
+MDL --> sPA :  status:201
+
+deactivate MDL
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+@enduml

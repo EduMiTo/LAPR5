@@ -1,0 +1,126 @@
+h1{
+    text-align: center;
+	font-family:'Source Sans Pro', sans-serif;
+	margin-bottom: 2%;
+}
+
+.container {
+    
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-align: center;
+
+}
+
+.input{
+    width: 20%;
+    margin:auto;
+	justify-content:center;
+	align-items:center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+tbody {
+	font-family:'Source Sans Pro', sans-serif;
+	margin:0;
+}
+
+th {
+    padding:(12 * 1.5) 0;
+}
+
+
+tr{
+	vertical-align: baseline;
+}
+
+mat-drawer-content{
+	height: 93%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+  text-align: center;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 75%;
+}
+
+.mat-table {
+	overflow: auto;
+	max-height: 475px;
+}
+
+.long-text{
+	overflow: auto;
+}
+
+.example-container{
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mat-header-cell {
+  font-size: 18px;
+  color: #000005;
+}
+
+.mat-button:hover{
+	
+	color: white;
+	background-color: #c39d79;
+	border: none;
+	transition: 0.25s;
+}
+
+.mat-form-field:focus{
+	color: black !important;
+	caret-color: black !important
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+    color: #c39d79 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: #c39d79 !important;
+}
+
+.mat-button{
+	border: 1px solid #666666;
+}
+
+.mat-input-element{
+	caret-color: #c39d79;
+}
+.mat-button, .mat-icon-button, .mat-stroked-button{
+	color: #666666;
+}
+input[type=text]:focus {
+	color: black !important;
+}
+
+.warehouse-inhibt {
+	background-color: #e2e6e7;
+}
+
+.text-inhibt {
+	color: rgb(128, 127, 127) !important;
+}
+
+input[type='checkbox'] {
+    accent-color: #c39d79;
+}

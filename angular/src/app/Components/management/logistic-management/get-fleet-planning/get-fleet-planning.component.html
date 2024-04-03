@@ -1,0 +1,92 @@
+<mat-drawer-container>
+  
+  <mat-drawer-content>
+    
+    <div class="container">   
+      <div [hidden]="submitted"> 
+        <h1>Get Fleet Planning</h1>
+        <form #planningtFleetForm="ngForm" (ngSubmit)="fleetPlanning.heuristic == 'GeneticAlgorithm' ? makePlanningFleet(generations.value, population.value, crossover.value, mutation.value) : makePlanningFleetFake()"  >
+
+
+          <div class="form-group">
+            <label for="name">Method</label>
+            <select ngModel class="form-control" id="algorithm" required name="algorithm" #algorithm="ngModel" form="planningtFleetForm" (change)="upAlgorithm(algorithm.value)">
+              <option value ="GeneticAlgorithm">Genetic Algorithm </option>
+              <option value="OtherAlgorithm">Other Algorithm</option>
+          </select>
+        </div>
+        <div [ngClass]="{'input-hidden': fleetPlanning.heuristic != 'GeneticAlgorithm' }" class="form-group">
+          <label>Number of generations</label>
+          <input ngModel type="number" ngModel class="form-control" id="generations" name="generations" #generations="ngModel" >
+        </div>
+        
+        <div [ngClass]="{'input-hidden': fleetPlanning.heuristic != 'GeneticAlgorithm' }" class="form-group" >
+          <label>Population</label>
+          <input ngModel type="number"  class="form-control" id="population" name="population" #population="ngModel" >
+          
+        </div>
+        
+        <div [ngClass]="{'input-hidden': fleetPlanning.heuristic != 'GeneticAlgorithm' }" class="form-group">
+          <label>Probability of crossover</label>
+          <input ngModel type="number"  class="form-control" id="crossover" name="crossover" #crossover="ngModel"  max="100" min="0">
+          
+        </div>
+        
+        <div [ngClass]="{'input-hidden': fleetPlanning.heuristic != 'GeneticAlgorithm' }" class="form-group">
+          <label>Probability of mutation</label>
+          <input ngModel type="number" class="form-control" id="mutation" name="mutation" #mutation="ngModel"  max="100" min="0">
+          
+        </div>
+        
+        <button [disabled] = "planningtFleetForm.invalid" type = "submit" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;">GET FLEET PLANNING</button>
+    
+        </form> 
+    </div>
+     <div [hidden]="!submitted">
+      
+        <h2></h2>
+        <table class = "table" style = "margin-top: 2%;">
+            <thead>
+              <tr>
+                <th>Generations</th>
+                <th>Population</th>
+                <th>Crossover</th>
+                <th>Mutation</th>
+                <th>Path</th>
+                <th>PlanningTime</th>
+                <th>PlanningDate</th>
+                <th>Heuristic</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{fleetPlanning.generations}}</td>
+                <td>{{fleetPlanning.population}}</td>
+                <td>{{fleetPlanning.crossover}}</td>
+                <td>{{fleetPlanning.mutation}}</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let pathElement of fleetPlanning.path">{{pathElement}}</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li *ngFor="let timeElement of fleetPlanning.time">{{timeElement}}</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li *ngFor="let planningDateElement of fleetPlanning.planningDate">{{planningDateElement}}</li>
+                  </ul>
+                </td>
+                <td>{{fleetPlanning.heuristic}}</td>
+              </tr> 
+            </tbody>
+        </table>
+        <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" (click)="submitted = false; planningtFleetForm.reset()">OK!</button>
+      </div>
+    </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+

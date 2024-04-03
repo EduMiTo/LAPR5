@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "mDA: MDA" as MDA
+
+
+activate GA
+GA ->sPA : Asks to create a new packing and inserts the packing's data
+activate sPA
+
+sPA --> MDA : POST /packings body:data
+activate MDA
+
+MDA --> sPA :  status:201
+
+deactivate MDA
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+@enduml

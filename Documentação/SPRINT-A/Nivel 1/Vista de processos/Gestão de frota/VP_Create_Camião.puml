@@ -1,0 +1,17 @@
+@startuml
+actor GF
+GF -> EletricGo: Inicia criação de um camião
+activate EletricGo
+EletricGo --> GF : Solicita dados
+deactivate
+
+GF -> EletricGo: Introduz dados
+activate EletricGo
+EletricGo --> GF : Mostra dados e solicita confirmação
+deactivate
+
+GF -> EletricGo: Confirma
+activate EletricGo
+EletricGo --> GF : Informa o sucesso da operação
+deactivate EletricGo
+@enduml

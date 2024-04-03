@@ -1,0 +1,21 @@
+@startuml DM_CamiaoAggregate
+' hide the spot
+
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity Camiao
+object id
+object autonomia
+object capacidadeCarga
+object cargaMaxima
+object tempoCarregamento
+
+Camiao --> id
+Camiao --> autonomia
+Camiao --> capacidadeCarga
+Camiao --> cargaMaxima
+Camiao --> tempoCarregamento
+
+@enduml

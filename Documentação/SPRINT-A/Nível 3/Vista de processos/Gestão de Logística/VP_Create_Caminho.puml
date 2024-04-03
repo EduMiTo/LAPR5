@@ -1,0 +1,67 @@
+@startuml
+
+autonumber
+participant "SPA UI" as UI
+participant "MDL" as MDL
+participant "PathRoute" as ROUTE
+participant "PathController" as CTR
+participant "PathService" as SERVICE
+participant "Path" as Path
+participant "PathRepo" as REPO
+participant "PathMap" as MAP
+participant "PathDTO" as DTO
+database "Database" as DB
+
+activate UI
+UI -> MDL: post(/Paths)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> CTR : createPath
+activate CTR
+CTR -> SERVICE : createPath
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: null
+deactivate MAP
+end
+REPO -> REPO : warehouseExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR
+deactivate SERVICE
+CTR --> ROUTE
+deactivate CTR
+alt success
+ROUTE --> MDL : status 201
+MDL --> UI : display success message
+else
+ROUTE --> MDL : status 400
+deactivate ROUTE
+MDL --> UI : display failure message
+deactivate
+end
+
+@enduml

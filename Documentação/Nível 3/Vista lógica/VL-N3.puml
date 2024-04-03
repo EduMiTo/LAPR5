@@ -1,0 +1,99 @@
+@startuml
+
+component EletricGo {
+  port p1
+
+  component "SPA" as spa {
+    
+    component "Components" as spa_components 
+    component "Helpers" as spa_helpers
+    component "Interfaces" as spa_interfaces
+    component "Services" as spa_services 
+
+  }
+
+  component "ARMAZEM" as armazem{
+    package "ARMAZEM Frameworks and Drivers Layer" {
+        component "ARMAZEM Routing" as wrouting
+        component "ARMAZEM Persistence" as wpersistence
+        package "ARMAZEM Interfaces Adapters Layer" {
+            component "ARMAZEM Controller" as wcontroller
+            component "ARMAZEM Repository" as wrepository
+            component "ARMAZEM Mapper" as wmapper
+            package "ARMAZEM Application Business Rules" {
+                component "ARMAZEM Service" as wservice
+                component "ARMAZEM DTO" as wdto
+                package "ARMAZEM Enterprise Business Rules" {
+                    component "ARMAZEM Domain" as wdomain
+              }
+            }
+        }
+        
+      }
+  }
+
+  component "LOGISTICA" as logistica {
+      package "Frameworks and Drivers Layer" {
+        component "Routing" as routing
+        component "Persistence" as persistence
+        package "Interfaces Adapters Layer" {
+            component "Controller" as controller
+            component "Repository" as repository
+            component "Mapper" as mapper
+            package "Application Business Rules" {
+                component "Service" as service
+            }
+        }
+        component "DTO" as dto
+        package "Enterprise Business Rules" {
+            component "Domain" as domain
+        }
+      }
+  }
+
+  component "PLANEAMENTO" as planeamento
+
+
+}
+
+p1 -> routing
+routing -(0- controller
+controller -(0- service
+controller -(0- dto
+
+mapper -(0- dto
+
+service -(0- mapper
+service -(0- repository
+service -(0- domain
+
+repository -(0- persistence
+repository -(0- domain
+repository -(0- mapper
+
+spa -(0- armazem
+spa -(0- logistica
+logistica -(0- planeamento
+logistica -(0- armazem
+
+p1 -> wrouting
+wrouting -(0- wcontroller
+wcontroller -(0- wservice
+
+wmapper -(0- wdto
+wmapper -(0- wdomain
+
+wservice -(0- wmapper
+wservice -(0- wrepository
+wservice -(0- wdomain
+
+wrepository -(0- wpersistence
+wrepository -(0- wdomain
+wrepository -(0- wmapper
+
+spa_components -(0- spa_services
+spa_components -(0- spa_interfaces
+spa_helpers -(0- spa_services
+
+
+@enduml

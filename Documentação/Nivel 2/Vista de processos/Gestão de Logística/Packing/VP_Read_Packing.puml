@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to read a packing
+activate sPA
+
+sPA --> MDA : GET /packings body:data
+activate MDA
+
+MDA --> sPA :  200 body(warehouses)
+
+deactivate MDA
+
+sPA --> GA : shows all the packings
+
+deactivate sPA
+
+GA --> sPA : selects the packing and data wanted
+
+activate sPA
+
+
+
+sPA --> GA : presents the data
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

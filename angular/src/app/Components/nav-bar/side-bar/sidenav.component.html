@@ -1,0 +1,96 @@
+<mat-nav-list>
+  <div class="logo py-4"><a id="home" mat-list-item routerLinkActive="list-item-active" routerLink="/login"><strong>EletricGo</strong></a>
+    <!--<img src="./assets/logo.svg" alt="Company Logo" />-->
+    <a *ngIf="admin || warehouse || shipping || logistic " mat-list-item  routerLinkActive="list-item-active" routerLink="/privacy-policy">
+      <mat-icon>info</mat-icon> Terms & Conditions
+    </a>
+  </div>
+  <mat-divider></mat-divider>
+  <h2 *ngIf="warehouse || admin" matSubheader class="mt-2"><strong>DELIVERIES</strong></h2>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/warehouse-management/create-delivery">
+    <mat-icon>add_circle_outline</mat-icon> Create Delivery
+  </a>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/warehouse-management/update-delivery">
+    <mat-icon>cached</mat-icon> Update Delivery
+  </a>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/warehouse-management/get-deliveries">
+    <mat-icon>subject</mat-icon> List of Deliveries
+  </a>
+  <h2 *ngIf="warehouse || admin" matSubheader class="mt-2"><strong>WAREHOUSES</strong></h2>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/create-warehouse" id="createWarehouse">
+    <mat-icon>add_circle_outline</mat-icon> Create Warehouse
+  </a>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/warehouse-management/update-warehouse">
+    <mat-icon>cached</mat-icon> Update Warehouse
+  </a>
+  <a *ngIf="warehouse || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/get-warehouses" id="getWarehouses">
+    <mat-icon>subject</mat-icon> List of Warehouses
+  </a>
+
+  <!--SHIPPING MANAGEMENT ROLE-->
+  <h2 *ngIf="shipping || admin" matSubheader class="mt-2"><strong>TRUCKS</strong></h2>
+  <a *ngIf="shipping || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/create-truck" id="createTruck">
+    <mat-icon>add_circle_outline</mat-icon> Create Truck
+  </a>
+  <a *ngIf="shipping || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/update-truck" id="updateTruck">
+    <mat-icon>cached</mat-icon> Update Truck
+  </a>
+  <a *ngIf="shipping || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/get-trucks" id="getTrucks">
+    <mat-icon>subject</mat-icon> List of Trucks
+  </a>
+  <!--LOGISTIC MANAGEMENT ROLE-->
+  <h2 *ngIf="logistic || admin" matSubheader class="mt-2"><strong>PATHS</strong></h2>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/create-path">
+    <mat-icon>add_circle_outline</mat-icon> Create Path
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/update-path">
+    <mat-icon>cached</mat-icon> Update Path
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/get-paths">
+    <mat-icon>subject</mat-icon> List of Paths
+  </a>
+  <h2 *ngIf="logistic || admin" matSubheader class="mt-2"><strong>PACKINGS</strong></h2>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/create-packing">
+    <mat-icon>add_circle_outline</mat-icon> Create Packing
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/update-packing">
+    <mat-icon>cached</mat-icon> Update Packing
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/get-packings">
+    <mat-icon>subject</mat-icon> List of Packings
+  </a>
+  <h2 *ngIf="logistic || admin" matSubheader class="mt-2"><strong>NETWORK</strong></h2>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/road-network">
+    <mat-icon>open_with</mat-icon> Road Network
+  </a>
+  <h2 *ngIf="logistic || admin" matSubheader class="mt-2"><strong>PLANNING</strong></h2>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/route-planning">
+    <mat-icon>subject</mat-icon> Route Planning
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/get-route-planning">
+    <mat-icon>subject</mat-icon> List Route Plannings
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/get-fleet-planning">
+    <mat-icon>subject</mat-icon> Fleet Planning
+  </a>
+  <a *ngIf="logistic || admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/logistic-management/get-specific-route">
+    <mat-icon>subject</mat-icon> Search specific Route Planning
+  </a>
+
+  <!--ADMINISTRATOR ROLE-->
+  <h2 *ngIf="admin" matSubheader class="mt-2"><strong>REGISTER</strong></h2>
+  <a *ngIf="admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/register" id="register">
+    <mat-icon>add_circle_outline</mat-icon> Register a new User
+  </a>
+  <a *ngIf="admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/anonymize" id="anonymize">
+    <mat-icon>person_outline</mat-icon> Anonymize an User
+  </a>
+  <h2 *ngIf="admin" matSubheader class="mt-2"><strong>DATA</strong></h2>
+  <a *ngIf="admin" mat-list-item  routerLinkActive="list-item-active" routerLink="/dataview">
+    <mat-icon>graphic_eq</mat-icon> Dataview
+  </a>
+
+
+
+  
+</mat-nav-list>

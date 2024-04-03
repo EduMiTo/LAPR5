@@ -1,0 +1,56 @@
+<mat-drawer-container>
+  
+  <mat-drawer-content>
+    
+    <div class="container">   
+      <div [hidden]="submitted"> 
+        <h1>Get Route Planning by Plate and Date</h1>
+          <form #routeForm="ngForm" (ngSubmit)="getPlan(truckPlate.value, planningDate.value)"  >
+            <div class="form-group">
+              <label> Truck Plate</label>
+              <select class="form-control" id="truckPlate" required [(ngModel)]="routes.truckPlate" name="truckPlate" #truckPlate="ngModel" (change)="getDatesofTruck(truckPlate.value)" >
+                <option value="" disabled selected>Select Truck</option>
+                <option *ngFor="let plate of plateList" [value]="plate.truckPlate">{{plate.truckPlate}}</option>
+            </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="name">Date</label>
+                <select class="form-control" id="planningDate" required [(ngModel)]="routes.planningDate" name="planningDate" #planningDate="ngModel" [disabled]= "!selected" form="routeForm" (change)="upDate(planningDate.value)">
+                  <option value="" disabled selected>Select Date</option>
+                  <option *ngFor="let date of dateList" [value]="date.planningDate">{{date.planningDate}}</option>
+              </select>
+            </div>
+    
+        <button [disabled] = "routeForm.invalid" type = "submit" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;">Get Route</button>
+      </form> 
+    </div>
+     <div [hidden]="!submitted">
+      
+        <h2>Route opened sucessfully!</h2>
+        <table class = "table" style = "margin-top: 2%;">
+            <thead>
+            <tr>
+                <th>Truck Plate</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Path</th>
+                <th>Method</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{routes.truckPlate}}</td>
+                <td>{{routes.planningDate}}</td>
+                <td>{{routes.planningTime}}</td>
+                <td>{{routes.path}}</td>
+                <td>{{routes.heuristic}}</td>
+              </tr> 
+            </tbody>
+        </table>
+        <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" (click)="submitted = false; routeForm.reset()">OK!</button>
+      </div>
+    </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

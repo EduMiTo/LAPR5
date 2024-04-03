@@ -1,0 +1,540 @@
+{
+	"info": {
+		"_postman_id": "2c336128-864b-41e2-8a63-840dab599edd",
+		"name": "bulletproofNodejsDDDPackings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24102581"
+	},
+	"item": [
+		{
+			"name": "getPackings - Expected to be empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content is empty\", function () {\r",
+							"\tvar res=(_.isEmpty(pm.response));\r",
+							"\tpm.expect(res).to.be,true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPacking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is a Packing\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"truckPlate\");\r",
+							"    pm.globals.set(\"09-10-AD\",jsonData.plate);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"truckPlate\": \"09-10-AD\",\r\n    \"deliveryId\": \"146195/2\",\r\n    \"position\": {\"positionX\": 1, \"positionY\": 0, \"positionZ\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPacking - Invalid deliveryId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Packings request - Invalid deliveryId\", function () { \r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"truckPlate\": \"11-10-AD\",\r\n    \"deliveryId\": \"4\",\r\n    \"position\": {\"positionX\": 1, \"positionY\": 0, \"positionZ\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPacking - Invalid truckPlate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid POST Packings request - Invalid truckPlate\", function () { \r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"truckPlate\": \"AA-AA-AD\",\r\n    \"deliveryId\": \"146195/2\",\r\n    \"position\": {\"positionX\": 1, \"positionY\": 0, \"positionZ\": 0 }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putPackings",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"91b848a6-bef8-4950-ad6d-3691ec6a1e45\",\r\n    \"position\": {\r\n        \"positionX\": 1,\r\n        \"positionY\": 2,\r\n        \"positionZ\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putPackings - Info is Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test(\"Status code is 200\", function () {\r",
+							"//\tpm.response.to.have.status(200);\r",
+							"//});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"var respid;\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(\"http://localhost:3000/api/Packings\", function (err, response) {\r",
+							"    var resp = response.json();\r",
+							"    respid = resp[0].id;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Packing is the requested one\", function () {\r",
+							"\trequestId = respid;\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.id).equals(requestId);\r",
+							"});\r",
+							"\r",
+							"//console.log(pm.response.json());\r",
+							"\r",
+							"//pm.test(\"The position information was updated\", function () {\r",
+							"//\tpm.expect(pm.response.json().position.positionX).equals(1);\r",
+							"//    pm.expect(pm.response.json().position.positionY).equals(2);\r",
+							"//    pm.expect(pm.response.json().position.positionZ).equals(2);\r",
+							"//});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var resp;\r",
+							"\r",
+							"pm.sendRequest(\"http://localhost:3000/api/Packings\", function (err, response) {\r",
+							"    resp = response.id;\r",
+							"});\r",
+							"\r",
+							"var body = {\r",
+							"    \"id\": resp,\r",
+							"    \"position\": {\r",
+							"        \"positionX\": 1,\r",
+							"        \"positionY\": 2,\r",
+							"        \"positionZ\": 2\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.collectionVariables.set('req_body', JSON.stringify(body));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{req_body}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackings - Expected to be one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The count of obtained Truck is one\", function () {\r",
+							"\tpm.expect(pm.response.json().length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Packings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackingsByDeliveryId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deliveryId\" : \"146195/2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings/getByDeliveryId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings",
+						"getByDeliveryId"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackingsByDeliveryId - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Packing is the requested one\", function () {\r",
+							"\trequestDeliveryId = \"146195/2\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].deliveryId).to.equal(requestDeliveryId);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deliveryId\" : \"146195/2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Packings/getByDeliveryId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings",
+						"getByDeliveryId"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackingsByTruckPlate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Packings/:truckPlate/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings",
+						":truckPlate",
+						"findAll"
+					],
+					"variable": [
+						{
+							"key": "truckPlate",
+							"value": "09-10-AD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPackingsByTruckPlate - Is the one",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"\tpm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The obtained Truck is the requested one\", function () {\r",
+							"\trequestTruckPlate = \"09-10-AD\";\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData[0].truckPlate).to.equal(requestTruckPlate);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/Packings/:truckPlate/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Packings",
+						":truckPlate",
+						"findAll"
+					],
+					"variable": [
+						{
+							"key": "truckPlate",
+							"value": "09-10-AD"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "req_body",
+			"value": ""
+		}
+	]
+}

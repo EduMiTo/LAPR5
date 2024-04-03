@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="create-warehouse.component.css">
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav ></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content id="content">
+  
+  <app-header  (toggleSidebarForMe)="sideBarToggler()"></app-header>
+              <router-outlet></router-outlet>
+   
+    
+
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Create Warehouse</h1>
+    <form #warehouseForm="ngForm"
+      (ngSubmit)="createWarehouse(warehouseForm.value)">
+      <div class="form-group">
+        <label> ID</label>
+        <input required #id="ngModel" type="text" ngModel class="form-control" name="id"
+          placeholder="ex: C01" id="id">
+        <div *ngIf="id.invalid && id.touched" class="alert alert-danger"> Id is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Designation</label>
+        <input required #designation="ngModel" type="text" ngModel class="form-control" name="designation"
+          placeholder="ex: Castelo de Paiva" id="designation">
+        <div *ngIf="designation.invalid && designation.touched" class="alert alert-danger"> Designation is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Address</label>
+        <input required #address="ngModel" type="text" ngModel class="form-control" name="address"
+          placeholder="ex: Rua das Cerdeiras,4550-623,Aveiro,Portugal,99" id="address">
+        <div *ngIf="address.invalid && address.touched" class="alert alert-danger"> Address is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Latitude</label>
+        <input required #latitude="ngModel" type="text" ngModel class="form-control" name="latitude"
+          placeholder="ex: 41.25" id="latitude">
+        <div *ngIf="latitude.invalid && latitude.touched" class="alert alert-danger"> Latitude is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Longitude</label>
+        <input required #longitude="ngModel" type="number" ngModel class="form-control" name="longitude"
+          placeholder="ex: -8.68" id="longitude">
+        <div *ngIf="longitude.invalid && longitude.touched" class="alert alert-danger"> Longitude is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Altitude</label>
+        <input required #altitude="ngModel" type="number" ngModel class="form-control" name="altitude"
+          placeholder="ex: 100" id="altitude">
+        <div *ngIf="altitude.invalid && altitude.touched" class="alert alert-danger"> Altitude is required
+        </div>
+      </div>
+
+      <button [disabled]="warehouseForm.invalid" type="submit"
+      class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" id="submit">Create</button>
+        <br>
+        <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+    </form>
+  </div>
+
+  <div class = "hidden" [hidden]="!submitted">
+    <h2>Warehouse created sucessfully!</h2>
+    <table class="table" style="margin-top: 2%;">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Designation</th>
+          <th>Address</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Altitude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>{{warehouse.id}}</td>
+        <td>{{warehouse.designation}}</td>
+        <td>{{warehouse.address}}</td>
+        <td>{{warehouse.latitude}}</td>
+        <td>{{warehouse.longitude}}</td>
+        <td>{{warehouse.altitude}}</td>
+      </tbody>
+    </table>
+    <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;"
+      (click)="submitted = false; warehouseForm.reset()" id="ok">OK!</button>
+  </div>
+
+
+  <!--
+<input type="text" placeholder="Id" name="Id" required #Id><br><br>
+<input type="text" placeholder="Designation" name="Designation" required #Designation><br><br>
+<input type="text" placeholder="Address" name="Address" required #Address><br><br>
+<input type="text" placeholder="Latitude" name="Latitude" required #Latitude><br><br>
+<input type="text" placeholder="Longitude" name="Longitude" required #Longitude><br><br>
+<input type="text" placeholder="Altitude" name="Altitude" required #Altitude><br><br>
+
+
+
+
+<button (click)="createWarehouse(Id.value, Designation.value, Address.value, Latitude.value, Longitude.value, Altitude.value)">Create</button>
+-->
+</div>
+  </mat-drawer-content>
+</mat-drawer-container>
+

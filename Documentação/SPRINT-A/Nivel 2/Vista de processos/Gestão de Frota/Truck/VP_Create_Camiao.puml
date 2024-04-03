@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GF
+participant "sPA: SPA" as sPA
+participant "mDL: MDL" as MDL 
+
+
+activate GF
+GF ->sPA : Asks to create a truck and inserts the truck's data
+activate sPA
+
+sPA --> MDL : POST /trucks body:data
+activate MDL
+
+MDL --> sPA :  status:201
+
+deactivate MDL
+
+sPA --> GF : success message
+
+deactivate sPA
+
+deactivate GF
+
+
+@enduml

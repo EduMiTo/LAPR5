@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="427px" preserveAspectRatio="none" style="width:483px;height:427px;background:#FFFFFF;" version="1.1" viewBox="0 0 483 427" width="483px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="234.8125" style="stroke:#181818;stroke-width:1.0;" width="10" x="13.5" y="92.6094"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="220.5" y="114.9609"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="220.5" y="236.3672"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="431.5" y="145.3125"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="431.5" y="266.7188"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="18" x2="18" y1="82.6094" y2="345.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="225.5" x2="225.5" y1="82.6094" y2="345.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="436.5" x2="436.5" y1="82.6094" y2="345.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="5.5" y="79.5332">GA</text><ellipse cx="18.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M18.5,21.5 L18.5,48.5 M5.5,29.5 L31.5,29.5 M18.5,48.5 L5.5,63.5 M18.5,48.5 L31.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="5.5" y="358.9551">GA</text><ellipse cx="18.5" cy="370.5313" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M18.5,378.5313 L18.5,405.5313 M5.5,386.5313 L31.5,386.5313 M18.5,405.5313 L5.5,420.5313 M18.5,405.5313 L31.5,420.5313 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="188.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="195.5" y="71.5332">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="188.5" y="344.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="195.5" y="365.9551">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="395.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="402.5" y="71.5332">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="395.5" y="344.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="402.5" y="365.9551">MDA: MDA</text><rect fill="#FFFFFF" height="234.8125" style="stroke:#181818;stroke-width:1.0;" width="10" x="13.5" y="92.6094"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="220.5" y="114.9609"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="220.5" y="236.3672"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="431.5" y="145.3125"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="431.5" y="266.7188"/><polygon fill="#181818" points="208.5,110.9609,218.5,114.9609,208.5,118.9609,212.5,114.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="214.5" y1="114.9609" y2="114.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="30.5" y="110.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="41.5" y="110.1045">Asks to delete a packing</text><polygon fill="#181818" points="419.5,141.3125,429.5,145.3125,419.5,149.3125,423.5,145.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="230.5" x2="425.5" y1="145.3125" y2="145.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="237.5" y="140.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="248.5" y="140.4561">GET /packings body:data</text><polygon fill="#181818" points="241.5,171.6641,231.5,175.6641,241.5,179.6641,237.5,175.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235.5" x2="435.5" y1="175.6641" y2="175.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="247.5" y="170.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="113" x="258.5" y="170.8076">200 body(packings)</text><polygon fill="#181818" points="34.5,202.0156,24.5,206.0156,34.5,210.0156,30.5,206.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="28.5" x2="224.5" y1="206.0156" y2="206.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="40.5" y="201.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="132" x="51.5" y="201.1592">shows all the packings</text><polygon fill="#181818" points="208.5,232.3672,218.5,236.3672,208.5,240.3672,212.5,236.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="23.5" x2="214.5" y1="236.3672" y2="236.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="30.5" y="231.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="41.5" y="231.5107">selects the packing to delete</text><polygon fill="#181818" points="419.5,262.7188,429.5,266.7188,419.5,270.7188,423.5,266.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="230.5" x2="425.5" y1="266.7188" y2="266.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="237.5" y="261.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="248.5" y="261.8623">DELETE /packings body:data</text><polygon fill="#181818" points="241.5,293.0703,231.5,297.0703,241.5,301.0703,237.5,297.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235.5" x2="435.5" y1="297.0703" y2="297.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="247.5" y="292.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="258.5" y="292.2139">status:200</text><polygon fill="#181818" points="29.5,323.4219,19.5,327.4219,29.5,331.4219,25.5,327.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="23.5" x2="224.5" y1="327.4219" y2="327.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="35.5" y="322.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="46.5" y="322.5654">success message</text><!--MD5=[bce9e3ec4a86506c12322caf9a4009c8]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to delete a packing
+activate sPA
+
+sPA - -> MDA : GET /packings body:data
+activate MDA
+
+MDA - -> sPA :  200 body(packings)
+
+deactivate MDA
+
+sPA - -> GA : shows all the packings
+
+deactivate sPA
+
+GA - -> sPA : selects the packing to delete
+
+activate sPA
+
+sPA - -> MDA : DELETE /packings body:data
+
+activate MDA
+
+MDA - -> sPA :  status:200
+
+deactivate MDA
+
+sPA - -> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml
+
+@startuml
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to delete a packing
+activate sPA
+
+sPA - -> MDA : GET /packings body:data
+activate MDA
+
+MDA - -> sPA :  200 body(packings)
+
+deactivate MDA
+
+sPA - -> GA : shows all the packings
+
+deactivate sPA
+
+GA - -> sPA : selects the packing to delete
+
+activate sPA
+
+sPA - -> MDA : DELETE /packings body:data
+
+activate MDA
+
+MDA - -> sPA :  status:200
+
+deactivate MDA
+
+sPA - -> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

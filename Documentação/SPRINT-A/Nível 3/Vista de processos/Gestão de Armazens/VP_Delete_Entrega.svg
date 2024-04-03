@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="583px" preserveAspectRatio="none" style="width:821px;height:583px;background:#FFFFFF;" version="1.1" viewBox="0 0 821 583" width="821px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="488.9453" style="stroke:#181818;stroke-width:1.0;" width="10" x="52" y="47.6094"/><rect fill="#FFFFFF" height="466.5938" style="stroke:#181818;stroke-width:1.0;" width="10" x="273" y="69.9609"/><rect fill="#FFFFFF" height="436.2422" style="stroke:#181818;stroke-width:1.0;" width="10" x="473" y="100.3125"/><rect fill="#FFFFFF" height="151.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="608" y="130.6641"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="742" y="161.0156"/><rect fill="none" height="232.1328" style="stroke:#000000;stroke-width:1.5;" width="547" x="10" y="297.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="57" x2="57" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="278" x2="278" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="478" x2="478" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="613" x2="613" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="747" x2="747" y1="37.6094" y2="546.5547"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="20" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="27" y="26.5332">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="20" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="27" y="567.0879">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="237" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="244" y="26.5332">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="237" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="244" y="567.0879">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="409" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="416" y="26.5332">DeliveriesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="409" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="416" y="567.0879">DeliveriesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="112" x="557" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="564" y="26.5332">DeliveryService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="112" x="557" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="564" y="567.0879">DeliveryService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="679" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="686" y="26.5332">IDeliveryRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="679" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="686" y="567.0879">IDeliveryRepository</text><rect fill="#FFFFFF" height="488.9453" style="stroke:#181818;stroke-width:1.0;" width="10" x="52" y="47.6094"/><rect fill="#FFFFFF" height="466.5938" style="stroke:#181818;stroke-width:1.0;" width="10" x="273" y="69.9609"/><rect fill="#FFFFFF" height="436.2422" style="stroke:#181818;stroke-width:1.0;" width="10" x="473" y="100.3125"/><rect fill="#FFFFFF" height="151.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="608" y="130.6641"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="742" y="161.0156"/><polygon fill="#181818" points="261,65.9609,271,69.9609,261,73.9609,265,69.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="62" x2="267" y1="69.9609" y2="69.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="69" y="65.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="181" x="80" y="65.1045">DELETE /Deliveries/HardDelete</text><polygon fill="#181818" points="461,96.3125,471,100.3125,461,104.3125,465,100.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="283" x2="467" y1="100.3125" y2="100.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="290" y="95.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="301" y="95.4561">HardDelete</text><polygon fill="#181818" points="596,126.6641,606,130.6641,596,134.6641,600,130.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="483" x2="602" y1="130.6641" y2="130.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="490" y="125.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="501" y="125.8076">DeleteAsync</text><polygon fill="#181818" points="730,157.0156,740,161.0156,730,165.0156,734,161.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="618" x2="736" y1="161.0156" y2="161.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="625" y="156.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="636" y="156.1592">GetByIdAsync</text><polygon fill="#181818" points="629,187.3672,619,191.3672,629,195.3672,625,191.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="623" x2="741" y1="191.3672" y2="191.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="635" y="186.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="43" x="646" y="186.5107">delivery</text><polygon fill="#181818" points="730,217.7188,740,221.7188,730,225.7188,734,221.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="618" x2="736" y1="221.7188" y2="221.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="625" y="216.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="46" x="636" y="216.8623">Remove</text><polygon fill="#181818" points="735,248.0703,745,252.0703,735,256.0703,739,252.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="618" x2="741" y1="252.0703" y2="252.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="625" y="247.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="82" x="636" y="247.2139">CommitAsync</text><polygon fill="#181818" points="494,278.4219,484,282.4219,494,286.4219,490,282.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="488" x2="612" y1="282.4219" y2="282.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="500" y="277.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="18" x="511" y="277.5654">dto</text><path d="M10,297.4219 L71,297.4219 L71,305.7734 L61,315.7734 L10,315.7734 L10,297.4219 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="232.1328" style="stroke:#000000;stroke-width:1.5;" width="547" x="10" y="297.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="311.917">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="55" x="86" y="310.8408">[success]</text><polygon fill="#181818" points="294,334.125,284,338.125,294,342.125,290,338.125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="288" x2="472" y1="338.125" y2="338.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="300" y="333.2686">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="90" x="311" y="333.2686">status 200 (Ok)</text><polygon fill="#181818" points="73,364.4766,63,368.4766,73,372.4766,69,368.4766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="272" y1="368.4766" y2="368.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="363.6201">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="97" y="363.6201">success message</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="557" y1="377.4766" y2="377.4766"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="60" x="15" y="388.8955">[NotFound]</text><polygon fill="#181818" points="294,410.6641,284,414.6641,294,418.6641,290,414.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="288" x2="472" y1="414.6641" y2="414.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="300" y="409.8076">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="133" x="318" y="409.8076">status 404 (Not Found)</text><polygon fill="#181818" points="73,441.0156,63,445.0156,73,449.0156,69,445.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="272" y1="445.0156" y2="445.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="440.1592">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="97" y="440.1592">insuccess message</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="557" y1="454.0156" y2="454.0156"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="74" x="15" y="465.4346">[BadRequest]</text><polygon fill="#181818" points="294,487.2031,284,491.2031,294,495.2031,290,491.2031" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="288" x2="472" y1="491.2031" y2="491.2031"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="300" y="486.3467">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="318" y="486.3467">status 400 (Bad Request)</text><polygon fill="#181818" points="73,517.5547,63,521.5547,73,525.5547,69,521.5547" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="272" y1="521.5547" y2="521.5547"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="516.6982">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="97" y="516.6982">insuccess message</text><!--MD5=[c3ec4e153bd1a79b6d7bc9c5e4f1d12d]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "IDeliveryRepository" as repository
+
+
+
+
+activate sPA
+sPA -> MDA : DELETE /Deliveries/HardDelete
+
+activate MDA
+
+MDA -> controller :  HardDelete
+
+activate controller
+
+controller-> service : DeleteAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository - -> service : delivery
+
+
+service -> repository : Remove
+
+service -> repository : CommitAsync
+
+deactivate repository
+
+service - -> controller : dto
+deactivate service
+
+alt success
+controller - -> MDA : status 200 (Ok)
+
+MDA - -> sPA : success message
+else NotFound
+controller - -> MDA : status 404 (Not Found)
+
+MDA - -> sPA : insuccess message
+else BadRequest
+controller - -> MDA : status 400 (Bad Request)
+
+MDA - -> sPA : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate sPA
+
+
+
+@enduml
+
+@startuml
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "IDeliveryRepository" as repository
+
+
+
+
+activate sPA
+sPA -> MDA : DELETE /Deliveries/HardDelete
+
+activate MDA
+
+MDA -> controller :  HardDelete
+
+activate controller
+
+controller-> service : DeleteAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository - -> service : delivery
+
+
+service -> repository : Remove
+
+service -> repository : CommitAsync
+
+deactivate repository
+
+service - -> controller : dto
+deactivate service
+
+alt success
+controller - -> MDA : status 200 (Ok)
+
+MDA - -> sPA : success message
+else NotFound
+controller - -> MDA : status 404 (Not Found)
+
+MDA - -> sPA : insuccess message
+else BadRequest
+controller - -> MDA : status 400 (Bad Request)
+
+MDA - -> sPA : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate sPA
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

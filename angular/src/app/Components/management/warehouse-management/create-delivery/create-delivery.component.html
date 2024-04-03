@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="create-delivery.component.css">
+<mat-drawer-container>
+    
+    <mat-drawer-content id = "content">
+      
+      
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Create Delivery</h1>
+        <form #deliveryForm="ngForm"
+            (ngSubmit)="createDelivery(deliveryForm.value)">
+            <div class="form-group">
+                <label> Weight</label>
+                <input required #Weight="ngModel" type="number" ngModel class="form-control" name="Weight"
+                    placeholder="ex: 100" id="Weight">
+                <div *ngIf="Weight.invalid && Weight.touched" class="alert alert-danger"> Weight is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Limit Date</label>
+                <input required #LimitDate="ngModel" type="date" ngModel class="form-control" name="LimitDate"
+                    placeholder="ex: 12/12/2012" id="LimitDate" onkeydown="return false">
+                <div *ngIf="LimitDate.invalid && LimitDate.touched" class="alert alert-danger"> A Limit Date is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Unload Time</label>
+                <input required #UnloadTime="ngModel" type="number" ngModel class="form-control" name="UnloadTime"
+                    placeholder="ex: 121" id="UnloadTime">
+                <div *ngIf="UnloadTime.invalid && UnloadTime.touched" class="alert alert-danger"> Unload Time is
+                    required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Load Time</label>
+                <input required #LoadTime="ngModel" type="number" ngModel class="form-control" name="LoadTime"
+                    placeholder="ex: 71" id="LoadTime">
+                <div *ngIf="LoadTime.invalid && LoadTime.touched" class="alert alert-danger"> Load Time is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Warehouse</label>
+                <br>
+                <select #WarehouseId name="WarehouseId" id="WarehouseId" class="form-control" aria-label="Default select example" style="margin-bottom: 2.5%;" form="deliveryForm"
+                    required ngModel>
+                    <option value= "" disabled selected>Select Warehouse</option>
+                    <option *ngFor="let warehouse of warehouses" value="{{warehouse.id}}" id="option">{{warehouse.designation}}</option>
+                </select>
+            </div>
+            <button [disabled]="deliveryForm.invalid" type="submit"
+                class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" id="submit">Create
+            </button>
+            <br>
+            <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted">
+        <h2>Delivery created sucessfully!</h2>
+        <table class="table" style="margin-top: 2%;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Weight</th>
+                    <th>Limit Date</th>
+                    <th>Unload Time</th>
+                    <th>Load Time</th>
+                    <th>Warehouse Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>{{delivery.id}}</td>
+                <td>{{delivery.weight}}</td>
+                <td>{{delivery.limitDate}}</td>
+                <td>{{delivery.unloadTime}}</td>
+                <td>{{delivery.loadTime}}</td>
+                <td>{{delivery.warehouse}}</td>
+            </tbody>
+        </table>
+        <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;"
+            (click)="submitted = false; deliveryForm.reset()">OK!</button>
+    </div>
+</div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  

@@ -1,0 +1,86 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "DeliveryComponent" as COMP
+participant "DeliveryServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "WarehouseService" as service2
+participant "IDeliveryRepository" as repository
+participant "IWarehouseRepository" as repository2
+
+
+
+GA-> COMP : introduces the data(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> COMP : createDelivery(id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+activate COMP
+COMP -> SS : createDelivery(delivery)
+activate SS
+SS -> MDA : post /Deliveries
+activate MDA
+
+MDA -> controller :  create (id, limitDate,weight,timeLoadTruck,\ntimeUnloadTruck,warehouse,warehouseId)
+
+note left
+ The parameters sent in the method are inserted in the request body
+end note
+
+activate controller
+
+controller -> service2 : getByIdAsync
+activate service2
+
+service2 -> repository2 : GetByIdAsync
+activate repository2
+
+repository2--> service2 : warehouse
+deactivate repository2
+
+
+
+service2 --> controller : warehouseDto
+deactivate service2
+
+controller-> service : AddAsync
+
+activate service
+
+service -> Delivery** : create
+
+service -> repository : AddAsync
+activate repository
+service-> repository: commitAsync
+
+
+deactivate repository
+service --> controller : deliveryDto
+deactivate service
+
+alt success
+controller --> MDA : status 201 (Created)
+
+MDA --> SS : success message
+SS --> COMP : success message
+GA<-- COMP : success message
+
+else insuccess
+controller --> MDA : status 400 (Bad Request)
+deactivate controller
+
+MDA --> SS : failure message
+deactivate MDA
+SS --> COMP : failure message
+deactivate SS
+deactivate MDA
+GA<-- COMP : failure message
+
+end
+deactivate COMP
+
+
+
+@enduml

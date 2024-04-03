@@ -1,0 +1,22 @@
+<button id ="back" mat-list-item (click)="clear()" style="position: absolute; z-index: 100; top: 20px; left: 20px; color: black;"><mat-icon>arrow_back</mat-icon>Back</button>
+
+<div class="dropdown" style = "z-index: 100">
+  <button>View Warehouses</button>
+    
+
+    <div class="dropdown-content">
+      <a style="text-align:center" class="dropdown-item" (click)="defaultView()">Default View</a>
+      <ng-container *ngFor="let warehouse of nodes">
+          <a style="text-align:center" class="dropdown-item" (click)="viewWarehouse(warehouse)">{{warehouse.designation}}</a>
+      </ng-container>
+    </div>
+  </div>
+  <input #automatic style="position: absolute; z-index: 100; top: 26px; left: 470px;" type="checkbox" id="automatic" name="automatic" value="automatic" [defaultChecked]="false" (change)="onChange()">
+  <a (click)="changeImage()" style="position: absolute; z-index: 100; top: 20px; left: 700px;"><i style='font-size:24px' class='fas' id="soundSpeaker" >&#xf028;</i></a>
+  <label for="automatic" style="position: absolute; z-index: 100; top: 20px; left: 490px;">Automatic movement</label>  
+
+<canvas #canvas id="canvas">
+</canvas>
+
+
+

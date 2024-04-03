@@ -1,0 +1,48 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    
+      <mat-drawer-content id = "content">
+        
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+        <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start center" style="margin: 50px;">
+          <div fxFlex="41%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>User roles distribution</mat-card-title>
+              </mat-card-header>
+              <mat-card-content style="display: flex; overflow: hidden;">
+                  <ngx-charts-pie-grid [results]="roles" [view]="view" [scheme]="colorScheme1" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></ngx-charts-pie-grid>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div fxFlex="55%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Creation distribution</mat-card-title>
+              </mat-card-header>
+              <mat-card-content style="display: flex; overflow: hidden;">
+                <ngx-charts-bar-vertical [view]="view" [scheme] ="colorScheme2" [results]="types" [gradient]="gradient" [xAxis]="showXAxis"
+                [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+               </ngx-charts-bar-vertical>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <mat-card class="users-card" style="margin: 50px;">
+          <mat-card-header>
+            <mat-card-title>Warehouse distribution in deliveries</mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="display: flex; overflow: hidden;">
+            <ngx-charts-bar-vertical [view]="view2" [scheme] ="colorScheme3" [results]="warehouses" [gradient]="gradient" [xAxis]="showXAxis"
+            [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel1"
+            [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+           </ngx-charts-bar-vertical>
+          </mat-card-content>
+        </mat-card>
+      </mat-drawer-content>
+    
+</mat-drawer-container>

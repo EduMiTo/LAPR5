@@ -1,0 +1,77 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "DeliveryComponent" as COMP
+participant "DeliveryServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "IDeliveryRepository" as repository
+
+
+
+GA-> COMP : introduces the data(id,weight,loadTime,\nunloadTime,limitDate,warehouse)
+activate COMP
+COMP -> COMP : updateDelivery(id,weight,loadTime,\nunloadTime,limitDate,warehouse)
+activate COMP
+COMP -> SS : updateDelivery(delivery)
+activate SS
+SS -> MDA : PATCH /Deliveries/Update
+
+activate MDA
+
+MDA -> controller :  Update
+
+activate controller
+
+controller-> service : UpdateAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository --> service : delivery
+
+
+service -> Delivery : update
+
+service -> repository : CommitAsync
+deactivate repository
+
+service --> controller : dto
+deactivate service
+
+alt success
+controller --> MDA : status 200 (Ok)
+
+MDA --> SS : success message
+SS --> COMP : success message
+GA<- COMP : success message
+else NotFound
+controller --> MDA : status 404 (Not Found)
+
+MDA --> SS : insuccess message
+SS --> COMP : insuccess message
+GA<- COMP : insuccess message
+else BadRequest
+controller --> MDA : status 400 (Bad Request)
+deactivate
+MDA --> SS : insuccess message
+deactivate MDA
+SS --> COMP : insuccess message
+deactivate SS
+GA<- COMP : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate COMP
+
+
+
+@enduml

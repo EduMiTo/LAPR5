@@ -1,0 +1,59 @@
+ <head>
+  <link rel="stylesheet" href="login.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+ 
+</head>
+<body style="background-color: #666666;">
+	 
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" style="padding: 15.5% 55px 55px;">
+					<span class="login100-form-title p-b-43" style="font-family: 'Montserrat'; margin-bottom: 20%;">
+						Login
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" placeholder="Email" name="Email" required #Email style="font-family: 'Montserrat';" id="email">
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" placeholder="Password" name="Password" required #Password style="font-family: 'Montserrat';" id="password">
+					</div>
+					<div class="container-login100-form-btn">
+						<button id ="go" class="login100-form-btn" (click)="loginUser(Email.value, Password.value)" style="font-family: 'Montserrat';">
+							<strong>Go</strong>
+						</button>
+					</div>
+					<label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+
+						<br>
+						<label style = "display: block; text-align: center; font-family: 'Montserrat';">OR</label>
+						<br>
+						<div style = "display: block; text-align: center; font-family: 'Montserrat';  color: #c39d79;">
+							<label><strong>Sign In With Google</strong></label><asl-google-signin-button></asl-google-signin-button>
+						</div>
+					
+				 
+				</form>
+				<div class="login100-more d-flex align-items-center" style="background-image: url('../../../assets/images/bg_1.jpg'); background-color: white; text-align: center; align-content: center;">
+          			<div style="background:rgba(255,255,255,0.5); margin: auto; width: 50%; padding: 3%;">
+						<strong><h1 id="eletricgo" style="font-family: 'Montserrat'; color: black;">EletricGo</h1></strong>
+						<strong><h4 id="eletricacme" style="font-family: 'Montserrat'; color: black;">EletricAcme, S.A.</h4></strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<router-outlet></router-outlet>
+
+
+
+

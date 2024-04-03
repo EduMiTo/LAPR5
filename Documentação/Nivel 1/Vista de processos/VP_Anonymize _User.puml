@@ -1,0 +1,16 @@
+@startuml
+actor Admin as ADM
+ADM -> EletricGo: Inicia anonimização de um utilizador
+activate EletricGo
+EletricGo --> ADM : Solicita a seleção de um utilizador
+deactivate
+
+ADM -> EletricGo: Seleciona o utilizador cujos dados pretende anonimizar
+activate EletricGo
+EletricGo --> ADM : Mostra dados a anonimizar e solicita confirmação
+deactivate EletricGo
+ADM -> EletricGo: Confirma
+activate EletricGo
+EletricGo --> ADM : Informa o sucesso da operação
+deactivate EletricGo
+@enduml

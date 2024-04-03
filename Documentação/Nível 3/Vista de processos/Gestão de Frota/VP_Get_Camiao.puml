@@ -1,0 +1,76 @@
+@startuml
+
+autonumber
+actor "GF" as GF
+participant "TruckComponent" as COMP
+participant "TruckServiceService" as SS
+participant "MDL" as MDL
+participant "TruckRoute" as ROUTE
+participant "TruckController" as CTR
+participant "TruckService" as SERVICE
+participant "TruckRepo" as REPO
+participant "TruckSchema" as SCHEMA
+participant "TruckMap" as MAP
+participant "TruckDTO" as DTO
+database "Database" as DB
+participant "truckRecord" as RECORD
+participant "trucksResult" as Result
+
+
+GF-> COMP : asks to list the trucks
+activate COMP
+COMP -> COMP : getTrucks()
+activate COMP
+COMP -> SS : getAllTrucks()
+activate SS
+SS -> MDL : get(/Trucks)
+activate MDL
+MDL -> ROUTE: get(/Trucks)
+
+note left
+  Depending on the selected filter (plate) 
+  the request and the methods will be 
+  different, changing only the method's name
+  and implementation.
+end note
+
+activate ROUTE
+ROUTE -> CTR : getTrucks
+activate CTR
+CTR -> SERVICE : getTrucks
+activate SERVICE
+SERVICE -> REPO : trucksResult = findAll
+activate REPO
+REPO -> SCHEMA : truckRecord = find
+activate SCHEMA
+SCHEMA -> DB : find
+activate DB
+deactivate DB
+deactivate SCHEMA
+loop element : truckRecord
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+end
+deactivate REPO
+
+loop linha : pathsResult
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+end
+SERVICE --> CTR : truckResult
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> MDL :  data
+deactivate ROUTE
+MDL --> SS :  data
+deactivate MDL
+COMP <-- SS : data
+deactivate SS
+deactivate MDL
+GF<-- COMP : displays data
+deactivate ROUTE
+
+@enduml

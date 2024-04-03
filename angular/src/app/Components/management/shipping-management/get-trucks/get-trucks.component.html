@@ -1,0 +1,50 @@
+<mat-drawer-container>
+<mat-drawer mode="side" [opened]="sideBarOpen">
+  <!-- <mat-drawer mode="side" opened="true"> -->
+  <app-sidenav ></app-sidenav>
+</mat-drawer>
+<mat-drawer-content>
+
+<app-header  (toggleSidebarForMe)="sideBarToggler()"></app-header>
+            <router-outlet></router-outlet>
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter" id="myInput">
+  </mat-form-field>
+  <input #active style="margin-left: 1%;" type="checkbox" id="active" name="active" value="active" checked="true" (change)="onChange(active.checked,inhibt.checked)">
+  <label for="active" style="margin-left: 3px;">Active</label>
+  <input #inhibt style="margin-left: 1%;" type="checkbox" id="inhibt" name="inhibt" value="inhibt" checked="true" (change)="onChange(active.checked,inhibt.checked)">
+  <label for="inhibt" style="margin-left: 3px;">Inhibited</label><br>
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> <b>{{column.header}}</b> </mat-header-cell>
+      <mat-cell *matCellDef="let row" [ngClass]="{'text-inhibt': row.active == false }"> <span class="long-text"> {{column.cell(row)}} </span></mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="deletes">
+      <mat-header-cell *matHeaderCellDef> &nbsp; </mat-header-cell>
+        <mat-cell *matCellDef="let i = index; let row">        
+          <button style="margin: auto;" mat-button (click)="deleteTruck(row.plate)" id={{row.plate}}>Delete</button>
+          <button style="margin-left: 5%; " mat-button (click)="inactivateTruck(row.plate)" [hidden]="!row.active" id="I{{row.plate}}">Inhibit</button>       
+          <button style="margin-left: 5%; " mat-button (click)="activateTruck(row)" [hidden]="row.active" id="A{{row.plate}}">Activate</button>  
+        </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'truck-inhibt': row.active == false }">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>

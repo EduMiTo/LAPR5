@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="register.component.css">
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content id = "content">
+    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+    <div class="container">
+      <div [hidden]="submitted">
+        <h1>Register User</h1>
+        <form #registerForm="ngForm"
+          (ngSubmit)=" validatePassword(password.value, confirmPassword.value); registerUser(registerForm.value)">
+          <div class="form-group">
+            <label> First Name</label>
+            <input required #firstName="ngModel" type="text" ngModel class="form-control" name="firstName"
+              placeholder="ex: Mehdi" id="firstName">
+            <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger"> First Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name"> Last Name</label>
+            <input required #lastName="ngModel" type="text" ngModel class="form-control" name="lastName"
+              placeholder="ex: Taremi" id="lastName">
+            <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger"> Last Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input required #email="ngModel" type="text" ngModel class="form-control" name="email"
+              placeholder="ex: mehdi@eletric-go.com" id="email" (ngModelChange)="emailIsGmail(email.value)">
+            <div *ngIf="email.invalid && email.touched" class="alert alert-danger"> Email is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Password</label>
+            <input [required]="!gmail" #password="ngModel" type="password" ngModel class="form-control" name="password" id="password" [disabled]="gmail">
+            <div *ngIf="password.invalid && password.touched" class="alert alert-danger"> Password is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Confirm Password</label>
+            <input [required]="!gmail" #confirmPassword="ngModel" type="password" ngModel class="form-control"
+              name="confirmPassword" id="confirmPassword" [disabled]="gmail">
+            <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="alert alert-danger"> Please confirm
+              your password
+            </div>
+            <div *ngIf="match === false" class="alert alert-danger"> Passwords do not match
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Phone Number</label>
+            <input required #phone="ngModel" type="phone" ngModel class="form-control" name="phone" id="phone" placeholder="912345678">
+            <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger"> Phone Number is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Role</label>
+            <select class="form-control" id="name" required [(ngModel)]="role.name" name="name" #name="ngModel"
+              (change)="getRolesByName(name.value)">
+              <option value="" disabled selected>Select Role</option>
+              <option *ngFor="let r of roles" [value]="r.name" id="option">{{r.name}}</option>
+            </select>
+          </div>
+
+          <button [disabled]="registerForm.invalid" type="submit" class="btn btn-outline-success my-2 my-sm-0" id="submit">Register
+            User</button>
+            <br>
+            <br>
+            <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+
+            <label for="inhibt" style="margin-left: 3px;">The <b>user</b> has <b>read</b> and <b>accept</b> the <font color="#a3836a"><u><a role="button" (click)="openDialogWithoutRef()">Terms & Conditions</a></u></font> </label><br>
+
+        </form>
+      </div>
+
+      <div [hidden]="!submitted">
+        <h1>User registered sucessfully!</h1>
+          <table class="table" style="margin-top: 2%;">
+              <thead>
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Phone Number</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <td>{{user.firstName}}</td>
+                  <td>{{user.lastName}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.phone}}</td>
+              </tbody>
+          </table>
+        <button type="reset" class="btn btn-outline-success my-2 my-sm-0"
+          (click)="submitted = false; registerForm.reset()" id="ok">OK!</button>
+      </div>
+    </div>
+
+    <ng-template #myDialog>
+      <h2 matDialogTitle><b>Terms & Conditions</b></h2>
+      <hr>
+      <mat-dialog-content>
+                    <p>&nbsp;</p>
+                    <h2>Collection and use of data</h2>
+                        <p>&nbsp;</p>
+                        <h3>Data collected</h3>
+                        <p>In order to access the <em>EletricGo</em>, the user must be registered, for this, it is necessary to fill in the information below, for the user to effectively exercise his function.</p>
+                        <p><strong>Identification</strong>: Name</p>
+                        <p><strong>Contact</strong>: E-mail, Phone, Google Account</p>
+                        <p>The user has the option of logging in via the Google account.</p>
+                        <p>&nbsp;</p>
+                        <h3>Usefulness of the collected data</h3>
+                        <p>The data provided in the registration is crucial for the performance of its function. They have the following purpose:</p>
+                        <p><strong>Authentication</strong>: e-mail, google account</p>
+                        <p>&nbsp;</p>
+                        <h3>Responsible for data processing</h3>
+                        <p>The company PentaX-Lastdance Lda. is responsible for processing all personal data made available within the scope of using the application.</p>
+                        <p>&nbsp;</p>
+                        <p><strong>Name</strong>: PentaX-Lastdance Lda</p>
+                        <p><strong>NIPC</strong>: 501540709</p>
+                        <p><strong>Address</strong>: Rua Dr. Ant&oacute;nio Bernardino Almeida, 431</p>
+                        <p><strong>Location</strong>: Porto, Portugal</p>
+                        <p><strong>Email</strong>: <a href="mailto:info@pentaxlastdance.com">info@pentaxlastdance.com</a></p>
+                        <p><strong>Telephone</strong>: (+351) 227855555</p>
+                        <p>&nbsp;</p>
+                    <h2>Data retention and deletion</h2>
+                    <p>&nbsp;</p>
+                    <h3>Data change</h3>
+                    <p>Pursuant to the legal provision of paragraph a) of paragraph 1 of Article 5; and Article 16 of the General Data Protection Regulation (GDPR), personal data must be duly updated and the user is entitled to update them, respectively. Therefore, the user must request their amendment, as the gifts are inaccurate, requiring that those previously presented be deleted.</p>
+                    <p>&nbsp;</p>
+                    <h3>Account deactivation and elimination</h3>
+                    <p>According to the legal provision of point a) of paragraph 1 of Article 17 of the General Regulation on Data Protection (GDPR), the holder has the right to “be forgotten”, in this way, since the user account is essential for it. exercise their function, personal data are kept until they are no longer necessary - end of the employee's contract.</p>
+                    <p>&nbsp;</p>
+                    <h2>Legal basis</h2>
+                    <p>Personal data is collected and used:</p>
+                    <ul>
+                    <li>According to the user's consent when being registered in the system - Article 6, paragraph 1a of the General Data Protection Regulation (GDPR)</li>
+                    </ul>
+                    <p>&nbsp;</p>
+                    <h2>User rights and how to exercise them</h2>
+                    <p>The user presents the Right to Information, the Right of Access, the Right of Rectification, the Right of Opposition, the Right to Erasure, the Right to Limit Treatment and the Right to Data Portability. These rights can be exercised in the same profile. In addition, the user has the right to file a complaint with the National Data Protection Commission:</p>
+                    <ul>
+                    <li>Address: Av. D. Carlos I, 134, 1o 1200-651</li>
+                    <li>Location: Lisboa, Portugal</li>
+                    <li>Email: <a href="mailto:geral@cnpd.pt">geral@cnpd.pt</a></li>
+                    <li>Telephone: (+351) 213 928 400</li>
+                    </ul>
+                    <p>&nbsp;</p>
+
+                    <h1><strong>Terms of use</strong></h1>
+                    <h2>Purpose of the Application</h2>
+                    <p>This application is a prototype distribution planning system for deliveries between warehouses using a fleet of electric vehicles.</p>
+                    <h2>&nbsp;</h2>
+                    <h2>User obligations</h2>
+                    <p>When using the application, the user declares that he is over 18 years of age and has read the application's privacy policy, agreeing with it in its entirety.</p>
+                    <p>&nbsp;</p>
+
+
+      
+        <!--<div id="warning">
+        <p><b><font color="orange"> <span style="font-size: 18px;"> WARNING:</span></font></b> By registering an account in the application, the user is agreeing to the terms and conditions regarding the processing of personal information, in accordance with article 6, n1, a) of the  General Data Protection Regulation (GDPR).
+       </p>
+       </div>
+       <input #userData style="margin-left: 1%;" type="checkbox" id="userData" name="userData" value="userData"  (change)="onChange()" >
+        <label for="inhibt" style="margin-left: 3px;">By signing the contract, the collaborator has read and agree with the privacy policy!</label><br>-->
+
+      </mat-dialog-content>
+  
+    </ng-template>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to create a new delivery and inserts the delivery's data
+activate sPA
+
+sPA --> MDA : POST /deliveries body:data
+activate MDA
+
+MDA --> sPA :  status:201
+
+deactivate MDA
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+@enduml

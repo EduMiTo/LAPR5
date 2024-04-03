@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="583px" preserveAspectRatio="none" style="width:918px;height:583px;background:#FFFFFF;" version="1.1" viewBox="0 0 918 583" width="918px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="488.9453" style="stroke:#181818;stroke-width:1.0;" width="10" x="52" y="47.6094"/><rect fill="#FFFFFF" height="466.5938" style="stroke:#181818;stroke-width:1.0;" width="10" x="220" y="69.9609"/><rect fill="#FFFFFF" height="436.2422" style="stroke:#181818;stroke-width:1.0;" width="10" x="420" y="100.3125"/><rect fill="#FFFFFF" height="151.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="575" y="130.6641"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="731" y="161.0156"/><rect fill="none" height="232.1328" style="stroke:#000000;stroke-width:1.5;" width="503" x="10" y="297.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="57" x2="57" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="225" x2="225" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="425" x2="425" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="580" x2="580" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="736" x2="736" y1="37.6094" y2="546.5547"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="868" x2="868" y1="37.6094" y2="546.5547"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="20" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="27" y="26.5332">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="20" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="27" y="567.0879">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="184" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="191" y="26.5332">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="184" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="191" y="567.0879">MDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="347" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="354" y="26.5332">WarehousesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="347" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="354" y="567.0879">WarehousesController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="513" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="520" y="26.5332">WarehouseService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="513" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="520" y="567.0879">WarehouseService</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="657" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="664" y="26.5332">IWarehouseRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="657" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="664" y="567.0879">IWarehouseRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="87" x="825" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="832" y="26.5332">Warehouse</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="87" x="825" y="545.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="832" y="567.0879">Warehouse</text><rect fill="#FFFFFF" height="488.9453" style="stroke:#181818;stroke-width:1.0;" width="10" x="52" y="47.6094"/><rect fill="#FFFFFF" height="466.5938" style="stroke:#181818;stroke-width:1.0;" width="10" x="220" y="69.9609"/><rect fill="#FFFFFF" height="436.2422" style="stroke:#181818;stroke-width:1.0;" width="10" x="420" y="100.3125"/><rect fill="#FFFFFF" height="151.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="575" y="130.6641"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="731" y="161.0156"/><polygon fill="#181818" points="208,65.9609,218,69.9609,208,73.9609,212,69.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="62" x2="214" y1="69.9609" y2="69.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="69" y="65.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="80" y="65.1045">PATCH /Warehouses</text><polygon fill="#181818" points="408,96.3125,418,100.3125,408,104.3125,412,100.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="230" x2="414" y1="100.3125" y2="100.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="237" y="95.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="248" y="95.4561">Update</text><polygon fill="#181818" points="563,126.6641,573,130.6641,563,134.6641,567,130.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="430" x2="569" y1="130.6641" y2="130.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="437" y="125.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="448" y="125.8076">UpdateAsync</text><polygon fill="#181818" points="719,157.0156,729,161.0156,719,165.0156,723,161.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="585" x2="725" y1="161.0156" y2="161.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="592" y="156.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="603" y="156.1592">GetByIdAsync</text><polygon fill="#181818" points="596,187.3672,586,191.3672,596,195.3672,592,191.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="590" x2="730" y1="191.3672" y2="191.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="602" y="186.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="613" y="186.5107">warehouse</text><polygon fill="#181818" points="856.5,217.7188,866.5,221.7188,856.5,225.7188,860.5,221.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="585" x2="862.5" y1="221.7188" y2="221.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="592" y="216.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="603" y="216.8623">update</text><polygon fill="#181818" points="724,248.0703,734,252.0703,724,256.0703,728,252.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="585" x2="730" y1="252.0703" y2="252.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="592" y="247.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="82" x="603" y="247.2139">CommitAsync</text><polygon fill="#181818" points="441,278.4219,431,282.4219,441,286.4219,437,282.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="435" x2="579" y1="282.4219" y2="282.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="447" y="277.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="18" x="458" y="277.5654">dto</text><path d="M10,297.4219 L71,297.4219 L71,305.7734 L61,315.7734 L10,315.7734 L10,297.4219 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="232.1328" style="stroke:#000000;stroke-width:1.5;" width="503" x="10" y="297.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="311.917">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="55" x="86" y="310.8408">[success]</text><polygon fill="#181818" points="241,334.125,231,338.125,241,342.125,237,338.125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235" x2="419" y1="338.125" y2="338.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="247" y="333.2686">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="90" x="258" y="333.2686">status 200 (Ok)</text><polygon fill="#181818" points="73,364.4766,63,368.4766,73,372.4766,69,368.4766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="219" y1="368.4766" y2="368.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="363.6201">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="97" y="363.6201">success message</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="513" y1="377.4766" y2="377.4766"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="60" x="15" y="388.8955">[NotFound]</text><polygon fill="#181818" points="241,410.6641,231,414.6641,241,418.6641,237,414.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235" x2="419" y1="414.6641" y2="414.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="247" y="409.8076">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="133" x="265" y="409.8076">status 404 (Not Found)</text><polygon fill="#181818" points="73,441.0156,63,445.0156,73,449.0156,69,445.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="219" y1="445.0156" y2="445.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="440.1592">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="97" y="440.1592">insuccess message</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="513" y1="454.0156" y2="454.0156"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="74" x="15" y="465.4346">[BadRequest]</text><polygon fill="#181818" points="241,487.2031,231,491.2031,241,495.2031,237,491.2031" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235" x2="419" y1="491.2031" y2="491.2031"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="247" y="486.3467">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="265" y="486.3467">status 400 (Bad Request)</text><polygon fill="#181818" points="73,517.5547,63,521.5547,73,525.5547,69,521.5547" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="67" x2="219" y1="521.5547" y2="521.5547"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="79" y="516.6982">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="97" y="516.6982">insuccess message</text><!--MD5=[3bc2d40ac63811cbe025e6698e8fd878]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "WarehousesController" as controller
+participant "WarehouseService" as service
+participant "IWarehouseRepository" as repository
+
+
+
+
+activate sPA
+sPA -> MDA : PATCH /Warehouses
+
+activate MDA
+
+MDA -> controller :  Update
+
+activate controller
+
+controller-> service : UpdateAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository - -> service : warehouse
+
+
+service -> Warehouse : update
+
+service -> repository : CommitAsync
+deactivate repository
+
+service - -> controller : dto
+deactivate service
+
+alt success
+controller - -> MDA : status 200 (Ok)
+
+MDA - -> sPA : success message
+else NotFound
+controller - -> MDA : status 404 (Not Found)
+
+MDA - -> sPA : insuccess message
+else BadRequest
+controller - -> MDA : status 400 (Bad Request)
+
+MDA - -> sPA : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate sPA
+
+
+
+@enduml
+
+@startuml
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "WarehousesController" as controller
+participant "WarehouseService" as service
+participant "IWarehouseRepository" as repository
+
+
+
+
+activate sPA
+sPA -> MDA : PATCH /Warehouses
+
+activate MDA
+
+MDA -> controller :  Update
+
+activate controller
+
+controller-> service : UpdateAsync
+
+activate service
+
+service -> repository : GetByIdAsync
+activate repository
+
+repository - -> service : warehouse
+
+
+service -> Warehouse : update
+
+service -> repository : CommitAsync
+deactivate repository
+
+service - -> controller : dto
+deactivate service
+
+alt success
+controller - -> MDA : status 200 (Ok)
+
+MDA - -> sPA : success message
+else NotFound
+controller - -> MDA : status 404 (Not Found)
+
+MDA - -> sPA : insuccess message
+else BadRequest
+controller - -> MDA : status 400 (Bad Request)
+
+MDA - -> sPA : insuccess message
+end
+deactivate controller
+
+deactivate MDA
+
+
+deactivate sPA
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

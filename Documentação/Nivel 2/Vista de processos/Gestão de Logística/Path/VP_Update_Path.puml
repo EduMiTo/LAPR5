@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+
+participant "sPA: SPA" as sPA
+participant "MDL: MDL" as MDL 
+
+activate GA
+GA ->sPA : Asks to update a path
+activate sPA
+
+sPA --> MDL : GET /paths body:data
+activate MDL
+
+MDL --> sPA :  200 body(paths)
+
+deactivate MDL
+
+sPA --> GA : shows all the paths
+
+deactivate sPA
+
+GA --> sPA : selects the path to update and the updated data
+
+activate sPA
+
+sPA --> MDL : PUT /paths body:data
+
+activate MDL
+
+MDL --> sPA :  status:200
+
+deactivate MDL
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="update-truck.component.css">
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <!-- <mat-drawer mode="side" opened="true"> -->
+        <app-sidenav ></app-sidenav>
+      </mat-drawer>
+    <mat-drawer-content>
+            <app-header  (toggleSidebarForMe)="sideBarToggler()"></app-header>
+            <router-outlet></router-outlet>
+      <div class="container">
+        <div [hidden]="submitted">
+            <h1>Update Truck</h1>
+            <form #truckForm="ngForm"
+                (ngSubmit)="updateTruck(truckForm.value)">
+                <div class="form-group">
+                    <label id="label"> Plate</label>
+                    <select class="form-control" id="Plate" required [(ngModel)]="truck.plate" name="Plate" #Plate="ngModel" (change)="getTruckByPlate(Plate.value)">
+                        <option value="" disabled selected>Select Truck</option>
+                        <option *ngFor="let t of trucks" [value]="t.plate" id="option">{{t.plate}}</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="name">Tare (kg)</label>
+                    <input required #Tare="ngModel" type="text" ngModel class="form-control" name="Tare" [(ngModel)]="selectedTruck.tare" id="Tare">
+                </div>
+    
+                <div class="form-group">
+                    <label for="name">Mass capacity (kg)</label>
+                    <input required #MassCapacity="ngModel" type="text" ngModel class="form-control" name="MassCapacity" [(ngModel)]="selectedTruck.massCapacity" id="MassCapacity">
+                </div>
+    
+                <div class="form-group">
+                    <label for="name">Maximum battery (kWh)</label>
+                    <input required #Battery="ngModel" type="text" ngModel class="form-control" name="Battery" [(ngModel)]="selectedTruck.maximumBattery" id="Battery">
+                </div>
+    
+                <div class="form-group">
+                    <label for="name">Autonomy (kg)</label>
+                    <input required #Autonomy="ngModel" type="text" ngModel class="form-control" name="Autonomy" [(ngModel)]="selectedTruck.autonomy" id="Autonomy">
+                </div>
+    
+                <div style="text-align: center; border-bottom: 1px solid rgb(196, 196, 196); margin-bottom: 10px;">
+                    <label>Charge time</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="name">Hours</label>
+                            <input required #Hours="ngModel" type="text" ngModel class="form-control" name="Hours" [(ngModel)]="selectedTruck.chargeTime.hours" id="Hours">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="name">Minutes</label>
+                            <input required #Minutes="ngModel" type="text" ngModel class="form-control" name="Minutes" [(ngModel)]="selectedTruck.chargeTime.minutes" id="Minutes">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="name">Seconds</label>
+                            <input required #Seconds="ngModel" type="text" ngModel class="form-control" name="Seconds" [(ngModel)]="selectedTruck.chargeTime.seconds" id="Seconds">
+                        </div>
+                    </div>
+                  </div>
+    
+                <button [disabled]="truckForm.invalid" type="submit"
+                class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;" id="submit">Update</button>
+                <label for="name" id="result" [hidden]="!error" class="errormsg">&#9888; {{message}} &#9888;</label>
+            </form>
+        </div>
+    
+        <div [hidden]="!submitted">
+            <h2>Truck updated sucessfully!</h2>
+            <table class = "table" style = "margin-top: 2%;">
+                <thead>
+                <tr>
+                    <th>Plate</th>
+                    <th>Tare</th>
+                    <th>Mass capacity</th>
+                    <th>Battery</th>
+                    <th>Autonomy</th>
+                    <th>Hours</th>
+                    <th>Minutes</th>
+                    <th>Seconds</th>
+                </tr>
+                </thead>
+                <tbody>
+                        <td>{{truck.plate}}</td>
+                        <td>{{truck.tare}}</td>
+                        <td>{{truck.massCapacity}}</td>
+                        <td>{{truck.maximumBattery}}</td>
+                        <td>{{truck.autonomy}}</td>
+                        <td>{{truck.chargeTime.hours}}</td>
+                        <td>{{truck.chargeTime.minutes}}</td>
+                        <td>{{truck.chargeTime.seconds}}</td>
+                </tbody>
+            </table>
+            <button type="reset" class="btn btn-outline-dark my-2 my-sm-0" style="margin-top: 500px;"
+                (click)="error = false; submitted = false; truckForm.reset(); ngOnInit()" id="ok">OK!</button>
+        </div>
+    
+    
+        <!--
+    <input type="text" placeholder="Id" name="Id" required #Id><br><br>
+    <input type="text" placeholder="Designation" name="Designation" required #Designation><br><br>
+    <input type="text" placeholder="Address" name="Address" required #Address><br><br>
+    <input type="text" placeholder="Latitude" name="Latitude" required #Latitude><br><br>
+    <input type="text" placeholder="Longitude" name="Longitude" required #Longitude><br><br>
+    <input type="text" placeholder="Altitude" name="Altitude" required #Altitude><br><br>
+    
+    
+    
+    
+    <button (click)="createWarehouse(Id.value, Designation.value, Address.value, Latitude.value, Longitude.value, Altitude.value)">Create</button>
+    -->
+    </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+
+

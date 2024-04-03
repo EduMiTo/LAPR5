@@ -1,0 +1,80 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+hide empty attributes
+skinparam classBackgroundColor beige
+skinparam ArrowColor #222222
+
+package "<<aggregate>> Caminho" {
+    entity Caminho
+}
+
+package "<<aggregate>> Camiao" {
+    entity Camiao
+}
+
+package "<<aggregate>> Entregas" {
+    entity Entrega
+}
+
+package "<<aggregate>> Armazem" {
+    entity Armazem
+}
+
+package "<<aggregate>> Viagem" {
+    entity Viagem
+}
+
+
+entity Armazem <<entity>> {
+    -id
+    -designacao
+    -endereco
+    -latitude
+    -longitude
+    -altitude
+    -principal
+}
+
+entity Entrega <<entity>> {
+    -id
+    -data
+    -massa
+    -id_ArmazemDestino
+    -tempoCarregarCamiao
+    -tempoDescarregarCamiao
+}
+
+
+entity Camiao <<entity>> {
+    -id
+    -autonomia
+    -tara
+    -capacidadeCarga
+    -cargaMaxima
+    -tempoCarregamento
+}
+
+entity Caminho <<entity>> {
+    -id
+    -id_ArmazemPartida
+    -id_ArmazemDestino
+    -id_Viagem
+    -distancia
+    -tempo
+    -energia
+    -tempoExtra
+}
+entity Viagem <<entity>> {
+    -id
+}
+
+Armazem "2" <-- "*" Caminho: compreende
+
+Viagem "1"--> "1" Camiao : feita por
+Viagem "1"--> "*" Caminho : compreende
+
+Entrega "*" --> "1" Armazem  : recebida por
+
+@enduml

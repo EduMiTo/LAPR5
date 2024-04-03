@@ -1,0 +1,79 @@
+@startuml
+
+package "EletricGo" {
+
+
+
+  package "SPA" as spa{}
+
+  package "ARMAZEM" as armazem{
+    package "ARMAZEM Application Services" {
+           package "ARMAZEM Services" as wservices {}
+       }
+
+       package "ARMAZEM Interface Adapters" {
+           package "ARMAZEM Repository" as wrep {}
+           package "ARMAZEM Controllers" as wctrs {}
+       }
+
+        package "ARMAZEM Domain" {
+            package "ARMAZEM Mappers" as wmappers {}
+            package "ARMAZEM DTOs" as wdtos {}
+            package "ARMAZEM Domain" as wdomain {}
+        }
+        package "ARMAZEM Infraestructure" {
+            package "ARMAZEM Persistence" as wpersistence {}
+            package "ARMAZEM Routes" as wroutes {}
+        }
+  }
+
+  package "LOGISTICA" as logistica{
+       package "Application Services" {
+           package "Services" as services {}
+       }
+
+       package "Interface Adapters" {
+           package "Repository" as rep {}
+           package "Controllers" as ctrs {}
+       }
+
+        package "Domain" {
+            package "Mappers" as mappers {}
+            package "DTOs" as dtos {}
+            package "Domain" as domain {}
+        }
+        package "Infraestructure" {
+            package "Persistence" as persistence {}
+            package "Routes" as routes {}
+        }
+  }
+  package "PLANEAMENTO" as planeamento{}
+
+}
+
+routes .> ctrs
+ctrs ..> services
+services ..> mappers
+services ..> rep
+mappers ..> dtos
+mappers ..> domain
+rep .-..> persistence
+
+wroutes .> wctrs
+wctrs ..> wservices
+wservices ..> wmappers
+wservices ..> wrep
+wservices ..> wdomain
+wmappers ..> wdtos
+wmappers ..> wdomain
+wrep .-..> wpersistence
+wrep .-..> wdomain
+
+spa .> wroutes
+spa .> routes
+spa ..> armazem
+spa .> planeamento
+logistica ..> planeamento
+logistica .> armazem
+
+@enduml

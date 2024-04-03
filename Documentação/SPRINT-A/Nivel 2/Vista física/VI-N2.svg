@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="569px" preserveAspectRatio="none" style="width:528px;height:569px;background:#FFFFFF;" version="1.1" viewBox="0 0 528 569" width="528px" zoomAndPan="magnify"><defs/><g><!--MD5=[4be5faef1ea6efd927e3579990b77274]
+cluster SPA--><g id="cluster_SPA"><polygon fill="none" points="243,16,253,6,431,6,431,185,421,195,243,195,243,16" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="431" y1="16" y2="6"/><line style="stroke:#181818;stroke-width:1.0;" x1="243" x2="421" y1="16" y2="16"/><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="421" y1="16" y2="195"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="27" x="319.5" y="33.5332">SPA</text></g><!--MD5=[8699c0c8e953ee53654a072cc875bfb4]
+cluster Browser--><g id="cluster_Browser"><rect fill="none" height="100" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="116" x="283" y="63"/><rect fill="none" height="10" style="stroke:#181818;stroke-width:1.0;" width="15" x="379" y="68"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="377" y="70"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="377" y="74"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="311.5" y="90.5332">Browser</text></g><!--MD5=[ed364d028dba183b2e6cf1b1467fd7c0]
+cluster ARM--><g id="cluster_ARM"><polygon fill="none" points="16,271,26,261,192,261,192,372,182,382,16,382,16,271" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="182" x2="192" y1="271" y2="261"/><line style="stroke:#181818;stroke-width:1.0;" x1="16" x2="182" y1="271" y2="271"/><line style="stroke:#181818;stroke-width:1.0;" x1="182" x2="182" y1="271" y2="382"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="100" x="50" y="288.5332">localhost:5001</text></g><!--MD5=[751f213ad01bb05129de3b099e4c540f]
+cluster LOG--><g id="cluster_LOG"><polygon fill="none" points="130,441,140,431,311,431,311,542,301,552,130,552,130,441" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="301" x2="311" y1="441" y2="431"/><line style="stroke:#181818;stroke-width:1.0;" x1="130" x2="301" y1="441" y2="441"/><line style="stroke:#181818;stroke-width:1.0;" x1="301" x2="301" y1="441" y2="552"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="100" x="166.5" y="458.5332">localhost:3000</text></g><!--MD5=[10e11f6c9940b1f075bee84e520123d5]
+cluster PLAN--><g id="cluster_PLAN"><polygon fill="none" points="302,271,312,261,511,261,511,372,501,382,302,382,302,271" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="501" x2="511" y1="271" y2="261"/><line style="stroke:#181818;stroke-width:1.0;" x1="302" x2="501" y1="271" y2="271"/><line style="stroke:#181818;stroke-width:1.0;" x1="501" x2="501" y1="271" y2="382"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="105" x="350" y="288.5332">PLANEAMENTO</text></g><!--MD5=[806b0e1d6ed9c3fb9ff9da520f9c6718]
+entity SPA UI--><g id="elem_SPA UI"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="83" x="299.5" y="99"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="362.5" y="104"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="360.5" y="106"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="360.5" y="110"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="314.5" y="133.5332">SPA UI</text></g><!--MD5=[a27a38ec435cb20ba72737cfb3068c7c]
+entity armazem--><g id="elem_armazem"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="107" x="60.5" y="310"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="147.5" y="315"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="145.5" y="317"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="145.5" y="321"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="75.5" y="344.5332">ARMAZEM</text></g><!--MD5=[ded1c90f3b0dc0717f28056e292ccb32]
+entity logistica--><g id="elem_logistica"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="113" x="173.5" y="480"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="266.5" y="485"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="264.5" y="487"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="264.5" y="491"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="188.5" y="514.5332">LOGISTICA</text></g><!--MD5=[1f5f572fc467ae50c4f6423dcfedb84d]
+entity planeamento--><g id="elem_planeamento"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="142" x="345" y="310"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="467" y="315"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="465" y="317"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="465" y="321"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="360" y="344.5332">PLANEAMENTO</text></g><!--MD5=[b9fed1ff1269576864ba51ed11a24c40]
+link SPA to ARM--><g id="link_SPA_ARM"><path d="M242.8577,126.1681 C242.7171,126.2075 242.5748,126.2474 242.4308,126.2879 C242.1429,126.3688 241.8484,126.4519 241.5474,126.5372 C240.9455,126.7079 240.3176,126.8874 239.6646,127.0757 C238.3587,127.4525 236.9523,127.8648 235.4522,128.3131 C232.4518,129.2098 229.0763,130.2507 225.3781,131.4397 C210.5856,136.1956 190.6325,143.3213 168.8925,153.0675 C125.4125,172.56 74.785,202.535 44,245 C41.1563,248.9225 38.7227,253.1855 36.6416,257.6489 C36.3814,258.2069 36.1268,258.7679 35.8776,259.3318 C35.753,259.6138 35.6297,259.8965 35.5078,260.1798 C35.4468,260.3215 35.3862,260.4634 35.3259,260.6054 " fill="none" id="SPA-ARM" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="66" y="233.4951">http/s</text></g><!--MD5=[73d51c373c8f5d5ec974a9f36cf7cb8c]
+link SPA to LOG--><g id="link_SPA_LOG"><path d="M248.0962,195.819 C247.8009,198.9334 247.4778,202.1153 247.1244,205.3577 C246.4175,211.8425 245.5894,218.5692 244.62,225.4813 C236.865,280.7775 220.07,347.935 184,398 C175.71,409.51 165.13,403.38 157,415 C154.2213,418.9688 151.8369,423.2667 149.7921,427.756 C149.5365,428.3171 149.2862,428.8813 149.0411,429.4481 C148.9186,429.7316 148.7973,430.0157 148.6774,430.3004 C148.6174,430.4428 148.5577,430.5854 148.4984,430.7281 " fill="none" id="SPA-LOG" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="242" y="339.4951">http</text></g><!--MD5=[8ca6dbfc8de0186e20a588027c11313e]
+link SPA to PLAN--><g id="link_SPA_PLAN"><path d="M271.2709,195.8074 C271.6976,197.3187 272.1271,198.8401 272.5591,200.3702 C273.423,203.4304 274.2968,206.5254 275.1771,209.6435 C276.9378,215.8798 278.7245,222.2088 280.5113,228.5375 C287.6581,253.8525 294.8041,279.1644 300.2714,298.5306 C300.6131,299.741 300.9483,300.9282 301.2765,302.0907 C301.4405,302.6719 301.6029,303.247 301.7635,303.8157 C301.8036,303.9579 301.8436,304.0997 301.8835,304.2411 " fill="none" id="SPA-PLAN" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[238719e13e7508373a10989677117fb8]
+link ARM to LOG--><g id="link_ARM_LOG"><path d="M36.7513,382.252 C36.7921,382.359 36.833,382.466 36.8741,382.573 C36.9562,382.787 37.0388,383.0008 37.1219,383.2144 C37.7868,384.9233 38.4837,386.6213 39.2137,388.2971 C40.6738,391.6489 42.2663,394.9125 44,398 C59.09,424.88 82.0975,450.735 101.5725,470.0625 C111.31,479.7263 120.1644,487.7581 126.7044,493.4703 C127.5219,494.1843 128.3032,494.8621 129.0456,495.5023 C129.2312,495.6624 129.4143,495.82 129.595,495.9754 C129.6854,496.053 129.7751,496.1301 129.8642,496.2066 " fill="none" id="ARM-LOG" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[927f85361b0dedfe3ee89517c7b5b4a5]
+@startuml
+
+
+node "SPA" as SPA {
+  component Browser {
+   [SPA UI]
+  }
+}
+
+node "localhost:5001" as ARM {
+  [ARMAZEM] as armazem
+}
+
+node "localhost:3000" as LOG {
+  [LOGISTICA] as logistica
+}
+
+node "PLANEAMENTO" as PLAN {
+  [PLANEAMENTO] as planeamento
+}
+
+SPA - - ARM: http/s
+SPA - - LOG: http
+SPA - - PLAN
+ARM - - LOG
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 WEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

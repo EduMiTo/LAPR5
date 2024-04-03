@@ -1,0 +1,17 @@
+@startuml
+actor GL
+GL -> EletricGo: Inicia atualização de uma empacotamento
+activate EletricGo
+EletricGo --> GL : Solicita dados
+deactivate
+
+GL -> EletricGo: Introduz campos que pretende atualizar
+activate EletricGo
+EletricGo --> GL : Mostra dados e solicita confirmação
+deactivate
+
+GL -> EletricGo: Confirma
+activate EletricGo
+EletricGo --> GL : Informa o sucesso da operação
+deactivate EletricGo
+@enduml

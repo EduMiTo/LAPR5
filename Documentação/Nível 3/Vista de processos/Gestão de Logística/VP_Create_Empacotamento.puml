@@ -1,0 +1,90 @@
+@startuml
+
+autonumber
+actor "GL" as GL
+participant "PackingComponent" as COMP
+participant "PackingServiceService" as SS
+participant "MDL" as MDL
+participant "PackingRoute" as ROUTE
+participant "PackingController" as CTR
+participant "PackingService" as SERVICE
+participant "Packing" as Path
+participant "PackingRepo" as REPO
+participant "PackingMap" as MAP
+participant "PackingDTO" as DTO
+database "Database" as DB
+
+GL-> COMP : introduces the data(truckPlate,deliveryId,position)
+activate COMP
+COMP -> COMP : createPacking(truckPlate,deliveryId,position)
+activate COMP
+COMP -> SS : createPacking(packing)
+activate SS
+SS -> MDL : post(/Packing)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> CTR : createPacking(truckPlate,deliveryId,position)
+activate CTR
+note left
+  The parameters sent in the method are inserted in the request body
+end note
+CTR -> SERVICE : createPacking
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: error message
+deactivate MAP
+SERVICE <--REPO : error message
+CTR <-- SERVICE : error message
+ROUTE <-- CTR : status 400
+MDL <-- ROUTE :  failure message
+SS <-- MDL : failure message
+COMP <-- SS : failure message
+GL<-- COMP : display failute message
+end
+REPO -> REPO : truckPlateExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> REPO : delieveryIdExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR : ok
+deactivate SERVICE
+CTR --> ROUTE : status 201
+deactivate CTR
+ROUTE --> MDL :  success message
+deactivate ROUTE
+MDL --> SS :  success message
+deactivate MDL
+SS --> COMP :  success message
+deactivate SS
+GL<-- COMP : display success message
+deactivate COMP
+deactivate ROUTE
+
+@enduml

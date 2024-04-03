@@ -1,0 +1,105 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GL" as GL
+participant "RoadNewtworkComponent" as COMP
+participant "autoMovement" as AUTO
+participant "definicaoPosicaoInicial" as POS
+participant "movimentoA" as MA 
+participant "movimentoB" as MB 
+participant "movimentoC" as MC 
+participant "movimentoD" as MD 
+participant "movimentoE" as ME 
+participant "movimentoF" as MF 
+participant "routeToDo" as ROUTE
+participant "actualW" as AW
+participant "actualM" as AM
+participant "truck: TruckModel" as TRUCK
+participant "warehouses" as WS
+
+
+GL-> COMP : requests to start the automatic movement of the truck
+activate COMP
+loop render
+COMP -> COMP : getPath(warehouses)
+activate COMP
+note right
+ Method that returns a random path
+ to demonstrate the movement of the truck
+end note
+COMP -> WS
+activate WS
+deactivate WS
+deactivate COMP
+COMP -> COMP : autoMovement(truck)
+note right
+ The main method that defines in each
+ movement and warehouse the truck is
+end note
+activate COMP
+alt actualM == 0
+COMP -> POS
+note right
+ Definition of the inicial position of
+ the truck for each trip from and to a warehouse
+end note
+activate POS
+deactivate POS
+COMP -> MA
+activate MA
+note right
+ First movement of the truck. It is here
+ that the truck walk around the warehouse
+end note
+deactivate MA
+else actualM == 1
+COMP -> MB
+activate MB
+note right
+ Second movement of the truck. It is here
+ that the truck turns to leave the node
+end note
+deactivate MB
+else actualM == 2
+COMP -> MC
+activate MC
+note right
+ Third movement of the truck. It is here that the
+ truck leaves the node and joins to the respective linking.
+ It is a linear movement
+end note
+deactivate MC
+else actualM == 3
+COMP -> MD
+activate MD
+note right
+ Fourth movement of the truck. It is here
+ that the truck travels the arc between the two warehouses.
+ It is a linear movement
+end note
+deactivate MD
+else actualM == 4
+COMP -> ME
+activate ME
+note right
+ Fifth movement of the truck. It is here
+ that the truck enter to the linking of the destination warehouse
+end note
+deactivate ME
+else actualM == 5
+COMP -> MF
+activate MF
+note right
+ Last movement of the truck. It is here
+ that the truck turns to enter the node
+end note
+deactivate MF
+deactivate COMP
+end
+COMP --> GL: shows the movement at each frames
+deactivate COMP
+end
+
+
+@enduml

@@ -1,0 +1,84 @@
+@startuml
+
+autonumber
+actor "GL" as GL
+participant "PathComponent" as COMP
+participant "PathServiceService" as SS
+participant "MDL" as MDL
+participant "PathRoute" as ROUTE
+participant "PathController" as CTR
+participant "PathService" as SERVICE
+participant "Path" as Path
+participant "PathRepo" as REPO
+participant "PathMap" as MAP
+participant "PathDTO" as DTO
+database "Database" as DB
+
+GL-> COMP : introduces the data(idWarehouseStart,\nidWarehouseEnd,distance,time,energy,extraTime)
+activate COMP
+COMP -> COMP : createPath(idWarehouseStart,\nidWarehouseEnd,distance,time,\nenergy,extraTime)
+activate COMP
+COMP -> SS : createPath(path)
+activate SS
+SS -> MDL: post(/Paths)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> CTR : createPath (idWarehouseStart,idWarehouseEnd,\ndistance,time,energy,extraTime)
+activate CTR
+note left
+  The parameters sent in the method are inserted in the request body
+end note
+CTR -> SERVICE : createPath
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: error message
+deactivate MAP
+SERVICE <--REPO : error message
+CTR <-- SERVICE : error message
+ROUTE <-- CTR : status 400
+MDL <-- ROUTE : status 400
+SS <-- MDL : operation failure
+COMP <-- SS : operation failure
+GL<-- COMP : display failure message
+end
+REPO -> REPO : warehouseExists
+note left
+  get request to MDA
+end note
+activate REPO
+deactivate REPO
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR : ok
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+alt success
+ROUTE --> MDL : status 200
+deactivate ROUTE
+MDL --> SS : operation success
+deactivate MDL
+COMP <-- SS : operation success
+deactivate SS
+deactivate MDL
+GL<-- COMP : display success message
+
+@enduml

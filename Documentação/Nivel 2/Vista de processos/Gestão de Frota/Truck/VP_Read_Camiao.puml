@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GF
+participant "sPA: SPA" as sPA
+participant "mDL: MDL" as MDL 
+
+
+activate GF
+GF ->sPA : Asks to read a truck
+activate sPA
+
+sPA --> MDL : GET /trucks body:data
+activate MDL
+
+MDL --> sPA :  200 body(trucks)
+
+deactivate MDL
+
+sPA --> GF : shows all the trucks
+
+deactivate sPA
+
+GF --> sPA : selects the trucks and data wanted
+
+activate sPA
+
+
+
+sPA --> GF : presents the data
+
+deactivate sPA
+
+deactivate GF
+
+
+
+@enduml

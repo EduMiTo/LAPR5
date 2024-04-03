@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "GA" as GA
+participant "WarehouseComponent" as COMP
+participant "WarehousesServiceService" as SS
+participant "MDA: MDA" as MDA 
+participant "WarehousesController" as controller
+participant "WarehouseService" as service
+participant "IWarehouseRepository" as repository
+
+
+
+GA -> COMP : introduces the data(id,designation,address,\nlatitude,longitude,altitude,principal)
+activate COMP
+COMP -> COMP : createWarehouse(id,designation,address,\nlatitude,longitude,altitude,principal)
+activate COMP
+COMP -> SS : addWarehouse(warehouse)
+activate SS
+SS -> MDA : post /Warehouses
+activate MDA
+
+MDA -> controller :  create(id,designation,address,\nlatitude,longitude,altitude,principal)
+
+activate controller
+
+note left
+ The parameters sent in the method are inserted in the request body
+end note
+
+controller-> service : AddAsync
+
+activate service
+
+service -> Warehouse** : create
+
+service -> repository : AddAsync
+activate repository
+service-> repository: commitAsync
+
+deactivate repository
+service --> controller : warehouseDto
+deactivate service
+
+alt success
+controller --> MDA : status 201 (Created)
+
+MDA --> SS : success message
+SS --> COMP : success message
+
+GA <-- COMP : success message
+
+else insuccess
+controller --> MDA : status 400 (Bad Request)
+deactivate controller
+
+MDA --> SS : insuccess message
+deactivate MDA
+SS --> COMP : insuccess message
+deactivate SS
+
+GA <-- COMP : insuccess message
+
+deactivate MDA
+end
+deactivate COMP
+
+
+@enduml

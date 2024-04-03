@@ -1,0 +1,24 @@
+@startuml
+
+package "EletricGo" {
+
+
+
+  package "SPA" as spa{}
+
+  package "ARMAZEM" as armazem{}
+
+  package "LOGISTICA" as logistica{}
+
+  package "PLANEAMENTO" as planeamento{}
+
+
+
+}
+
+spa --> armazem
+spa --> logistica
+logistica --> planeamento
+logistica --> armazem
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml
+
+autonumber
+participant "MDL" as MDL
+participant "TruckRoute" as ROUTE
+participant "TruckController" as CTR
+participant "TruckService" as SERVICE
+participant "TruckRepo" as REPO
+participant "TruckSchema" as SCHEMA
+participant "TruckMap" as MAP
+participant "TruckDTO" as DTO
+database "Database" as DB
+participant "truck\n:tath" as path
+participant "TruckDocument" as DOC
+
+activate MDL
+MDL -> ROUTE: put(/Trucks)
+activate ROUTE
+ROUTE -> CTR : updateTruck
+activate CTR
+CTR -> SERVICE : updateTruck
+activate SERVICE
+SERVICE -> REPO : truck = findByPlate
+activate REPO
+deactivate REPO
+SERVICE -> path : updates data
+activate path
+deactivate path
+SERVICE -> REPO : save
+activate REPO
+REPO -> SCHEMA : truckDocument = findOne
+activate SCHEMA
+deactivate SCHEMA
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: null
+deactivate MAP
+end
+deactivate MAP
+REPO -> DOC : updates data
+activate DOC
+deactivate DOC
+REPO -> DB : save
+activate DB
+deactivate DB 
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 200
+ROUTE --> MDL : display success message
+else
+CTR --> ROUTE : status 400
+deactivate CTR
+ROUTE --> MDL : display failure message
+deactivate ROUTE
+end
+
+@enduml

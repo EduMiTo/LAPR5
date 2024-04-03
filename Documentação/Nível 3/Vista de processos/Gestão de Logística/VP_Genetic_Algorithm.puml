@@ -1,0 +1,287 @@
+@startuml
+
+autonumber
+actor "GL" as GA
+participant "Genetic Algorithm" as COMP
+
+
+GA-> COMP :  Genetic Algorithm
+activate COMP
+COMP -> COMP : gera(numGeracoes, dimPopulacao, pMutacao, pCruzamento, listaFinal, avaliacao)
+activate COMP
+
+COMP -> COMP : inicializa(numGeracoes, dimPopulacao, pMutacao, pCruzamento)
+
+activate COMP
+
+COMP -> Camioes : camioes
+activate Camioes
+Camioes --> COMP : numCamioes
+deactivate Camioes
+COMP->COMP : asserta(numCamioes)
+activate COMP
+deactivate COMP
+
+note left
+
+Same for Number of Generations, 
+Dimension of population, 
+Probability of motation and 
+probability of crossover
+
+end note
+
+
+
+
+deactivate COMP
+
+COMP -> COMP : getTime(tempoInicial)
+activate COMP
+deactivate COMP
+
+COMP -> GeraPopulacao : gera_populacao(pop)
+
+activate GeraPopulacao
+GeraPopulacao -> Population : population()
+activate Population
+Population --> GeraPopulacao : DP
+deactivate Population
+
+note left
+same for
+deliveries
+end note
+
+
+GeraPopulacao -> GeraPopulacao : findAll(Local, entrega(_,_,_,Local,_,_), ListaArmazens)
+activate GeraPopulacao
+deactivate GeraPopulacao
+
+GeraPopulacao -> Bfs : bfsMassa(EI2,_)
+activate Bfs
+note right
+returns the path
+with the fastest 
+way to deliver more
+weight first
+end note
+deactivate Bfs
+
+GeraPopulacao -> Bfs : bfs_tempo(EI1,_)
+activate Bfs
+note right
+returns the path
+with the fastest 
+time 
+end note
+deactivate Bfs
+
+loop dp times
+GeraPopulacao -> GeraPopulacao : gera_populacao (DP, ListaArmazens,nDel,PopGerada)
+activate GeraPopulacao
+
+GeraPopulacao -> GeraIndividuo : gera_individuo(ListaArmazens,nDel,Ind)
+
+activate GeraIndividuo
+deactivate GeraIndividuo
+deactivate GeraPopulacao
+end
+GeraPopulacao -> GeraPopulacao : apend(E1,E2,PopGerada, pop)
+activate GeraPopulacao
+deactivate GeraPopulacao
+deactivate GeraPopulacao
+
+COMP -> Camioes : camioes
+
+activate Camioes
+
+Camioes --> COMP : numCamioes
+
+deactivate Camioes
+
+alt numCamioes == 1
+
+COMP -> AvaliaPopulacao : avalia_populacao(Pop,PopAv)
+activate AvaliaPopulacao
+loop Pop length times
+AvaliaPopulacao -> AvaliaPopulacao : calcula_tempo(Head, Av)
+activate AvaliaPopulacao
+deactivate AvaliaPopulacao
+end
+deactivate AvaliaPopulacao
+
+else numCamioes !=1
+
+COMP -> AvaliaPopulacao : avalia_populacao_mquc(Pop,PopAvBeta)
+activate AvaliaPopulacao
+
+note right
+Same as "avalia_populacao"
+but with a list of lists
+(more than 1 truck)
+end note
+deactivate AvaliaPopulacao
+COMP -> VerificarCarga : verificar_carga(PopAvBeta, PopAv)
+
+activate VerificarCarga
+note right
+in this method we calculate
+the size of deliveries
+to each truck and divide
+them, then the weight is 
+calculated and verified 
+if is bigger than the capacity
+of the truck. If it is bigger
+the List is permutated and the
+algorithm is called again
+end note
+deactivate VerificarCarga
+end
+
+COMP -> COMP : ordena_populacao(PopAv, PopOrd)
+activate COMP
+deactivate COMP
+
+COMP -> GeraGeracao : gera_geracao(0,numGeracao,PopOrd,TempoInicial,Lista)
+loop numGenerations times
+activate GeraGeracao
+
+GeraGeracao -> GeraGeracao : random_permutation(Pop, RandPop)
+activate GeraGeracao
+deactivate GeraGeracao
+
+GeraGeracao -> Cruzamento : cruzamento(RandPop, CruzPop)
+activate Cruzamento
+
+
+
+deactivate Cruzamento
+GeraGeracao -> Mutacao : mutacao(CruzPop, MutPop)
+activate Mutacao
+
+
+
+deactivate Mutacao
+alt numCamiao ==1
+GeraGeracao -> AvaliaPopulacao : avalia_populacao(MutPop,NovaPopAv)
+activate AvaliaPopulacao
+deactivate AvaliaPopulacao
+GeraGeracao -> COMP : ordena_populacao(NovaPopAv,NovaPopAvOrd)
+activate COMP
+deactivate COMP
+GeraGeracao -> GeraGeracao : union(Pop,NovaPopAvOrd,PopTotal)
+activate GeraGeracao
+deactivate GeraGeracao
+else numCamiao != 1
+
+GeraGeracao -> AvaliaPopulacao : avalia_populacao_mquc(MutPop,NovaPopAv)
+activate AvaliaPopulacao
+deactivate AvaliaPopulacao
+GeraGeracao -> COMP : ordena_populacao(NovaPopAv,NovaPopOrd)
+activate COMP
+deactivate COMP
+GeraGeracao -> VerificarCarga : verificar_carga(NovaPopOrd, PopCargaFinal)
+activate VerificarCarga
+deactivate VerificarCarga
+GeraGeracao -> COMP : ordena_populacao(PopCargaFinal,PopCargaFinalOrd)
+activate COMP
+deactivate COMP
+GeraGeracao -> GeraGeracao : union(Pop,PopCargaFinalOrd,PopTotal)
+activate GeraGeracao
+deactivate GeraGeracao
+end
+
+GeraGeracao -> GeraGeracao : ordena_populacao(PopTotal, PopTotalOrd)
+activate GeraGeracao
+deactivate GeraGeracao
+
+GeraGeracao -> GeraGeracao : select_first_n(PopTotalOrd,P,Select)
+activate GeraGeracao
+note right
+select the first 20% 
+elements of the ordered list
+the rest are send to a method
+were they will be picked
+randomly, so the algorithm
+is not elitist(next methods)
+end note
+deactivate GeraGeracao
+GeraGeracao -> GeraGeracao : remove_elements(PopTotalOrd,P,Rest),
+activate GeraGeracao
+deactivate GeraGeracao
+
+GeraGeracao -> NaoElitista : valores_avaliacao(Rest,RestNovo) 
+activate NaoElitista 
+note right 
+Multiply every evaluation
+of the population by a 
+random number between 
+0 and 1, so its not
+elitist when ordered
+deactivate NaoElitista
+GeraGeracao -> NaoElitista : nao_elitista(DP,RestNovo,P,MPopTotal)
+activate NaoElitista
+NaoElitista -> COMP : ordena_populacao(RestNovo,RestNovoOrd)
+activate COMP
+deactivate COMP
+NaoElitista -> GeraGeracao : select_first_n(RestMpvpPrd, IndividuosSG,MPopOrd)
+activate GeraGeracao
+note right
+Select the Number
+necessary to complete
+the population
+end note
+deactivate GeraGeracao
+deactivate NaoElitista
+GeraGeracao -> AvaliaPopulacao : lista_com_produto_avaliacao(MPopTotal, MPopTotalOriginal)
+
+activate AvaliaPopulacao
+deactivate AvaliaPopulacao
+GeraGeracao -> AvaliaPopulacao : avalia_populacao(MPopTotalOriginal, MPopTotalAv)
+activate AvaliaPopulacao
+note right
+this method and the last
+one are used to get the original
+value of the evaluation
+of the population
+so we can order it
+correctly
+end note
+deactivate AvaliaPopulacao
+GeraGeracao -> GeraGeracao : append(Select,MPopTotalAv,MPopTotalAp)
+activate GeraGeracao
+deactivate GeraGeracao
+
+GeraGeracao -> COMP : ordena_populacao(MPopTotal,Ap, PopMaisQueFinal)
+activate COMP
+deactivate COMP
+
+
+
+
+
+deactivate GeraGeracao
+end
+
+
+
+COMP -> SepararListaAvaliacao : separar_lista_avaliacao(Lista, ListaFinal,Av)
+activate SepararListaAvaliacao
+note right
+This method turns the List and
+Av from together to apart, so
+we can return in 2 different
+variables
+end note
+
+
+deactivate SepararListaAvaliacao
+
+
+
+
+deactivate COMP
+
+
+@enduml

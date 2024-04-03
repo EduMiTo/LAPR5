@@ -1,0 +1,85 @@
+@startuml
+
+autonumber
+actor "GL" as GL
+participant "PathComponent" as COMP
+participant "PathServiceService" as SS
+participant "MDL" as MDL
+participant "PathRoute" as ROUTE
+participant "PathController" as CTR
+participant "PathService" as SERVICE
+participant "Path" as Path
+participant "PathRepo" as REPO
+participant "PathSchema" as SCHEMA
+participant "PathMap" as MAP
+participant "PathDTO" as DTO
+database "Database" as DB
+participant "path\n:Path" as path
+participant "pathDocument" as DOC
+
+GL-> COMP : introduces the data(idWarehouseStart,\nidWarehouseEnd,distance,time,energy,extraTime)
+activate COMP
+COMP -> COMP : updatePath(idWarehouseStart,\nidWarehouseEnd,distance,time,\nenergy,extraTime)
+activate COMP
+COMP -> SS : updatePath(path)
+activate SS
+SS -> MDL : put(/Paths)
+activate MDL
+MDL -> ROUTE: put(/Paths)
+activate ROUTE
+ROUTE -> CTR : updatePath
+activate CTR
+CTR -> SERVICE : updatePath
+activate SERVICE
+SERVICE -> REPO : path = findByWarehouses
+activate REPO
+deactivate REPO
+SERVICE -> path : updates data
+activate path
+deactivate path
+SERVICE -> REPO : save
+activate REPO
+REPO -> SCHEMA : pathDocument = findOne
+activate SCHEMA
+deactivate SCHEMA
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: error message
+deactivate MAP
+SERVICE <--REPO : error message
+CTR <-- SERVICE : error message
+ROUTE <-- CTR : status 400
+MDL <-- ROUTE :  failure message
+
+MDL --> SS :  failure message
+SS -> COMP : failure message
+GL<-- COMP : display failure message
+end
+deactivate MAP
+REPO -> DOC : updates data
+activate DOC
+deactivate DOC
+REPO -> DB : save
+activate DB
+deactivate DB 
+REPO --> SERVICE : pathResult
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR : ok
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> MDL :  success message
+deactivate ROUTE
+MDL --> SS  :  success message
+deactivate MDL
+SS --> COMP : success message
+deactivate SS
+deactivate MDL
+GL<-- COMP : display success message
+
+@enduml

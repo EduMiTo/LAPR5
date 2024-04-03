@@ -1,0 +1,26 @@
+@startuml DM_ArmazemAggregate
+' hide the spot
+
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity Armazem
+object id
+object designacao
+object endereco
+object longitude
+object latitude
+object altitude
+object principal
+
+
+Armazem --> id
+Armazem --> designacao
+Armazem --> endereco
+Armazem --> longitude
+Armazem --> latitude
+Armazem --> altitude
+Armazem --> principal
+
+@enduml

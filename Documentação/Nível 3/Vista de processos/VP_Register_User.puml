@@ -1,0 +1,96 @@
+@startuml
+
+autonumber
+actor "Admin" as GA
+participant "RegisterComponent" as COMP
+participant "UserService" as SS
+participant "MDL" as MDL
+participant "UserRoute" as ROUTE
+participant "UserService" as SERVICE
+participant "UserPassword" as UserPassword
+participant "UserEmail" as UserEmail
+participant "UserPhone" as UserPhone
+participant "User" as User
+participant "UserRepo" as REPO
+participant "UserMap" as MAP
+participant "UserDTO" as DTO
+
+
+database "Database" as DB
+
+GA-> COMP : introduces the data(firstName,lastName,email,password,role,phone)
+activate COMP
+COMP -> SS : registerUser(firstName,lastName,email,password,role,phone)
+activate SS
+SS -> MDL: post(/auth/signup)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> SERVICE : SignUp (firstName,lastName,email,password,role,phone)
+activate SERVICE
+SERVICE -> REPO : findByEmail(email)
+activate REPO
+REPO --> SERVICE : found
+deactivate REPO
+alt found == true
+SERVICE <--ROUTE : error message
+MDL <-- ROUTE : status 404
+SS <-- MDL : operation failure
+COMP <-- SS : operation failure
+GA<-- COMP : display failure message
+else found == false
+
+SERVICE -> REPO : findByPhone(phone)
+note left
+  All the "finds" Make the same as findByEmail
+end note
+activate REPO
+deactivate REPO
+
+SERVICE -> UserPassword : create(hashedPassword)
+activate UserPassword
+deactivate UserPassword
+SERVICE -> UserEmail : create(email)
+activate UserPassword
+deactivate UserPassword
+SERVICE -> UserPhone : create(phone)
+activate UserPhone
+deactivate UserPhone
+SERVICE -> REPO : findByDomainName(roleId)
+activate REPO
+deactivate REPO
+SERVICE -> User : create(firstname, lastname, email,role,password,phone)
+
+SERVICE -> SERVICE : generateToken(user)
+activate SERVICE
+deactivate SERVICE
+SERVICE -> REPO : save(user)
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> DB : create(user)
+activate DB
+deactivate DB
+REPO -> MAP : toDomain(user)
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO(user)
+activate DTO
+DTO --> SERVICE : userDTO
+deactivate DTO
+SERVICE --> ROUTE : ok
+deactivate SERVICE
+ROUTE --> MDL : status 200
+deactivate ROUTE
+MDL --> SS : operation success
+deactivate MDL
+COMP <-- SS : operation success
+deactivate SS
+deactivate MDL
+GA<-- COMP : display success message
+end
+
+@enduml

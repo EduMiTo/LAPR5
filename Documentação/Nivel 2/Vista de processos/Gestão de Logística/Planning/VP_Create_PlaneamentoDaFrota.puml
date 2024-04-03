@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GL
+participant "sPA: SPA" as sPA
+participant "logística: Logística" as MDL 
+
+
+activate GL
+GL ->sPA : Asks to create a fleet planning and inserts the fleet planning's data \n (number of generations, population, probability of crossover, \n probability of mutation)
+activate sPA
+
+sPA --> MDL : GET /Planning body:data
+activate MDL
+
+MDL --> sPA :  status:200
+
+deactivate MDL
+
+sPA --> GL : success message
+deactivate sPA
+loop n times 
+alt dataEntrega>dataAtual
+GL -> sPA: Deletes aldready existing fleet plannings (id)
+activate sPA
+sPA -> MDL: DELETE /Planning/{id}
+activate MDL
+MDL --> sPA: status:200
+deactivate MDL
+sPA --> GL: success message
+deactivate sPA
+end
+end
+
+loop (list of dates) times
+GL -> sPA: postPlanByPlateAndDate(plateList[n].plate, dateList[n].date,'GeneticAlgorithm', \ngenerations,crossover,mutation,population)
+activate sPA
+sPA -> MDL: POST /Planning body: data
+activate MDL
+MDL --> sPA: status:201 (body)
+deactivate MDL
+sPA --> GL: success message
+deactivate sPA
+end
+deactivate sPA
+
+deactivate GL
+
+
+@enduml

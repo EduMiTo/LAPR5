@@ -1,0 +1,70 @@
+@startuml
+
+autonumber
+actor "GL" as GL
+participant "PlanningComponent" as COMP
+participant "PlanningServiceService" as SS
+participant "planeamento: \n PLANEAMENTO" as P
+participant "PlanningRoute" as ROUTE
+participant "PlanningController" as CTR
+participant "PlanningService" as SERVICE
+participant "PlanningRepo" as REPO
+participant "PlanningSchema" as SCHEMA
+participant "PlanningMap" as MAP
+participant "PlanningDTO" as DTO
+database "Database" as DB
+participant "truckRecord" as RECORD
+participant "trucksResult" as Result
+
+
+GL-> COMP : asks to list the route plannings
+activate COMP
+COMP -> COMP : getAllRoutes()
+activate COMP
+COMP -> SS : getAllRoutes()
+activate SS
+SS -> P : get(/Plannings)
+activate P
+P -> ROUTE: getTruckPlanning
+
+
+activate ROUTE
+ROUTE -> CTR : getPlannings
+activate CTR
+CTR -> SERVICE : getPlanByPlateAndDate
+activate SERVICE
+SERVICE -> REPO : PlanningsResult = findAll
+activate REPO
+REPO -> SCHEMA : PlanningsRecord = findOne
+activate SCHEMA
+SCHEMA -> DB : find
+activate DB
+deactivate DB
+deactivate SCHEMA
+loop element : PlanningsRecord
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+end
+deactivate REPO
+
+loop linha : planningsResult
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+end
+SERVICE --> CTR : planningResult
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> P : data
+deactivate ROUTE
+P --> SS : data
+deactivate P
+SS --> COMP : data
+deactivate SS
+deactivate P
+GL<-- COMP : displays data
+deactivate ROUTE
+
+@enduml

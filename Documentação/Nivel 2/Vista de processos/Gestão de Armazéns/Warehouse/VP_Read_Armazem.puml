@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+
+activate GA
+GA ->sPA : Asks to read a warehouse
+activate sPA
+
+sPA --> MDA : GET /warehouses body:data
+activate MDA
+
+MDA --> sPA :  200 body(warehouses)
+
+deactivate MDA
+
+sPA --> GA : shows all the warehouses
+
+deactivate sPA
+
+GA --> sPA : selects the warehouse and data wanted
+
+activate sPA
+
+
+
+sPA --> GA : presents the data
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "IDeliveryRepository" as repository
+
+
+
+
+activate sPA
+sPA -> MDA : GET /Deliveries/listAll
+note left
+  Depending on the selected filter (id, 
+  warehouse, dates) 
+  the request and the methods will be 
+  different, changing the method's name
+  and implementation
+end note
+
+activate MDA
+
+MDA -> controller :  GetAll
+
+activate controller
+
+controller-> service : GetAllAsync
+
+activate service
+
+service -> repository : GetAllAsync
+activate repository
+
+repository --> service : list<Delivery>
+
+service -> service : listDto = list.convertAll<DeliveryDto>
+
+deactivate repository
+service --> controller : listDto
+deactivate service
+
+
+controller --> MDA : status 200 (Ok)
+deactivate controller
+
+MDA --> sPA : success message
+
+deactivate MDA
+
+
+deactivate sPA
+
+
+
+@enduml

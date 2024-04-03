@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor Admin as ADM
+participant "sPA: SPA" as sPA
+participant "mDA: MDA" as MDA
+
+
+
+activate ADM
+ADM ->sPA : Asks to anonymize an user
+activate sPA
+
+sPA -> MDA : GET /auth
+activate MDA
+MDA --> sPA: 200 body(users)
+deactivate MDA
+
+sPA --> ADM: shows all users
+deactivate sPA
+
+ADM -> sPA : Selects user to anonymize
+activate sPA
+sPA --> MDA : PATCH /auth/signup body:data
+activate MDA
+
+MDA --> sPA :  status:200
+
+deactivate MDA
+
+sPA --> ADM : success message
+
+deactivate sPA
+
+deactivate ADM
+
+
+@enduml

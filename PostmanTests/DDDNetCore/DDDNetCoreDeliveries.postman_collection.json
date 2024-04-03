@@ -1,0 +1,1134 @@
+{
+	"info": {
+		"_postman_id": "1af1ef57-b240-408b-a425-bec936226eb9",
+		"name": "DDDNetCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23604632"
+	},
+	"item": [
+		{
+			"name": "Deliveries",
+			"item": [
+				{
+					"name": "DelDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The obtained Delivery is the requested one\", function () {\r",
+									"    var req= JSON.parse(request.data);\r",
+									"    pm.environment.set(\"deliveryId\", req.id);\r",
+									"    var requestId = pm.environment.get(\"deliveryId\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).equals(requestId);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"625069/4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/HardDelete",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"HardDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DelDeliveriesError",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Not existing delivery to delete\", function() {\r",
+									"    pm.response.to.have.body('The Delivery does not exist'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"999999/3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/HardDelete",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"HardDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbetweendatesDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"The obtained Delivery is the requested one\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    var datess = req.split(', ');\r",
+									"    var date1 = datess[0].split(\"/\");\r",
+									"    var date2 = datess[1].split(\"/\");\r",
+									"\r",
+									"    var counter=0;\r",
+									"    \r",
+									"    var dia1= date1[0];\r",
+									"    var mes1= date1[1];\r",
+									"    var ano1= date1[2];\r",
+									"\r",
+									"    var dia2= date2[0];\r",
+									"    var mes2= date2[1];\r",
+									"    var ano2= date2[2];\r",
+									"\r",
+									"    let values = [];\r",
+									"    var jsonData = pm.response.json();\r",
+									"    jsonData.forEach((element) => values.push(element.limitDate));\r",
+									"    for (let i = 0; i < values.length; i++) {\r",
+									"        var dat= values[i].split(\"/\");\r",
+									"        var dia= dat[0];\r",
+									"        var mes= dat[1];\r",
+									"        var ano= dat[2];\r",
+									"    \r",
+									"        if(ano > ano1 && ano < ano2)\r",
+									"        {\r",
+									"            counter++;\r",
+									"        }\r",
+									"        else if(ano == ano1){\r",
+									"\r",
+									"            if(mes>mes1){\r",
+									"                counter++;\r",
+									"            }\r",
+									"            else if(mes == mes1){\r",
+									"                if(dia>dia1){\r",
+									"                    counter++;\r",
+									"                }\r",
+									"            }   \r",
+									"        }else if(ano == ano2){\r",
+									"\r",
+									"            if(mes<mes2){\r",
+									"                counter++;\r",
+									"            }\r",
+									"            else if(mes == mes2){\r",
+									"                if(dia<dia2){\r",
+									"                    counter++;\r",
+									"                }\r",
+									"            }   \r",
+									"        }\r",
+									"    \r",
+									"    }\r",
+									"    pm.expect(values.length).equals(counter)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"20/01/2017, 24/07/2021\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetBetweenDates/BeetweenDates",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetBetweenDates",
+								"BeetweenDates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbetweendatesDeliveriesError",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Not existing delivery to Get\", function() {\r",
+									"    pm.response.to.have.body('Error parsing the dates'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"20/01/0000, 24/07/2020\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetBetweenDates/BeetweenDates",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetBetweenDates",
+								"BeetweenDates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbyidDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The obtained Delivery is the requested one\", function () {\r",
+									"    var req= JSON.parse(request.data);\r",
+									"    pm.environment.set(\"deliveryId\", req.id);\r",
+									"    var requestId = pm.environment.get(\"deliveryId\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).equals(requestId);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"879313/3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetById",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbyidDeliveriesError",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Not existing delivery to Get\", function() {\r",
+									"    pm.response.to.have.body('The Delivery does not exist'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"199999/7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetById",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbywarehouseid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The obtained Delivery is the requested one\", function () {\r",
+									"    var req= JSON.parse(request.data);\r",
+									"    pm.environment.set(\"warehouseId\", req.warehouse);\r",
+									"    var requestId = pm.environment.get(\"warehouseId\");\r",
+									"    let values=[];\r",
+									"    var jsonData = pm.response.json();\r",
+									"    jsonData.forEach((element) => values.push(element.warehouse));\r",
+									"    for(let i=0; i< values.length; i++){\r",
+									"        pm.expect(values[i]).equals(requestId);\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"warehouse\": \"P02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetByWarehouseId/warehouse",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetByWarehouseId",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getbywarehouseidError",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Not existing delivery to Get\", function() {\r",
+									"    pm.response.to.have.body('The Warehouse does not exist'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"warehouse\": \"M99\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/GetByWarehouseId/warehouse",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"GetByWarehouseId",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/listAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCHDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"The obtained Delivery updated as expected\", function () {\r",
+									"    var req= JSON.parse(request.data);\r",
+									"    pm.environment.set(\"weight\", req.weight);\r",
+									"    var requestId = pm.environment.get(\"weight\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.weight).equals(requestId);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : \"879313/3\",\r\n    \"limitDate\": \"11/12/2018\",\r\n    \"weight\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/Update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCHDeliveriesError",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Not existing delivery to update\", function() {\r",
+									"    pm.response.to.have.body('The delivery does not exist'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : \"999999/7\",\r\n    \"limitDate\": \"5/12/2222\",\r\n    \"weight\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries/Update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Has Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"id\");\r",
+									"});\r",
+									"pm.test(\"Has limitDate\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"limitDate\");\r",
+									"});\r",
+									"pm.test(\"Has Unload time\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"unloadTime\");\r",
+									"});\r",
+									"pm.test(\"Has load time\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"loadTime\");\r",
+									"});\r",
+									"pm.test(\"Has weight\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"weight\");\r",
+									"});\r",
+									"pm.test(\"Has warehouse\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"warehouse\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"10/10/2022\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"P02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfdayNegative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of day negative\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Day out of range, should not be negative\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"-5/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfinvalidDate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of invalid day\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Day out of range, should not be over 31 days long\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"35/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfinvalidMonth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of month invalid\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Month out of range\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"20/50/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfinvalidYear",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of year 5 digit\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Invalid year format, should be 4 digits long maximum\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"20/12/00001\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfinvalidYear2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of year invalid\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"String \\'30/12/0000\\' was not recognized as a valid DateTime.\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/0000\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfInvalidUnloadTime",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of Unload Time negative\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Time cannot be negative\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":-50,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfInvalidLoadTime",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of Load Time negative\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Time cannot be negative\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/2017\",\r\n    \"loadTime\":-70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfInvalidWeight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of weight negative\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"Mass cannot be negative\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":-106,\r\n    \"warehouse\": \"M02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfInvalidWarehouse",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of warehouse invalid id\", function() {\r",
+									"    pm.response.to.have.body('{\"message\":\"The id of the warehouse must be an alphanumeric code with 3 chars, starting with a capital letter, followed by 2 numbers\"}'); \r",
+									"});\r",
+									"pm.test(\"Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"aaaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDeliveriesValidationOfInvalidWarehouse2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation Of warehouse non existent id\", function() {\r",
+									"    pm.response.to.have.body('The warehouse does not exist'); \r",
+									"});\r",
+									"pm.test(\"Not Found request\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"limitDate\": \"30/12/2017\",\r\n    \"loadTime\":70,\r\n    \"unloadTime\":190,\r\n    \"weight\":106,\r\n    \"warehouse\": \"M99\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Deliveries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Deliveries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,81 @@
+@startuml
+
+autonumber
+actor "GA" as GA
+participant "LoginComponent" as COMP
+participant "UserService" as SS
+participant "GoogleAPI" as GoogleAPI
+participant "MDL" as MDL
+participant "UserRoute" as ROUTE
+participant "UserService" as SERVICE
+
+participant "UserPassword" as UserPassword
+participant "UserEmail" as UserEmail
+participant "UserPhone" as UserPhone
+participant "User" as User
+participant "UserRepo" as REPO
+participant "UserMap" as MAP
+participant "UserDTO" as DTO
+participant "Router" as ROUTER
+
+
+database "Database" as DB
+
+GA-> COMP : signIn with google
+activate COMP
+COMP -> SS : signIn(GoogleLoginProvider.ProviderId)
+activate SS
+SS -> GoogleAPI : SignIn(email, password)
+deactivate SS
+COMP -> SS : verifyIfUserExists(email)
+activate SS
+SS -> MDL : post(/auth/signupviagoogle)
+activate MDL
+MDL -> ROUTE : post
+activate ROUTE
+ROUTE -> SERVICE : SignInViaGoogle(email)
+activate SERVICE
+SERVICE -> REPO : findByEmail(email)
+activate REPO
+REPO -> DB : findOne(email)
+REPO --> SERVICE : userfound
+deactivate REPO
+alt userfound == false
+SERVICE -->ROUTE : error message
+MDL <-- ROUTE : status 404
+SS <-- MDL : operation failure
+COMP <-- SS : operation failure
+GA<-- COMP : display failure message
+else userfound == true
+
+SERVICE -> SERVICE : generateToken(userfound)
+activate SERVICE
+deactivate SERVICE
+SERVICE -> MAP : toDTO (userfound)
+activate MAP
+deactivate MAP
+
+SERVICE --> ROUTE : ok
+
+deactivate SERVICE
+
+ROUTE --> MDL : status 200
+deactivate ROUTE
+
+MDL --> SS : operation success
+deactivate MDL
+COMP <-- SS : operation success
+deactivate SS
+deactivate MDL
+COMP -> SS : roleMatch(role)
+activate SS
+SS --> COMP : navUrl
+deactivate SS
+COMP -> ROUTER : navigateByUrl (navURL)
+GA<-- COMP : Shows page
+deactivate COMP
+
+end
+
+
+@enduml

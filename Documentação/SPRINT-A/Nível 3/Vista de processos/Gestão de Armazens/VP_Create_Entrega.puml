@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+participant "DeliveriesController" as controller
+participant "DeliveryService" as service
+participant "WarehouseService" as service2
+participant "IDeliveryRepository" as repository
+participant "IWarehouseRepository" as repository2
+
+
+
+
+activate sPA
+sPA -> MDA : post /Deliveries
+activate MDA
+
+MDA -> controller :  create
+
+activate controller
+
+controller -> service2 : getByIdAsync
+activate service2
+
+service2 -> repository2 : GetByIdAsync
+activate repository2
+
+repository2--> service2 : warehouse
+deactivate repository2
+
+
+
+service2 --> controller : warehouseDto
+deactivate service2
+
+controller-> service : AddAsync
+
+activate service
+
+service -> Delivery** : create
+
+service -> repository : AddAsync
+activate repository
+service-> repository: commitAsync
+
+
+deactivate repository
+service --> controller : deliveryDto
+deactivate service
+
+alt sucess
+controller --> MDA : status 201 (Created)
+
+MDA --> sPA : success message
+
+
+else insuccess
+controller --> MDA : status 400 (Bad Request)
+deactivate controller
+
+MDA --> sPA : insuccess message
+
+deactivate MDA
+end
+deactivate sPA
+
+
+
+@enduml

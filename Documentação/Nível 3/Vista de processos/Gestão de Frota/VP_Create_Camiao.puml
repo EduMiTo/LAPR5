@@ -1,0 +1,82 @@
+@startuml
+
+autonumber
+actor "GF" as GF
+participant "TruckComponent" as COMP
+participant "TruckServiceService" as SS
+participant "TruckServiceService" as SS
+participant "MDL" as MDL
+participant "TruckRoute" as ROUTE
+participant "TruckController" as CTR
+participant "TruckService" as SERVICE
+participant "Truck" as Path
+participant "TruckRepo" as REPO
+participant "TruckMap" as MAP
+participant "TruckDTO" as DTO
+database "Database" as DB
+
+GF-> COMP : introduces the data(plate,tare,massCapacity,\nmaximumBattery,autonomy,chargeTime)
+activate COMP
+COMP -> COMP : createTruck(plate,tare,massCapacity,\nmaximumBattery,autonomy,chargeTime)
+activate COMP
+COMP -> SS : createTruck(truck)
+activate SS
+SS -> MDL : post(/Trucks)
+
+activate MDL
+MDL -> ROUTE: post(/Trucks)
+activate ROUTE
+ROUTE -> CTR : createTruck(plate,tare,massCapacity,\nmaximumBattery,autonomy,chargeTime)
+note left
+  The parameters sent in the method are inserted in the request body
+end note
+activate CTR
+CTR -> SERVICE : createTruck
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: error message
+deactivate MAP
+SERVICE <--REPO : error message
+CTR <-- SERVICE : error message
+ROUTE <-- CTR : status 400
+MDL <-- ROUTE : failure message
+
+SS <-- MDL : failure message
+SS --> COMP : failure message
+GF<-- COMP : display failure message
+end
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR : ok
+deactivate SERVICE
+CTR --> ROUTE : status 201
+deactivate CTR
+ROUTE --> MDL : success message
+deactivate ROUTE
+MDL --> SS : success message
+deactivate MDL
+
+SS --> COMP : success message
+deactivate SS
+deactivate MDL
+GF<-- COMP : display success message
+deactivate
+
+@enduml

@@ -1,0 +1,32 @@
+<div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  
+  <div class="example-container mat-elevation-z8">
+  
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Truck Plate Column -->
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> <b>{{column.header}}</b> </mat-header-cell>
+        <mat-cell *matCellDef="let row"> <span class="long-text"> {{column.cell(row)}} </span></mat-cell>
+      </ng-container>
+  
+
+      <ng-container matColumnDef="deletes">
+        <mat-header-cell *matHeaderCellDef> &nbsp; </mat-header-cell>
+          <mat-cell *matCellDef="let i = index; let row">        
+            <button style="margin: auto;" mat-button (click)="deletePacking(row.id)">Delete</button>
+          </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'packing-inhibt': row.active == false }">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

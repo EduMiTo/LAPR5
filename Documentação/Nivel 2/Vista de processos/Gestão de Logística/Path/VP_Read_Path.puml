@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+participant "sPA: SPA" as sPA
+participant "MDL: MDL" as MDL 
+
+
+activate GA
+GA ->sPA : Asks to read a packing
+activate sPA
+
+sPA --> MDL : GET /paths body:data
+activate MDA
+
+MDL --> sPA :  200 body(paths)
+
+deactivate MDL
+
+sPA --> GA : shows all the paths
+
+deactivate sPA
+
+GA --> sPA : selects the path and data wanted
+
+activate sPA
+
+
+
+sPA --> GA : presents the data
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="322px" preserveAspectRatio="none" style="width:615px;height:322px;background:#FFFFFF;" version="1.1" viewBox="0 0 615 322" width="615px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="129.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="22.5" y="92.6094"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="381.5" y="131.3125"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="563.5" y="161.6641"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="27" x2="27" y1="82.6094" y2="240.3672"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="386.5" x2="386.5" y1="82.6094" y2="240.3672"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="568.5" x2="568.5" y1="82.6094" y2="240.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="5" y="79.5332">Admin</text><ellipse cx="27.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M27.5,21.5 L27.5,48.5 M14.5,29.5 L40.5,29.5 M27.5,48.5 L14.5,63.5 M27.5,48.5 L40.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="5" y="253.9004">Admin</text><ellipse cx="27.5" cy="265.4766" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M27.5,273.4766 L27.5,300.4766 M14.5,281.4766 L40.5,281.4766 M27.5,300.4766 L14.5,315.4766 M27.5,300.4766 L40.5,315.4766 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="349.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="356.5" y="71.5332">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="74" x="349.5" y="239.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="356.5" y="260.9004">sPA: SPA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="527.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="534.5" y="71.5332">mDA: MDA</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82" x="527.5" y="239.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="534.5" y="260.9004">mDA: MDA</text><rect fill="#FFFFFF" height="129.7578" style="stroke:#181818;stroke-width:1.0;" width="10" x="22.5" y="92.6094"/><rect fill="#FFFFFF" height="91.0547" style="stroke:#181818;stroke-width:1.0;" width="10" x="381.5" y="131.3125"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="563.5" y="161.6641"/><polygon fill="#181818" points="369.5,127.3125,379.5,131.3125,369.5,135.3125,373.5,131.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="32.5" x2="375.5" y1="131.3125" y2="131.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="39.5" y="118.2803">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="309" x="50.5" y="110.1045">Asks to create a new user and inserts the user's data</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="319" x="50.5" y="126.4561">(name, surname, email, password, phone number, role)</text><polygon fill="#181818" points="551.5,157.6641,561.5,161.6641,551.5,165.6641,555.5,161.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="391.5" x2="557.5" y1="161.6641" y2="161.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="398.5" y="156.8076">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="409.5" y="156.8076">POST /signup body:data</text><polygon fill="#181818" points="402.5,188.0156,392.5,192.0156,402.5,196.0156,398.5,192.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="396.5" x2="567.5" y1="192.0156" y2="192.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="408.5" y="187.1592">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="419.5" y="187.1592">status:201</text><polygon fill="#181818" points="38.5,218.3672,28.5,222.3672,38.5,226.3672,34.5,222.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="32.5" x2="385.5" y1="222.3672" y2="222.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="44.5" y="217.5107">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="55.5" y="217.5107">success message</text><!--MD5=[1d31032817cf4027fb9e7cb30ecc9c24]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor Admin as ADM
+participant "sPA: SPA" as sPA
+participant "mDA: MDA" as MDA
+
+
+
+activate ADM
+ADM ->sPA : Asks to create a new user and inserts the user's data \n(name, surname, email, password, phone number, role)
+activate sPA
+
+sPA - -> MDA : POST /signup body:data
+activate MDA
+
+MDA - -> sPA :  status:201
+
+deactivate MDA
+
+sPA - -> ADM : success message
+
+deactivate sPA
+
+deactivate ADM
+
+
+@enduml
+
+@startuml
+
+autonumber
+actor Admin as ADM
+participant "sPA: SPA" as sPA
+participant "mDA: MDA" as MDA
+
+
+
+activate ADM
+ADM ->sPA : Asks to create a new user and inserts the user's data \n(name, surname, email, password, phone number, role)
+activate sPA
+
+sPA - -> MDA : POST /signup body:data
+activate MDA
+
+MDA - -> sPA :  status:201
+
+deactivate MDA
+
+sPA - -> ADM : success message
+
+deactivate sPA
+
+deactivate ADM
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,65 @@
+@startuml
+
+autonumber
+participant "MDL" as MDL
+participant "PathRoute" as ROUTE
+participant "PathController" as CTR
+participant "PathService" as SERVICE
+participant "Path" as Path
+participant "PathRepo" as REPO
+participant "PathSchema" as SCHEMA
+participant "PathMap" as MAP
+participant "PathDTO" as DTO
+database "Database" as DB
+participant "path\n:Path" as path
+participant "pathDocument" as DOC
+
+activate MDL
+MDL -> ROUTE: put(/Paths)
+activate ROUTE
+ROUTE -> CTR : updatePath
+activate CTR
+CTR -> SERVICE : updatePath
+activate SERVICE
+SERVICE -> REPO : path = findByWarehouses
+activate REPO
+deactivate REPO
+SERVICE -> path : updates data
+activate path
+deactivate path
+SERVICE -> REPO : save
+activate REPO
+REPO -> SCHEMA : pathDocument = findOne
+activate SCHEMA
+deactivate SCHEMA
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: null
+deactivate MAP
+end
+deactivate MAP
+REPO -> DOC : updates data
+activate DOC
+deactivate DOC
+REPO -> DB : save
+activate DB
+deactivate DB 
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 200
+ROUTE --> MDL : display success message
+else
+CTR --> ROUTE : status 400
+deactivate CTR
+ROUTE --> MDL : display failure message
+deactivate ROUTE
+end
+
+@enduml

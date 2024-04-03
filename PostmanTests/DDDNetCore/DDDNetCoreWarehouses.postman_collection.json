@@ -1,0 +1,1473 @@
+{
+	"info": {
+		"_postman_id": "7387e456-2abb-4a6b-b5e5-3f4b02534f41",
+		"name": "DDDNetCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23604644"
+	},
+	"item": [
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "deleteWarehouses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"V04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/HardDelete",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"HardDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWarehouses - Warehouse Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Warehouse not found\", function() {\r",
+									"    pm.response.to.have.body(\"Cannot delete an inexistent warehouse!\"); \r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"C95\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/HardDelete",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"HardDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWarehouses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check that it returns an array\", function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/listAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWarehousesByDesignation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The obtained warehouse is the requested one\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Designation\", req.Designation);\r",
+									"    var requestDesignation = pm.environment.get(\"Designation\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.designation).to.eql(requestDesignation);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Designation\":\"Matosinhos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/GetByDesignationId/designation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"GetByDesignationId",
+								"designation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWarehousesById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The obtained warehouse is the requested one\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Id\", req.Id);\r",
+									"    var requestId = pm.environment.get(\"Id\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(requestId);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":\"M01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/GetById",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"GetById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWarehousesByDesignation - Warehouse Not Found",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Requested warehouse not found\", function(){\r",
+									"    pm.response.to.have.body(\"No warehouses found with the typed designation!\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Designation\":\"Sesimbra\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/GetByDesignationId/designation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"GetByDesignationId",
+								"designation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWarehousesById - Warehouse Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Requested warehouse not found\", function(){\r",
+									"    pm.response.to.have.body(\"No warehouses found with the typed id!\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":\"M99\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses/GetById",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses",
+								"GetById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Valid warehouse designation\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Designation\", req.Designation);\r",
+									"    var requestDesignation = pm.environment.get(\"Designation\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.designation);\r",
+									"    pm.expect(jsonData.designation).to.eql(requestDesignation);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Valid warehouse address\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Address\", req.Address);\r",
+									"    var requestAddress = pm.environment.get(\"Address\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.address);\r",
+									"    pm.expect(jsonData.address).to.eql(requestAddress);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Valid warehouse latitude\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Latitude\", req.Latitude);\r",
+									"    var requestLatitude = pm.environment.get(\"Latitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.latitude).to.eql(requestLatitude);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Valid warehouse longitude\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Longitude\", req.Longitude);\r",
+									"    var requestLongitude = pm.environment.get(\"Longitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.longitude).to.eql(requestLongitude);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Valid warehouse altitude\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Altitude\", req.Altitude);\r",
+									"    var requestAltitude = pm.environment.get(\"Altitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.altitude).to.eql(requestAltitude);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Altitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid altitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Altitude cannot be negative!\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Designation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid designation\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"The warehouse designation must have a maximum of 50 chars!\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia 123456789123456789123456789123456789123456789123456789123456789\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Door Number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid zip code\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"The door number cannot be zero or a negative number!\"}');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,0\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Bad request\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Invalid id\", function(){\r",
+									"pm.response.to.have.body('{\"message\":\"The id of the warehouse must be an alphanumeric code with 3 chars, starting with a capital letter, followed by 2 numbers\"}');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V045\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Latitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid latitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Latitude must be in the following range: [-90 degrees - 90 degress]\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":101.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Longitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid longitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Longitude must be in the following range: [-180 degrees - 180 degrees]\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":-208.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postWarehouses - Invalid Zip Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Vila Nova de Gaia\",\r\n   \"Address\": \"Rua Santa Catarina,4400-4400,Vila Nova de Gaia,Portugal,10\",\r\n   \"Latitude\":41.1239,\r\n   \"Longitude\":8.6118,\r\n   \"Altitude\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse designation was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Designation\", req.Designation);\r",
+									"    var requestDesignation = pm.environment.get(\"Designation\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.designation);\r",
+									"    pm.expect(jsonData.designation).to.eql(requestDesignation);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The Warehouse address was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Address\", req.Address);\r",
+									"    var requestAddress = pm.environment.get(\"Address\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.address);\r",
+									"    pm.expect(jsonData.address).to.eql(requestAddress);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The Warehouse latitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Latitude\", req.Latitude);\r",
+									"    var requestLatitude = pm.environment.get(\"Latitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.latitude).to.eql(requestLatitude);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The Warehouse longitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Longitude\", req.Longitude);\r",
+									"    var requestLongitude = pm.environment.get(\"Longitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.longitude).to.eql(requestLongitude);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The Warehouse altitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Altitude\", req.Altitude);\r",
+									"    var requestAltitude = pm.environment.get(\"Altitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.altitude).to.eql(requestAltitude);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Porto\",\r\n   \"Address\": \"Rua Santa Catarina,4400-121,Porto,Portugal,10\",\r\n   \"Latitude\":10.1039,\r\n   \"Longitude\":-5.1118,\r\n   \"Altitude\": 250\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Update Designation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse designation was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Designation\", req.Designation);\r",
+									"    var requestDesignation = pm.environment.get(\"Designation\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.designation).to.eql(requestDesignation);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n   \"Designation\": \"Braga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Update Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse address was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    console.log(req);\r",
+									"    pm.environment.set(\"Address\", req.Address);\r",
+									"    var requestAddress = pm.environment.get(\"Address\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.address);\r",
+									"    pm.expect(jsonData.address).to.eql(requestAddress);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n    \"Address\": \"Rua Santa Catarina,4450-600,Braga,Portugal,100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Update Latitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse latitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    console.log(req);\r",
+									"    pm.environment.set(\"Latitude\", req.Latitude);\r",
+									"    var requestLatitude = pm.environment.get(\"Latitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData.latitude);\r",
+									"    pm.expect(jsonData.latitude).to.eql(requestLatitude);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n    \"Latitude\": 12.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Update Longitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse longitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    console.log(req);\r",
+									"    pm.environment.set(\"Longitude\", req.Longitude);\r",
+									"    var requestLongitude = pm.environment.get(\"Longitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.longitude).to.eql(requestLongitude);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n    \"Longitude\": 175.1221\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Update Altitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Warehouse altitude was updated\", function () {\r",
+									"    var req = JSON.parse(request.data);\r",
+									"    pm.environment.set(\"Altitude\", req.Altitude);\r",
+									"    var requestAltitude = pm.environment.get(\"Altitude\");\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.altitude).to.eql(requestAltitude);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n    \"Altitude\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Altitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid altitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Altitude cannot be negative!\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"V04\",\r\n    \"Altitude\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Latitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid latitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Latitude must be in the following range: [-90 degrees - 90 degress]\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Id\": \"V04\",\r\n    \"Latitude\": -100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Longitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid longitude\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"Longitude must be in the following range: [-180 degrees - 180 degrees]\"}'); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Id\": \"V04\",\r\n    \"Longitude\": -305.09\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Id\": \"V04\",\r\n    \"Address\": \"Rua Santa Catarina,4400-3330,Porto,Portugal,10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Designation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Invalid designation\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"The warehouse designation must have a maximum of 50 chars!\"}'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Id\": \"V04\",\r\n    \"Designation\": \"Porto123456789098765432123456789087654321123456898765432234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchWarehouses - Invalid Door Number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Bad request\", function(){\r",
+									"     pm.response.to.have.status(400); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Invalid door number\", function(){\r",
+									"     pm.response.to.have.body('{\"message\":\"The door number cannot be zero or a negative number!\"}'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Id\": \"V04\",\r\n    \"Address\": \"Rua Santa Catarina,4400-333,Porto,Portugal,-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Warehouses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Id",
+			"value": "id"
+		}
+	]
+}

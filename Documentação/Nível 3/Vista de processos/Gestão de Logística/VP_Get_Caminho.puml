@@ -1,0 +1,77 @@
+@startuml
+
+autonumber
+actor "GL" as GL
+participant "PathComponent" as COMP
+participant "PathServiceService" as SS
+participant "MDL" as MDL
+participant "PathRoute" as ROUTE
+participant "PathController" as CTR
+participant "PathService" as SERVICE
+participant "PathsResult" as Result
+participant "PathRepo" as REPO
+participant "PathSchema" as SCHEMA
+participant "PathRecord" as RECORD
+participant "PathMap" as MAP
+participant "PathDTO" as DTO
+database "Database" as DB
+
+GL-> COMP : asks to list the paths
+activate COMP
+COMP -> COMP : getAllPaths()
+activate COMP
+COMP -> SS : getAllPaths()
+activate SS
+SS -> MDL : get(/Paths)
+activate MDL
+MDL -> ROUTE: get
+activate ROUTE
+
+note left
+  Depending on the selected filter (id, 
+  idWarehouseStart, idWarehouseEnd, or 
+  idWarehouseStart and idWarehouseEnd) 
+  the request and the methods will be 
+  different, changing only the method's name
+  and implementation
+end note
+
+ROUTE -> CTR : getPaths
+activate CTR
+CTR -> SERVICE : getPaths
+activate SERVICE
+SERVICE -> REPO : pathsResult = findAll
+activate REPO
+REPO -> SCHEMA : pathRecord = find
+activate SCHEMA
+SCHEMA -> DB : find
+activate DB
+deactivate DB
+deactivate SCHEMA
+loop element : pathRecord
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+end
+deactivate REPO
+
+loop linha : pathsResult
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+end
+SERVICE --> CTR : pathResult
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> MDL : data
+deactivate ROUTE
+MDL --> SS : data
+deactivate MDL
+SS --> COMP : data
+deactivate SS
+deactivate MDL
+GL<-- COMP : display data
+deactivate ROUTE
+
+@enduml

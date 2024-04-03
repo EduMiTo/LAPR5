@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GA
+
+participant "sPA: SPA" as sPA
+participant "MDA: MDA" as MDA 
+
+activate GA
+GA ->sPA : Asks to update a packing
+activate sPA
+
+sPA --> MDA : GET /packings body:data
+activate MDA
+
+MDA --> sPA :  200 body(packings)
+
+deactivate MDA
+
+sPA --> GA : shows all the packings
+
+deactivate sPA
+
+GA --> sPA : selects the packing to update and the updated data
+
+activate sPA
+
+sPA --> MDA : PUT /packings body:data
+
+activate MDA
+
+MDA --> sPA :  status:200
+
+deactivate MDA
+
+sPA --> GA : success message
+
+deactivate sPA
+
+deactivate GA
+
+
+
+@enduml

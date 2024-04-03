@@ -1,0 +1,63 @@
+pipelines:
+  default:
+        - step:
+            name: Build and Test .NET
+            image: mcr.microsoft.com/dotnet/sdk:6.0
+            caches:
+              - dotnetcore
+            script:
+              - cd dddnetcore
+              - dotnet build
+              - dotnet test
+              - dotnet publish -c release -o out
+            artifacts:
+               - "dddnetcore/out/"
+        - step:
+            name: Build NodeJS
+            image: node:18.12.1
+            caches:
+              - node
+            script:
+              - cd bulletproof-nodejs-ddd
+              - npm install
+              - npm run build
+              - apt-get update
+              - apt-get install zip
+              - zip -r /opt/atlassian/pipelines/agent/build/bulletproof-nodejs-ddd.zip . -x *.git* bitbucket-pipelines.yml
+            artifacts:
+              - "*.zip"
+        - step:
+            name: Build Angular
+            image: node:18.12.1
+            caches:
+              - node
+            script:
+              - cd angular
+              - npm install -g @angular/cli
+              - npm install -g node-modules
+              - npm install three --save
+              - npm install @types/three --save-dev
+              - npm i @abacritt/angularx-social-login 
+              - npm i @angular/material  
+              - npm i --save-dev @types/lodash  
+              - npm install @angular/flex-layout 
+              - npm i @swimlane/ngx-charts --save
+              - npm install @types/d3 --save-dev
+              - npm run build:prod
+              - apt-get update
+              - apt-get install zip  
+              - zip -r /opt/atlassian/pipelines/agent/build/angular.zip . -x *.git* bitbucket-pipelines.yml
+            artifacts:
+               - "*.zip"
+        - step:
+              name: Deployment 
+              script:
+                   - pipe: atlassian/azure-web-apps-deploy:1.1.0
+                     variables:
+                      AZURE_APP_ID: $AZURE_APP_ID
+                      AZURE_PASSWORD: $AZURE_PASSWORD
+                      AZURE_TENANT_ID: $AZURE_TENANT_ID
+                      AZURE_RESOURCE_GROUP: $AZURE_RESOURCE_GROUP
+                      AZURE_APP_NAME: $AZURE_APP_NAME
+                      ZIP_FILE: 'angular.zip'
+                      

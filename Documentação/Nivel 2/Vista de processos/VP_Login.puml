@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor User 
+participant "sPA: SPA" as sPA
+participant "google: GOOGLEAPI" as GOOGLE
+participant "mDA: MDA" as MDA
+
+
+
+
+activate User
+alt default login
+User ->sPA : Asks to login and inserts the credentials (email and password)
+activate sPA
+sPA -> MDA : POST /signin body:data
+activate MDA
+MDA -> sPA: status: 200 (user body)
+deactivate MDA
+sPA -> User : success message
+deactivate sPA
+else login with SSO
+User -> sPA : Asks to login with SSO
+activate sPA
+sPA -> GOOGLE : Calls google api to sign in and enters google credentials
+activate GOOGLE
+GOOGLE -> MDA : POST /auth/signupviagoogle body: email
+deactivate GOOGLE
+activate MDA
+MDA --> sPA: status: 200 (user body)
+deactivate MDA
+deactivate GOOGLE
+sPA --> User : success message
+deactivate sPA
+deactivate User
+end
+
+
+@enduml

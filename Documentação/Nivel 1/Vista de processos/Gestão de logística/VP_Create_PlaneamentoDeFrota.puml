@@ -1,0 +1,17 @@
+@startuml
+actor GL
+GL -> EletricGo: Inicia criação de um planeamento da frota
+activate EletricGo
+EletricGo --> GL : Solicita dados para introduzir no \n algoritmo genético (numero de gerações,\n tamanho da população, possibilidade de permutação\n, possibilidade de mutação)
+deactivate
+
+GL -> EletricGo: Introduz dados
+activate EletricGo
+EletricGo --> GL : Mostra dados e solicita confirmação
+deactivate
+
+GL -> EletricGo: Confirma
+activate EletricGo
+EletricGo --> GL : Informa o sucesso da operação
+deactivate EletricGo
+@enduml

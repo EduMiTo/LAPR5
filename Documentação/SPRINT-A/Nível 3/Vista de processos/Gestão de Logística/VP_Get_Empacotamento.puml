@@ -1,0 +1,58 @@
+@startuml
+
+autonumber
+participant "MDL" as MDL
+participant "PackingRoute" as ROUTE
+participant "PackingController" as CTR
+participant "PackingService" as SERVICE
+participant "PackingsResult" as Result
+participant "PackingRepo" as REPO
+participant "PackingSchema" as SCHEMA
+participant "PackingRecord" as RECORD
+participant "PackingMap" as MAP
+participant "PackingDTO" as DTO
+database "Database" as DB
+
+
+activate MDL
+MDL -> ROUTE : get(/Packings)
+activate ROUTE
+note left
+  Depending on the selected filter 
+  (DeliveryId, truckPlate) the request
+  and the methods will be different, 
+  changing only the method's name
+  and implementation
+end note
+ROUTE -> CTR : getPackings
+activate CTR
+CTR -> SERVICE : getPackings
+activate SERVICE
+SERVICE -> REPO : packingResult = findAll
+activate REPO
+REPO -> SCHEMA : packingRecord = find
+activate SCHEMA
+SCHEMA -> DB : find
+activate DB
+deactivate DB
+deactivate SCHEMA
+loop element : packingRecord
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+end
+deactivate REPO
+
+loop linha : packingResult
+SERVICE -> MAP : toDTO
+activate MAP
+deactivate MAP
+end
+SERVICE --> CTR
+deactivate SERVICE
+CTR --> ROUTE : status 200
+deactivate CTR
+ROUTE --> MDL : displays data
+deactivate ROUTE
+
+@enduml

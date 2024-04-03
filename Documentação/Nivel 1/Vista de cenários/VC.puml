@@ -1,0 +1,20 @@
+@startuml
+
+left to right direction
+
+
+gestor_armazem --> (CRUD armazem)
+gestor_armazem --> (CRUD entrega)
+
+gestor_frota  --> (CRUD camiao)
+
+gestor_logistica --> (CRUD Caminho)
+gestor_logistica --> (CRUD viagem)
+gestor_logistica --> (CRUD percurso)
+gestor_logistica --> (CRUD empacotamento)
+
+admin --> (Gestao de utilizadores)
+
+
+@enduml
+

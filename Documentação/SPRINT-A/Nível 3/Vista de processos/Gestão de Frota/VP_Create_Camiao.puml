@@ -1,0 +1,56 @@
+@startuml
+
+autonumber
+participant "MDL" as MDL
+participant "TruckRoute" as ROUTE
+participant "TruckController" as CTR
+participant "TruckService" as SERVICE
+participant "Truck" as Path
+participant "TruckRepo" as REPO
+participant "TruckMap" as MAP
+participant "TruckDTO" as DTO
+database "Database" as DB
+
+activate MDL
+MDL -> ROUTE: post(/Trucks)
+activate ROUTE
+ROUTE -> CTR : createTruck
+activate CTR
+CTR -> SERVICE : createTruck
+activate SERVICE
+SERVICE -> Path** : create
+SERVICE -> REPO : save
+activate REPO
+REPO -> MAP : toPersistence
+activate MAP
+deactivate MAP
+REPO -> MAP : isValid
+activate MAP
+alt !isValid
+MAP --> REPO: null
+deactivate MAP
+end
+REPO -> DB : create
+activate DB
+deactivate DB
+REPO -> MAP : toDomain
+activate MAP
+deactivate MAP
+REPO --> SERVICE
+deactivate REPO
+SERVICE -> DTO : toDTO
+activate DTO
+deactivate DTO
+SERVICE --> CTR
+deactivate SERVICE
+alt success
+CTR --> ROUTE : status 201
+ROUTE --> MDL : display success message
+else
+CTR --> ROUTE : status 400
+deactivate CTR
+ROUTE --> MDL : display failure message
+deactivate
+end
+
+@enduml

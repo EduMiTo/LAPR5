@@ -1,0 +1,27 @@
+@startuml DM_CaminhoAggregate
+' hide the spot
+
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity Caminho
+object id
+object id_ArmazemPartida
+object id_ArmazemDestino
+object id_Viagem
+object distancia
+object tempo
+object energia
+object tempoExtra
+
+Caminho --> id
+Caminho --> id_ArmazemPartida
+Caminho --> id_ArmazemDestino
+Caminho --> id_Viagem
+Caminho --> distancia
+Caminho --> tempo
+Caminho --> energia
+Caminho --> tempoExtra
+
+@enduml

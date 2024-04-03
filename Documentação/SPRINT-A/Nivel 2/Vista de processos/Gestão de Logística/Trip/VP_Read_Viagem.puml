@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor GL
+participant "sPA: SPA" as sPA
+participant "logística: Logística" as MDL 
+
+
+activate GL
+GL ->sPA : Asks to read a trip
+activate sPA
+
+sPA --> MDL : GET /trips body:data
+activate MDL
+
+MDL --> sPA :  200 body(trips)
+
+deactivate MDL
+
+sPA --> GL : shows all the trips
+
+deactivate sPA
+
+GL --> sPA : selects the trip and data wanted
+
+activate sPA
+
+
+
+sPA --> GL : presents the data
+
+deactivate sPA
+
+deactivate GL
+
+
+
+@enduml

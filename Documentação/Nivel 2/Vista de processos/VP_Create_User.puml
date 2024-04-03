@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor Admin as ADM
+participant "sPA: SPA" as sPA
+participant "mDA: MDA" as MDA
+
+
+
+activate ADM
+ADM ->sPA : Asks to create a new user and inserts the user's data \n(name, surname, email, password, phone number, role)
+activate sPA
+
+sPA --> MDA : POST /signup body:data
+activate MDA
+
+MDA --> sPA :  status:201
+
+deactivate MDA
+
+sPA --> ADM : success message
+
+deactivate sPA
+
+deactivate ADM
+
+
+@enduml
